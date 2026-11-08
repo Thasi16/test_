@@ -1,0 +1,80 @@
+<section class="account-page" aria-labelledby="account-page-title">
+  <div class="sh-page-head account-page-head">
+    <h1 id="account-page-title">{{account.title}}</h1>
+  </div>
+
+  <section class="sh-card account-hero account-premium-frame" aria-labelledby="account-profile-name">
+    <div class="account-avatar account-avatar--large" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"></circle><path d="M4.5 20c.7-4.2 3.2-6.3 7.5-6.3s6.8 2.1 7.5 6.3"></path></svg>
+      <span>✦</span>
+    </div>
+    <div class="account-identity">
+      <p class="account-kicker">{{account.profile}}</p>
+      <h2 id="account-profile-name">{{account.name.value}}</h2>
+      <p>{{account.email.value}}</p>
+    </div>
+    <div class="account-status">
+      <span class="account-premium-label">PREMIUM</span>
+      <strong>{{account.current.plan}}</strong>
+      <button class="account-logout" type="button" data-account-logout>{{account.logout}}</button>
+    </div>
+  </section>
+
+  <div class="account-details-grid">
+    <section class="sh-card account-info" aria-labelledby="account-info-title">
+      <div class="account-section-heading">
+        <div><h2 id="account-info-title">{{account.info.title}}</h2></div>
+        <span class="account-info-icon" aria-hidden="true">i</span>
+      </div>
+      <dl>
+        <div><dt>{{account.name}}</dt><dd data-account-name>{{account.name.value}}</dd></div>
+        <div><dt>{{account.email}}</dt><dd>{{account.email.value}}</dd></div>
+        <div><dt>{{account.id}}</dt><dd>SH-PREMIUM-0001</dd></div>
+        <div><dt>{{account.joined}}</dt><dd>01/11/2026</dd></div>
+      </dl>
+    </section>
+
+    <section class="sh-card account-membership account-premium-frame" aria-labelledby="account-membership-title">
+      <div class="account-section-heading">
+        <div><h2 id="account-membership-title">{{account.membership.title}}</h2></div>
+        <span class="account-premium-label account-premium-label--small">PREMIUM</span>
+      </div>
+      <dl>
+        <div><dt>{{account.status}}</dt><dd><span class="account-live-dot" aria-hidden="true"></span>{{account.status.active}}</dd></div>
+        <div><dt>{{account.plan}}</dt><dd>{{account.current.plan}}</dd></div>
+        <div><dt>{{account.billing}}</dt><dd>{{account.billing.value}}</dd></div>
+        <div><dt>{{account.renewal}}</dt><dd>{{account.renewal.value}}</dd></div>
+      </dl>
+    </section>
+  </div>
+
+  <section class="account-upgrade" aria-labelledby="account-upgrade-title">
+    <div class="account-upgrade-heading">
+      <div><h2 id="account-upgrade-title">{{account.upgrade.title}}</h2></div>
+    </div>
+    <div class="account-plan-grid">
+      <article class="sh-card account-plan">
+        <p class="account-plan-type">{{account.plan.free}}</p>
+        <h3>Free</h3>
+        <button class="button button-outline" type="button" data-plan-choice="Free">{{account.plan.choose}}</button>
+      </article>
+      <article class="sh-card account-plan account-plan--premium account-plan--current">
+        <span class="account-current-badge">{{account.plan.current}}</span>
+        <p class="account-plan-type">PREMIUM</p>
+        <h3>{{account.plan.month1}}</h3>
+        <button class="button" type="button" disabled>{{account.plan.using}}</button>
+      </article>
+      <article class="sh-card account-plan account-plan--premium">
+        <p class="account-plan-type">PREMIUM</p>
+        <h3>{{account.plan.month6}}</h3>
+        <button class="button" type="button" data-plan-choice="{{account.plan.month6}}">{{account.plan.choose}}</button>
+      </article>
+      <article class="sh-card account-plan account-plan--premium">
+        <p class="account-plan-type">PREMIUM</p>
+        <h3>{{account.plan.year1}}</h3>
+        <button class="button" type="button" data-plan-choice="{{account.plan.year1}}">{{account.plan.choose}}</button>
+      </article>
+    </div>
+    <p class="account-plan-message" data-plan-message role="status" aria-live="polite"></p>
+  </section>
+</section>

@@ -1,0 +1,69 @@
+__pycache__/
+*.pyc
+.venv/
+.backups/
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+credentials.json
+service-account*.json
+.aws/
+.ssh/
+
+# Dependencies, generated outputs and caches
+node_modules/
+venv/
+dist/
+build/
+.cache/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+coverage/
+*.egg-info/
+
+# IDE, OS and temporary files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.swp
+.publish/
+
+# Local datasets and model checkpoints
+data/*
+!data/curriculum.json
+datasets/
+checkpoints/
+models/
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.h5
+*.safetensors
+
+# Modern frontend/backend local state
+.next/
+out/
+*.tsbuildinfo
+test-results/
+playwright-report/
+.runtime/
+.tools/
+postgres-data/
+!backend/app/models/
+
+# Generated deployment bundle and local Vercel project settings
+/backend/legacy_site/
+.vercel/
+.checkouts/

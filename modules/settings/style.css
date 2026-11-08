@@ -1,0 +1,39 @@
+.m-settings .settings-layout{display:grid;grid-template-columns:174px minmax(0,1fr);gap:24px;align-items:start}
+.m-settings .settings-nav{position:sticky;top:92px;display:grid;gap:6px;padding:8px;border:1px solid var(--line);border-radius:16px;background:#fff}
+.m-settings .settings-nav a{padding:10px 12px;font-size:13px;font-weight:650;color:var(--navy);border-radius:10px}
+.m-settings .settings-nav a:hover{background:#edf5ff;color:var(--blue)}
+.m-settings .settings-cards{display:grid;gap:20px;min-width:0}
+.m-settings .settings-cards>.sh-card{scroll-margin-top:92px;min-width:0}
+.m-settings h2{font-size:22px;margin-bottom:12px}
+.m-settings h3{font-size:15px;line-height:1.5}
+.m-settings .settings-description{font-size:14px;color:var(--muted);line-height:1.8}
+.m-settings .settings-languages{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+.m-settings .settings-language{display:grid;gap:8px;border:1px solid var(--line);border-radius:14px;padding:18px;color:var(--navy)}
+.m-settings .settings-language strong{font-size:18px}
+.m-settings .settings-language span{font-size:12px;color:var(--muted)}
+.m-settings .settings-language:hover{border-color:var(--blue)}
+.m-settings .settings-language[aria-current]{border-color:var(--blue);background:#edf5ff;box-shadow:inset 0 0 0 1px var(--blue)}
+.m-settings .settings-language[aria-current] span{font-weight:700;color:#195ba9}
+.m-settings .settings-permission{margin:18px 0;padding:10px 14px;background:#f1f6fc;border-radius:10px;font-size:13px;font-weight:600;color:var(--navy)}
+.m-settings .settings-permission[data-state="denied"]{background:#fff3f5;color:#9d243b}
+.m-settings #camera h3{margin-top:20px}
+.m-settings .settings-steps,.m-settings .settings-limits{padding-left:22px;margin:12px 0 0;font-size:14px;color:var(--muted);line-height:1.8}
+.m-settings .settings-steps li,.m-settings .settings-limits li{margin-top:8px;padding-left:4px}
+.m-settings .settings-limits .sh-badge{vertical-align:middle;margin-right:4px}
+.m-settings a:focus-visible,.m-settings button:focus-visible,.m-settings .settings-cards>section:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
+.m-settings [hidden]{display:none}
+
+@media(max-width:900px){
+  .m-settings .settings-layout{grid-template-columns:1fr;gap:18px}
+  .m-settings .settings-nav{position:static;display:flex;flex-wrap:wrap;gap:4px}
+  .m-settings .settings-cards>.sh-card{scroll-margin-top:92px}
+}
+@media(max-width:700px){
+  .m-settings .settings-cards>.sh-card{scroll-margin-top:80px}
+}
+@media(max-width:440px){
+  .m-settings .settings-languages{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){
+  .m-settings .settings-page *{animation:none;transition:none;scroll-behavior:auto}
+}

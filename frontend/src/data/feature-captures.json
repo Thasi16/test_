@@ -1,0 +1,243 @@
+{
+  "capturedAt": "2026-11-05T03:39:48.000Z",
+  "browser": "156.0.8078.80",
+  "viewport": {
+    "width": 1440,
+    "height": 1000
+  },
+  "method": "Playwright screenshot, optimized with Sharp WebP quality 88; no DOM changes or seeded user data",
+  "captures": {
+    "vi": {
+      "courses": {
+        "route": "/app/courses",
+        "src": "/images/feature-guides/learning-roadmap-vi.webp",
+        "annotations": [
+          {
+            "x": 31.72,
+            "y": 49.93,
+            "selector": "[data-filter=\"open\"]"
+          },
+          {
+            "x": 55.9,
+            "y": 65.43,
+            "selector": "main a[href^=\"/app/lessons/1\"]"
+          }
+        ],
+        "bytes": 51796,
+        "sha256": "96c2e9f4a3fc470e235e8b4306ea3beecfae0e6d34a5beb23a61937412f94fdb",
+        "state": "Open filter selected by clicking the existing control"
+      },
+      "library": {
+        "route": "/app/dictionary",
+        "src": "/images/feature-guides/vsl-library-vi.webp",
+        "annotations": [
+          {
+            "x": 94.51,
+            "y": 49.22,
+            "selector": "[data-search-input]"
+          },
+          {
+            "x": 36.47,
+            "y": 59.62,
+            "selector": "[data-module-filter=\"local\"]"
+          }
+        ],
+        "bytes": 67952,
+        "sha256": "849d0e047fb89ac24a2238232282af7d203dac273f37922164bc82b0d675b83d",
+        "state": "first visit; no user data"
+      },
+      "video": {
+        "route": "/app/signs/am",
+        "src": "/images/feature-guides/sign-learning-vi.webp",
+        "annotations": [
+          {
+            "x": 59.67,
+            "y": 25.75,
+            "selector": "main video"
+          },
+          {
+            "x": 69.62,
+            "y": 72.15,
+            "selector": "main a[href^=\"/app/practice/am\"]"
+          }
+        ],
+        "bytes": 62974,
+        "sha256": "7359d627b662e7dff921f565a6a29a18570e37b3c020ddea5cbcaec9e9ca5259",
+        "state": "first visit; no user data"
+      },
+      "camera": {
+        "route": "/app/practice/am",
+        "src": "/images/feature-guides/camera-practice-vi.webp",
+        "annotations": [
+          {
+            "x": 26.5,
+            "y": 84.96,
+            "selector": "[data-rate=\"0.5\"]"
+          },
+          {
+            "x": 67.51,
+            "y": 88.46,
+            "selector": "[data-camera-start]"
+          }
+        ],
+        "bytes": 68596,
+        "sha256": "5a9cef691bcf5765df8ecd6ab909c69331e05f99a31e926f2e1d1026d46899f0",
+        "state": "camera off; no media permission requested"
+      },
+      "review": {
+        "route": "/app/review",
+        "src": "/images/feature-guides/review-quiz-vi.webp",
+        "annotations": [
+          {
+            "x": 40.18,
+            "y": 46.28,
+            "selector": "[data-source=\"lesson\"]"
+          },
+          {
+            "x": 79.06,
+            "y": 59.19,
+            "selector": "main a[href^=\"/app/review/quiz/1\"]"
+          }
+        ],
+        "bytes": 72404,
+        "sha256": "bb2efccddee1500178b89828aed3d6312f372662f53fcf95cb4dd2266bee73d9",
+        "state": "By lesson selected by clicking the existing control"
+      },
+      "progress": {
+        "route": "/app/progress",
+        "src": "/images/feature-guides/learning-progress-vi.webp",
+        "annotations": [
+          {
+            "x": 96.39,
+            "y": 32.73,
+            "selector": ".progress-stat-grid"
+          },
+          {
+            "x": 94.51,
+            "y": 68.45,
+            "selector": "[data-calendar]"
+          }
+        ],
+        "bytes": 88082,
+        "sha256": "951fad8fb3bc9c0474e12457cd168d0c46eeb97568d27856cf8d8f602d943de8",
+        "state": "fresh browser, empty progress"
+      }
+    },
+    "en": {
+      "courses": {
+        "route": "/app/courses",
+        "src": "/images/feature-guides/learning-roadmap-en.webp",
+        "annotations": [
+          {
+            "x": 29.03,
+            "y": 52.71,
+            "selector": "[data-filter=\"open\"]"
+          },
+          {
+            "x": 55.9,
+            "y": 68.21,
+            "selector": "main a[href^=\"/app/lessons/1\"]"
+          }
+        ],
+        "bytes": 52378,
+        "sha256": "97162583526520be28e8f29471ca324d8241d8e148c0baa3ac316127032d34ae",
+        "state": "Open filter selected by clicking the existing control"
+      },
+      "library": {
+        "route": "/app/dictionary",
+        "src": "/images/feature-guides/vsl-library-en.webp",
+        "annotations": [
+          {
+            "x": 94.51,
+            "y": 49.22,
+            "selector": "[data-search-input]"
+          },
+          {
+            "x": 36.61,
+            "y": 59.62,
+            "selector": "[data-module-filter=\"local\"]"
+          }
+        ],
+        "bytes": 70916,
+        "sha256": "c3f6928a7e78253b74cd91dab7ec37c370e05fb8e23f029534ec75c35694afc4",
+        "state": "first visit; no user data"
+      },
+      "video": {
+        "route": "/app/signs/am",
+        "src": "/images/feature-guides/sign-learning-en.webp",
+        "annotations": [
+          {
+            "x": 59.67,
+            "y": 25.75,
+            "selector": "main video"
+          },
+          {
+            "x": 71.21,
+            "y": 72.15,
+            "selector": "main a[href^=\"/app/practice/am\"]"
+          }
+        ],
+        "bytes": 67708,
+        "sha256": "ab774536a5f76aeb22678e56c4b770fb62d01f2c5879b569fa4b83a3dac73710",
+        "state": "first visit; no user data"
+      },
+      "camera": {
+        "route": "/app/practice/am",
+        "src": "/images/feature-guides/camera-practice-en.webp",
+        "annotations": [
+          {
+            "x": 26.5,
+            "y": 87.41,
+            "selector": "[data-rate=\"0.5\"]"
+          },
+          {
+            "x": 69.21,
+            "y": 90.91,
+            "selector": "[data-camera-start]"
+          }
+        ],
+        "bytes": 69818,
+        "sha256": "1d0a2497eb9780cae7138a80cb0ab6f64bf75757d18bde5065f00e1b4b495a07",
+        "state": "camera off; no media permission requested"
+      },
+      "review": {
+        "route": "/app/review",
+        "src": "/images/feature-guides/review-quiz-en.webp",
+        "annotations": [
+          {
+            "x": 40.28,
+            "y": 48.56,
+            "selector": "[data-source=\"lesson\"]"
+          },
+          {
+            "x": 77.56,
+            "y": 59.19,
+            "selector": "main a[href^=\"/app/review/quiz/1\"]"
+          }
+        ],
+        "bytes": 72340,
+        "sha256": "a76d75a550bbe5ca4ddfa2979568947d366824b64097783df334f8ee90d043a6",
+        "state": "By lesson selected by clicking the existing control"
+      },
+      "progress": {
+        "route": "/app/progress",
+        "src": "/images/feature-guides/learning-progress-en.webp",
+        "annotations": [
+          {
+            "x": 96.39,
+            "y": 32.73,
+            "selector": ".progress-stat-grid"
+          },
+          {
+            "x": 94.51,
+            "y": 70.32,
+            "selector": "[data-calendar]"
+          }
+        ],
+        "bytes": 79982,
+        "sha256": "0f8f15bd92339c9c190878d8d3ceba95a2fdfa84b03aeddda02bdb59a6cb0cfb",
+        "state": "fresh browser, empty progress"
+      }
+    }
+  }
+}

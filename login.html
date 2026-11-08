@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="{{locale}}"><head>{{layout.head}}<link rel="stylesheet" href="/static/login.css"><script src="/static/login.js" defer></script></head>
+<body class="login-page">
+<a class="skip-link" href="#login-form">{{a11y.skip}}</a>
+<header class="login-topbar">
+  <a class="login-brand" href="{{url.home}}" aria-label="{{a11y.home}}"><img src="/static/assets/logo-horizontal.png" alt="{{site.name}}" width="2172" height="724"></a>
+  <div class="login-topbar-actions">{{layout.languages}}<a href="{{url.home}}">← {{login.home}}</a></div>
+</header>
+<main class="login-main">
+  <section class="login-story" aria-labelledby="login-title">
+    <span class="login-orb login-orb--one" aria-hidden="true"></span><span class="login-orb login-orb--two" aria-hidden="true"></span>
+    <div class="login-story-copy">
+      <p class="login-eyebrow">{{login.eyebrow}}</p>
+      <h1 id="login-title">{{login.title}}</h1>
+      <p class="login-lead">{{login.lead}}</p>
+      <ul class="login-features">
+        <li><span aria-hidden="true">✓</span>{{login.feature.path}}</li>
+        <li><span aria-hidden="true">✓</span>{{login.feature.practice}}</li>
+        <li><span aria-hidden="true">✓</span>{{login.feature.progress}}</li>
+      </ul>
+    </div>
+    <div class="login-mascot-wrap" aria-hidden="true"><span class="login-mascot-halo"></span><img src="/static/assets/mascot.png" alt="" width="1351" height="1164"></div>
+  </section>
+  <section class="login-panel" aria-labelledby="login-form-title">
+    <div class="login-card">
+      <div class="login-card-mark" aria-hidden="true">✦</div>
+      <p class="login-card-kicker">SIGNHEARING</p>
+      <h2 id="login-form-title">{{login.form.title}}</h2>
+      <p class="login-form-note">{{login.form.note}}</p>
+      <form id="login-form" class="login-form" data-required-message="{{login.required}}" novalidate>
+        <label for="login-username">{{login.username}}</label>
+        <div class="login-input-wrap"><span aria-hidden="true">@</span><input id="login-username" name="username" type="text" autocomplete="username" placeholder="{{login.username.placeholder}}" required></div>
+        <label for="login-password">{{login.password}}</label>
+        <div class="login-input-wrap"><span aria-hidden="true">●</span><input id="login-password" name="password" type="password" autocomplete="current-password" placeholder="{{login.password.placeholder}}" required></div>
+        <p class="login-error" data-login-error role="alert" hidden></p>
+        <button class="button login-submit" type="submit">{{login.submit}} <span aria-hidden="true">→</span></button>
+      </form>
+      <p class="login-privacy">{{login.privacy}}</p>
+    </div>
+  </section>
+</main>
+<div class="login-transition" data-login-transition aria-hidden="true">
+  <div class="login-transition-sky" aria-hidden="true">
+    <span class="login-transition-orbit login-transition-orbit--one"></span>
+    <span class="login-transition-orbit login-transition-orbit--two"></span>
+    <span class="login-transition-spark login-transition-spark--one">✦</span>
+    <span class="login-transition-spark login-transition-spark--two">✦</span>
+    <span class="login-transition-spark login-transition-spark--three">✦</span>
+  </div>
+  <div class="login-transition-portal" aria-hidden="true"><span></span><span></span></div>
+  <div class="login-transition-trail" aria-hidden="true"></div>
+  <img class="login-transition-mascot" src="/static/assets/mascot.png" alt="" width="1351" height="1164">
+  <div class="login-transition-welcome">
+    <span class="login-transition-check" aria-hidden="true">✓</span>
+    <p>{{login.transition}}</p>
+    <strong data-transition-user></strong>
+    <span class="login-transition-loading" aria-hidden="true"><i></i><i></i><i></i></span>
+  </div>
+</div>
+</body></html>

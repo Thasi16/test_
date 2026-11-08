@@ -1,0 +1,143 @@
+/* #223 styles and color tokens stay inside this component's namespace. */
+.u223 {
+  --ux-page: var(--sh-paper, var(--background));
+  --ux-surface: var(--sh-surface, var(--card));
+  --ux-surface-2: var(--sh-wash, var(--sky));
+  --ux-surface-3: var(--sh-tint, var(--sky));
+  --ux-ink: var(--sh-ink, var(--foreground));
+  --ux-ink-2: var(--sh-body, var(--text));
+  --ux-ink-3: var(--sh-muted, var(--muted));
+  --ux-line: var(--sh-line, var(--border));
+  --ux-accent: var(--sh-accent, var(--primary));
+  --ux-accent-2: var(--blue);
+  --ux-accent-soft: color-mix(in srgb, var(--ux-accent) 12%, transparent);
+  --ux-shadow: light-dark(
+    color-mix(in srgb, var(--navy) 14%, transparent),
+    rgba(0, 0, 0, 0.45)
+  );
+  --ux-shadow-strong: light-dark(
+    color-mix(in srgb, var(--navy) 30%, transparent),
+    rgba(0, 0, 0, 0.72)
+  );
+  --ux-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ux-spring: cubic-bezier(0.34, 1.45, 0.64, 1);
+  position: relative;
+  width: 100%;
+  max-width: 1120px;
+  margin-inline: auto;
+  color: var(--ux-ink);
+  font-family: inherit;
+  overflow-wrap: break-word;
+}
+.u223,
+.u223 *,
+.u223 *::before,
+.u223 *::after {
+  box-sizing: border-box;
+}
+.u223 :focus-visible {
+  outline: 2px solid var(--ux-accent);
+  outline-offset: 3px;
+}
+.u223 .flow {
+  position: relative;
+  padding: 0;
+  scroll-behavior: auto;
+}
+.u223 .list {
+  position: relative;
+}
+.u223 .card {
+  position: static;
+  height: auto;
+  margin-bottom: 24px;
+  padding-bottom: var(--sh-stack-foot);
+  scroll-margin-top: var(--sh-stack-top);
+}
+.u223 .surface {
+  position: relative;
+  display: grid;
+  min-height: var(
+    --sh-stack-measured-size,
+    var(--sh-stack-preferred-size, auto)
+  );
+  border: 1px solid var(--ux-line);
+  border-radius: 24px;
+  overflow: clip;
+  background: var(--ux-surface);
+  transform-origin: 50% 0;
+  box-shadow:
+    0 -10px 30px -18px rgba(0, 0, 0, 0.35),
+    0 24px 70px -42px var(--ux-shadow-strong);
+}
+.u223 .shade {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: #000;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+.u223 .end {
+  display: block;
+  height: clamp(72px, 12svh, 120px);
+}
+.u223[data-stacking="true"] .card {
+  position: sticky;
+  top: var(--sh-stack-top);
+}
+.u223[data-stacking="true"] .surface {
+  transform: scale(var(--sh-stack-scale, 1));
+  will-change: transform;
+}
+.u223[data-stacking="true"] .shade {
+  opacity: var(--sh-stack-shade, 0);
+}
+@media (max-width: 700px) {
+  .u223 .flow {
+    padding: 0;
+  }
+}
+@media (min-width: 768px) {
+  .u223 {
+    --sh-stack-preferred-size: clamp(320px, 52svh, 480px);
+  }
+  .u223 .card {
+    padding-bottom: var(--sh-stack-foot);
+  }
+  .u223 .end {
+    display: block;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .u223,
+  .u223 *,
+  .u223 *::before,
+  .u223 *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .u223 {
+    height: auto !important;
+    overflow: visible !important;
+  }
+  .u223 .surface {
+    transform: none !important;
+    will-change: auto !important;
+  }
+  .u223 .shade {
+    opacity: 0 !important;
+  }
+}
+@media (forced-colors: active) {
+  .u223 .surface {
+    border: 1px solid CanvasText;
+    box-shadow: none;
+  }
+  .u223 .shade {
+    display: none;
+  }
+}

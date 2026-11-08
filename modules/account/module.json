@@ -1,0 +1,18 @@
+{
+  "id": "account",
+  "owner": "Codex",
+  "status": "done",
+  "nav": {
+    "order": 8,
+    "icon": "user",
+    "label_key": "account.nav"
+  },
+  "routes": [
+    {
+      "path": "/app/account",
+      "page": "page.html",
+      "title_key": "account.title",
+      "description_key": "account.meta"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+.figure .image {
+  position: relative;
+  background: var(--sh-paper);
+}
+.figure .image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.figure .zoom {
+  position: absolute;
+  inset: auto 8px 8px auto;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid #ffffff55;
+  border-radius: 9px;
+  background: #082953;
+  color: #fff;
+  box-shadow: 0 3px 12px #08295322;
+}
+.figure .zoom:focus-visible {
+  outline-offset: 3px;
+}

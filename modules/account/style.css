@@ -1,0 +1,75 @@
+/* Account is a topbar destination, independent from the settings module and sidebar navigation. */
+.m-account .account-page{display:grid;gap:26px}
+.m-account .account-page-head{margin-bottom:0}
+.m-account .account-hero{position:relative;isolation:isolate;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:22px;overflow:hidden;padding:28px;background:linear-gradient(125deg,#fff 5%,#e8f3ff 58%,#fff1f6)}
+.m-account .account-hero::after{content:'✦';position:absolute;right:25%;top:-40px;z-index:-1;color:#fff8;font-size:150px;line-height:1;transform:rotate(18deg)}
+.m-account .account-avatar{position:relative;display:grid;place-items:center;border-radius:50%;background:linear-gradient(145deg,#fff,#dceeff);color:#2769b8}
+.m-account .account-avatar--large{width:86px;height:86px;border:3px solid #72aae9;box-shadow:0 0 0 7px #e3f0ff,0 0 28px #e98aaa55}
+.m-account .account-avatar svg{width:47%;height:47%;fill:none;stroke:currentColor;stroke-width:1.65;stroke-linecap:round}
+.m-account .account-avatar span{position:absolute;right:-4px;top:-9px;color:#e36f99;font-size:22px;text-shadow:0 0 12px #e98aaa}
+.m-account .account-kicker{font-size:11px;font-weight:750;letter-spacing:.12em;color:#4775a8;text-transform:uppercase}
+.m-account .account-identity h2{font-size:28px;margin:5px 0 4px}
+.m-account .account-identity>p:last-child{font-size:13px;color:var(--muted)}
+.m-account .account-status{display:grid;justify-items:end;gap:5px;text-align:right}
+.m-account .account-status strong{font-size:18px;color:var(--navy)}
+.m-account .account-status small{font-size:11px;color:var(--muted)}
+.m-account .account-logout{margin-top:5px;padding:7px 12px;border:1px solid #bdd5ed;border-radius:10px;background:#fff;color:#3f668e;font:inherit;font-size:11px;font-weight:700;cursor:pointer;transition:background .18s,border-color .18s,color .18s}
+.m-account .account-logout:hover{border-color:#e0a6ba;background:#fff1f6;color:#9c3f63}
+.m-account .account-premium-label{display:inline-flex;align-items:center;min-height:32px;padding:5px 14px;border:1px solid #8cb8e9;border-radius:20px;background:linear-gradient(90deg,#1556ad,#e36f99,#2678ed,#1556ad);background-size:240% auto;color:#fff;font-size:11px;font-weight:900;letter-spacing:.16em;text-shadow:0 0 9px #fff;box-shadow:0 0 12px #7db4ff88,0 0 20px #e98aaa55;animation:account-premium-label-shine 2.5s linear infinite,account-premium-label-pulse 1.8s ease-in-out infinite}
+.m-account .account-premium-label--small{min-height:28px;padding:4px 11px;font-size:9px}
+.m-account .account-premium-frame{border-color:#75aae6;animation:account-premium-frame-glow 2s ease-in-out infinite}
+.m-account .account-details-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:20px}
+.m-account .account-details-grid>.sh-card{min-width:0}
+.m-account .account-section-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:20px}
+.m-account .account-section-heading h2{margin:4px 0 0;font-size:22px}
+.m-account .account-info-icon{display:grid;place-items:center;width:34px;height:34px;border-radius:11px;background:#e8f3ff;color:#2869b5;font-weight:800}
+.m-account .account-info dl,.m-account .account-membership dl{display:grid;margin:0}
+.m-account .account-info dl>div,.m-account .account-membership dl>div{display:grid;grid-template-columns:minmax(120px,.7fr) minmax(0,1.3fr);gap:15px;padding:13px 0;border-top:1px solid #e5edf6}
+.m-account .account-info dt,.m-account .account-membership dt{font-size:12px;color:var(--muted)}
+.m-account .account-info dd,.m-account .account-membership dd{margin:0;color:var(--navy);font-size:13px;font-weight:700;overflow-wrap:anywhere}
+.m-account .account-local-note{margin-top:18px;padding:12px 14px;border-radius:12px;background:#f0f7ff;color:#557090;font-size:12px;line-height:1.7}
+.m-account .account-membership{background:linear-gradient(145deg,#fff,#edf6ff 70%,#fff4f8)}
+.m-account .account-membership dd{display:flex;align-items:center;gap:7px}
+.m-account .account-live-dot{width:8px;height:8px;border-radius:50%;background:#2f73d9;box-shadow:0 0 0 4px #dcecff}
+.m-account .account-upgrade{display:grid;gap:20px;margin-top:8px}
+.m-account .account-upgrade-heading{display:flex;align-items:end;justify-content:space-between;gap:30px}
+.m-account .account-upgrade-heading h2{font-size:26px;margin-top:5px}
+.m-account .account-upgrade-heading>p{max-width:480px;color:var(--muted);font-size:13px;line-height:1.7;text-align:right}
+.m-account .account-plan-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.m-account .account-plan{position:relative;isolation:isolate;display:flex;flex-direction:column;align-items:flex-start;min-height:245px;overflow:hidden;padding:22px;transition:transform .18s,border-color .18s,box-shadow .18s}
+.m-account .account-plan:hover{transform:translateY(-4px);border-color:#8ab7ed;box-shadow:0 16px 34px #164a8019}
+.m-account .account-plan--premium{background:linear-gradient(155deg,#fff,#edf6ff 68%,#fff2f7);border-color:#b8d5f3}
+.m-account .account-plan--premium::before{content:'';position:absolute;inset:-50%;z-index:-1;background:conic-gradient(transparent 38%,#7db4ff55,#e98aaa66,transparent 62%);animation:account-premium-orbit 4s linear infinite}
+.m-account .account-plan--premium::after{content:'';position:absolute;inset:2px;z-index:-1;border-radius:17px;background:linear-gradient(155deg,#fff,#edf6ff 68%,#fff2f7)}
+.m-account .account-plan--current{border-color:#4f91dd;box-shadow:0 0 0 2px #dcecff,0 0 24px #7db4ff77;animation:account-premium-frame-glow 2s ease-in-out infinite}
+.m-account .account-current-badge{position:absolute;right:14px;top:14px;padding:4px 9px;border-radius:12px;background:#fff0f5;color:#a2406b;font-size:9px;font-weight:800}
+.m-account .account-plan-type{font-size:10px;font-weight:850;letter-spacing:.14em;color:#3974b9}
+.m-account .account-plan--premium .account-plan-type{background:linear-gradient(90deg,#1556ad,#e36f99,#2678ed);background-size:200% auto;color:transparent;background-clip:text;-webkit-background-clip:text;animation:premium-text-shine 2.4s linear infinite}
+.m-account .account-plan h3{font-size:22px;margin:10px 0}
+.m-account .account-plan>p:not(.account-plan-type){font-size:12px;line-height:1.7;color:var(--muted)}
+.m-account .account-plan .button{width:100%;min-height:43px;margin-top:auto;padding:10px 13px;font-size:12px;gap:8px}
+.m-account .account-plan .button:disabled{opacity:.8;cursor:default;transform:none}
+.m-account .account-plan-message{min-height:24px;padding:0 4px;color:#3f638b;font-size:13px;font-weight:650}
+.m-account .account-plan-message:empty{min-height:0}
+.m-account a:focus-visible,.m-account button:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
+@keyframes account-premium-label-shine{to{background-position:240% center}}
+@keyframes account-premium-label-pulse{50%{box-shadow:0 0 18px #7db4ffaa,0 0 28px #e98aaa88}}
+@keyframes account-premium-frame-glow{50%{border-color:#e98aaa;box-shadow:0 0 0 3px #fff0f5,0 0 30px #7db4ff77}}
+@keyframes account-premium-orbit{to{transform:rotate(360deg)}}
+@media(max-width:900px){
+  .m-account .account-details-grid{grid-template-columns:1fr}
+  .m-account .account-plan-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:700px){
+  .m-account .account-hero{grid-template-columns:auto 1fr;padding:22px}
+  .m-account .account-status{grid-column:1/-1;justify-items:start;text-align:left;padding-top:16px;border-top:1px solid #dce8f5}
+  .m-account .account-upgrade-heading{display:grid;gap:10px}
+  .m-account .account-upgrade-heading>p{text-align:left}
+}
+@media(max-width:440px){
+  .m-account .account-plan-grid{grid-template-columns:1fr}
+  .m-account .account-info dl>div,.m-account .account-membership dl>div{grid-template-columns:1fr;gap:5px}
+}
+@media(prefers-reduced-motion:reduce){
+  .m-account .account-page *{animation:none;transition:none;scroll-behavior:auto}
+}

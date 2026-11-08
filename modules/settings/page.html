@@ -1,0 +1,35 @@
+<section class="settings-page" aria-labelledby="settings-page-title">
+  <div class="sh-page-head">
+    <h1 id="settings-page-title">{{settings.title}}</h1>
+  </div>
+  <div class="settings-layout">
+    <nav class="settings-nav" aria-label="{{settings.sections}}">
+      <a href="#ngon-ngu">{{settings.language.title}}</a>
+      <a href="#camera">{{settings.camera.title}}</a>
+    </nav>
+    <div class="settings-cards">
+      <section class="sh-card" id="ngon-ngu" aria-labelledby="settings-language-title">
+        <h2 id="settings-language-title">{{settings.language.title}}</h2>
+        <div class="settings-languages">
+          <a class="settings-language" href="{{url.vi}}" hreflang="vi"{{settings.language.vi.current.html}}>
+            <strong lang="vi">{{settings.language.vi}}</strong><span>{{settings.language.vi.status}}</span>
+          </a>
+          <a class="settings-language" href="{{url.en}}" hreflang="en"{{settings.language.en.current.html}}>
+            <strong lang="en">{{settings.language.en}}</strong><span>{{settings.language.en.status}}</span>
+          </a>
+        </div>
+      </section>
+      <section class="sh-card" id="camera" aria-labelledby="settings-camera-title">
+        <h2 id="settings-camera-title">{{settings.camera.title}}</h2>
+        <p class="settings-description">{{settings.camera.note}}</p>
+        <p class="settings-permission" data-permission role="status" aria-live="polite" hidden></p>
+        <h3>{{settings.camera.help.title}}</h3>
+        <ol class="settings-steps">
+          <li>{{settings.camera.help.open}}</li>
+          <li>{{settings.camera.help.allow}}</li>
+          <li>{{settings.camera.help.return}}</li>
+        </ol>
+      </section>
+    </div>
+  </div>
+</section>

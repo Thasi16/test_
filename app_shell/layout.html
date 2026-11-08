@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="{{locale}}"><head>{{layout.head}}</head>
+<body class="app-page m-{{module.id}}">
+<a class="skip-link" href="#main">{{a11y.skip}}</a>
+<div class="app-frame">
+  <aside class="app-sidebar">
+    <a class="app-brand" href="{{url.home}}" aria-label="{{a11y.home}}"><img src="/static/assets/logo-horizontal.png" alt="{{site.name}}" width="2172" height="724"></a>
+    <nav class="app-nav" aria-label="{{shell.nav.label}}">{{shell.nav.html}}</nav>
+    <div class="app-sidebar-foot">
+      <div class="app-motivation-head">
+        <span class="app-motivation-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M5 17.5 10 12l3 3 6-8"></path><path d="M15 7h4v4"></path></svg>
+        </span>
+        <strong>{{shell.sidebar.motivation}}</strong>
+      </div>
+      <p>{{shell.sidebar.note}}</p>
+      <div class="app-motivation-path" aria-hidden="true"><i></i><i></i><i></i><i></i><span>✦</span></div>
+    </div>
+  </aside>
+  <div class="app-column">
+    <header class="app-topbar">
+      <div class="app-topbar-leading">
+        <button class="app-sidebar-toggle" type="button" data-sidebar-toggle
+                data-label-collapse="{{shell.sidebar.collapse}}"
+                data-label-expand="{{shell.sidebar.expand}}"
+                aria-label="{{shell.sidebar.collapse}}" aria-expanded="true"
+                title="{{shell.sidebar.collapse}}">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3.5" y="4" width="17" height="16" rx="3"></rect>
+            <path d="M9 4v16M14.5 9l-3 3 3 3"></path>
+          </svg>
+        </button>
+        <a class="app-compact-brand" href="{{url.home}}" aria-label="{{a11y.home}}">
+          <img class="app-compact-logo" src="/static/assets/logo-horizontal.png" alt="{{site.name}}" width="2172" height="724">
+        </a>
+        <nav class="app-crumbs" aria-label="{{shell.crumb.label}}">{{shell.crumbs.html}}</nav>
+      </div>
+      <div class="app-topbar-actions">
+        {{layout.languages}}
+        <button class="app-tour-start" type="button" data-tour-start aria-label="{{shell.tour.restart}}" title="{{shell.tour.restart}}" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.5 2.5 0 0 1 5 .4c0 1.7-2.5 2-2.5 3.6M12 16.5h.01"></path></svg>
+          <span>{{shell.tour.restart}}</span>
+        </button>
+        <a class="back-link" href="{{url.home}}">← {{action.home}}</a>
+        <a class="app-account-link" href="{{url.account}}" aria-label="{{shell.account.open}}" title="{{shell.account.open}}">
+          <span class="app-account-tier">PREMIUM</span>
+          <span class="app-account-avatar" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"></circle><path d="M4.5 20c.7-4.2 3.2-6.3 7.5-6.3s6.8 2.1 7.5 6.3"></path></svg>
+            <i>✦</i>
+          </span>
+        </a>
+        <button class="app-logout" type="button" data-shell-logout aria-label="{{shell.logout}}" title="{{shell.logout}}">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 5H6.5A2.5 2.5 0 0 0 4 7.5v9A2.5 2.5 0 0 0 6.5 19H10M14 8l4 4-4 4M9 12h9"></path></svg>
+          <span>{{shell.logout}}</span>
+        </button>
+      </div>
+    </header>
+    <p class="app-notice app-notice--runtime" data-runtime-notice role="status" hidden></p>
+    <main id="main" class="app-content" tabindex="-1">{{module.body}}</main>
+    <footer class="app-footer"><small>© {{year}} {{site.name}}</small><span class="slogan">{{site.tagline}}</span></footer>
+  </div>
+</div>
+<script type="application/json" id="sh-data">{{shell.data.json}}</script>
+<script type="application/json" id="sh-i18n">{{shell.i18n.json}}</script>
+</body></html>

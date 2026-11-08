@@ -1,0 +1,30 @@
+/* The app shell owns the tour; feature modules do not depend on it. */
+.app-page .app-tour-start{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-width:40px;min-height:40px;padding:8px 12px;border:1px solid #cddff1;border-radius:12px;background:#fff;color:#315f91;font:inherit;font-size:11px;font-weight:650;cursor:pointer;white-space:nowrap}
+.app-page .app-tour-start:hover{background:#edf5ff;border-color:#91b9e6;color:var(--blue)}
+.app-tour-start svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+html.has-sh-tour,html.has-sh-tour body{overflow:hidden;overscroll-behavior:none}
+.app-page.sh-tour-sidebar-open{--sidebar:var(--sidebar-open)}
+.app-page.sh-tour-sidebar-open .app-sidebar,.app-page.sh-tour-sidebar-open.is-sidebar-collapsed .app-sidebar{display:flex;transform:none;opacity:1;pointer-events:auto;transition:none}
+.app-page.sh-tour-sidebar-open .app-frame{transition:none}
+.sh-tour{position:fixed;inset:0;width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;overflow:hidden;overscroll-behavior:contain;background:transparent;color:var(--navy,#082953);font:inherit;touch-action:none}
+.sh-tour::backdrop{background:transparent}
+.sh-tour-spotlight{position:absolute;left:var(--tour-x);top:var(--tour-y);width:var(--tour-w);height:var(--tour-h);border:2px solid #72adff;border-radius:16px;box-shadow:0 0 0 4px #ffffffd9,0 0 25px 6px #75afff80,0 0 0 100vmax #082953b8;pointer-events:none;transition:left .18s ease,top .18s ease,width .18s ease,height .18s ease}
+.sh-tour-panel{position:absolute;left:var(--panel-x,12px);top:var(--panel-y,12px);display:grid;gap:16px;width:min(360px,calc(100vw - 24px));max-height:calc(100dvh - 24px);padding:24px;border:1px solid #d5e5f5;border-radius:22px;overflow:auto;overscroll-behavior:contain;background:#fff;box-shadow:0 18px 60px #08295340;touch-action:pan-y;transition:left .18s ease,top .18s ease}
+.sh-tour-top{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.sh-tour-count{color:#526c8b;font-size:12px;font-weight:700;font-variant-numeric:tabular-nums}
+.sh-tour-skip{min-height:36px;padding:4px 8px;border:0;border-radius:8px;background:transparent;color:#45607f;font:inherit;font-size:12px;font-weight:650;cursor:pointer}
+.sh-tour-skip:hover{background:#edf5ff;color:#1559b9}
+.sh-tour h2{margin:0;font-size:23px;line-height:1.35;letter-spacing:-.03em}
+.sh-tour-body{margin:10px 0 0;color:#45607f;font-size:14px;line-height:1.7;overflow-wrap:break-word}
+.sh-tour-progress{display:block;width:100%;height:6px;border:0;border-radius:999px;overflow:hidden;background:#e7eff9;appearance:none}
+.sh-tour-progress::-webkit-progress-bar{background:#e7eff9;border-radius:999px}
+.sh-tour-progress::-webkit-progress-value{background:linear-gradient(90deg,#2678ed,#75afff);border-radius:999px;transition:width .18s ease}
+.sh-tour-progress::-moz-progress-bar{background:#2678ed;border-radius:999px}
+.sh-tour-hint{margin:0;color:#526c8b;font-size:11px;line-height:1.6}
+.sh-tour-actions{display:flex;justify-content:space-between;gap:12px}
+.sh-tour-actions button{cursor:pointer;justify-content:center;flex-shrink:0}
+.sh-tour-actions button:disabled{opacity:.45;cursor:default;box-shadow:none}
+.sh-tour button:focus-visible{outline:3px solid #ba4e7f;outline-offset:3px}
+@media(max-width:1280px){.app-tour-start span{display:none}.app-page .app-tour-start{padding:8px}}
+@media(max-width:440px){.sh-tour-panel{padding:18px;gap:12px;border-radius:18px}.sh-tour h2{font-size:21px}.sh-tour-body{font-size:13px}.sh-tour-actions .button{padding:11px 16px}}
+@media(prefers-reduced-motion:reduce){.sh-tour-spotlight,.sh-tour-panel,.sh-tour-progress::-webkit-progress-value{transition:none}}
