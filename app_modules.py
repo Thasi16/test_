@@ -112,7 +112,7 @@ def _nav(locale, active_id):
     return ''.join(links)
 
 
-def render(locale, path, base_values):
+def render(locale, path, base_values, *, initial_state=None):
     """Render one learning-area page. Raises NotFound for unknown params."""
     meta, route, params = match(path)
     t = DICTIONARIES[locale]
@@ -171,7 +171,14 @@ def render(locale, path, base_values):
     strings = {k: v for k, v in t.items() if k.startswith(('shell.', meta['id'] + '.'))}
     values['shell.data.json'] = _json_block(content.public_payload(locale))
     values['shell.i18n.json'] = _json_block(strings)
-    raw |= {'shell.assets.html', 'shell.data.json', 'shell.i18n.json', 'module.body', 'layout.head',
+    values['shell.state.json'] = _json_block(initial_state)
+    ready = bool(initial_state and initial_state.get('user', {}).get('id'))
+    values['shell.auth.class'] = ' is-auth-ready' if ready else ''
+    values['shell.loading.html'] = '' if ready else (
+        '<p class="sh-card sh-auth-loading" data-auth-loading role="status">'
+        + html.escape(t['shell.loading']) + '</p>')
+    raw |= {'shell.assets.html', 'shell.data.json', 'shell.i18n.json', 'shell.state.json',
+            'shell.loading.html', 'module.body', 'layout.head',
             'shell.crumbs.html', 'shell.nav.html', 'shell.notice.html', 'shell.stub.html'}
     return render_file('app_shell/layout.html', values, raw)
 

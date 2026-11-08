@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="{{locale}}"><head>{{layout.head}}</head>
-<body class="app-page m-{{module.id}}">
-<p class="sh-card sh-auth-loading" data-auth-loading role="status">{{shell.loading}}</p>
+<body class="app-page m-{{module.id}}{{shell.auth.class}}">
+{{shell.loading.html}}
 <a class="skip-link" href="#main">{{a11y.skip}}</a>
 <div class="app-frame">
   <aside class="app-sidebar">
@@ -63,4 +63,5 @@
 </div>
 <script type="application/json" id="sh-data">{{shell.data.json}}</script>
 <script type="application/json" id="sh-i18n">{{shell.i18n.json}}</script>
+<script type="application/json" id="sh-state">{{shell.state.json}}</script>
 </body></html>

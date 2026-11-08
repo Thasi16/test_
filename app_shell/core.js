@@ -21,6 +21,7 @@
 
   const data = readJson('sh-data');
   const strings = readJson('sh-i18n');
+  const initialState = readJson('sh-state');
   const locale = document.documentElement.lang === 'en' ? 'en' : 'vi';
 
   const t = (key, vars) => {
@@ -83,6 +84,9 @@
   }
   async function hydrate(change) {
     const snapshot = await api('/api/learning/state');
+    applySnapshot(snapshot, change);
+  }
+  function applySnapshot(snapshot, change) {
     // An account change in another tab must never be applied to this tab's stale controls.
     if (state.user && state.user.id !== snapshot.user.id) {
       location.reload(); throw new Error('account_changed');
@@ -164,7 +168,9 @@
       } catch (error) { notice(message('Đăng xuất chưa thành công. Hãy thử lại.', 'Sign out failed. Please retry.')); }
     },
   });
-  const ready = hydrate().then(() => {
+  const ready = (initialState?.user?.id
+    ? Promise.resolve().then(() => applySnapshot(initialState))
+    : initialState?.error ? Promise.reject(new Error(initialState.error)) : hydrate()).then(() => {
     document.body.classList.add('is-auth-ready');
     const loading = document.querySelector('[data-auth-loading]'); if (loading) loading.remove();
   }).catch(error => {

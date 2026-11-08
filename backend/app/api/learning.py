@@ -1,6 +1,7 @@
 from fastapi import APIRouter, Request
 from fastapi.responses import FileResponse, HTMLResponse, RedirectResponse, Response
 
+from app.api.progress import snapshot_for
 from app.services import legacy
 from app.services import supabase as sb
 
@@ -13,11 +14,11 @@ def locale_for(request: Request) -> str:
     return query if query in ("vi", "en") else "en" if cookie == "en" else "vi"
 
 
-def page_response(request: Request, path: str) -> HTMLResponse:
+def page_response(request: Request, path: str, initial_state: dict | None = None) -> HTMLResponse:
     locale = locale_for(request)
     # Unknown paths never enter template URLs.
     canonical = path if path == "/login" or legacy.app_modules.is_app_path(path) else "/404"
-    body, status = legacy.render(locale, canonical)
+    body, status = legacy.render(locale, canonical, initial_state=initial_state)
     response = HTMLResponse(
         body,
         status_code=status,
@@ -77,7 +78,17 @@ async def learning_page(request: Request, path: str = "") -> Response:
         )
         sb.clear_session(response)
         return response
-    response = page_response(request, "/app/" + path if path else "/app")
+    target = "/app/" + path if path else "/app"
+    initial_state = None
+    if legacy.app_modules.is_app_path(target):
+        try:
+            # Reuse the identity already verified for this navigation. The browser
+            # must not repeat auth + snapshot requests before showing every page.
+            initial_state = await snapshot_for(who)
+        except sb.SupabaseError as error:
+            # Keep the existing retry/sign-out screen available during an outage.
+            initial_state = {"error": error.code}
+    response = page_response(request, target, initial_state=initial_state)
     if who.refreshed:
         sb.set_session(response, request, who.refreshed)
     if request.method == "HEAD":

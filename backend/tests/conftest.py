@@ -10,4 +10,8 @@ def verified_identity(monkeypatch):
     """Renderer regression tests use a verified identity, never production auth bypasses."""
     who = sb.Identity("test-token", {"id": "11111111-1111-4111-8111-111111111111"})
     monkeypatch.setattr(sb, "identity", AsyncMock(return_value=who))
+    monkeypatch.setattr(sb, "rpc", AsyncMock(return_value={
+        "lessons": {}, "signs": {}, "quiz": {}, "practice": [], "favorites": [],
+        "activity": None, "activities": [], "profile": {},
+    }))
     return who

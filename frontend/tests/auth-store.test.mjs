@@ -21,7 +21,11 @@ const initial = () => ({
   streak: { current: 0, longest: 0, days: [] },
 });
 
-function runtime({ failWrite = false } = {}) {
+function runtime({
+  failWrite = false,
+  bootstrap = false,
+  bootstrapError = false,
+} = {}) {
   let state = initial();
   const calls = [],
     redirects = [],
@@ -47,7 +51,11 @@ function runtime({ failWrite = false } = {}) {
               lessons: [{ id: 1, open: true }],
               signs: [{ slug: "am", lesson: 1 }],
             }
-          : {},
+          : id === "sh-state" && bootstrap
+            ? clone(state)
+            : id === "sh-state" && bootstrapError
+              ? { error: "learning_unavailable" }
+              : {},
       ),
     }),
     querySelector: (selector) =>
@@ -155,4 +163,32 @@ test("account change reloads instead of mixing another account into the store", 
   await assert.rejects(run.SH.store.sync(), /account_changed/);
   assert.ok(run.redirects.includes("reload"));
   assert.equal(run.SH.auth.user().id, "user-a");
+});
+
+test("server bootstrap is ready without fetching auth or progress again", async () => {
+  const run = runtime({ bootstrap: true });
+  await run.SH.ready;
+  assert.equal(run.SH.auth.username(), "Learner A");
+  assert.equal(run.SH.store.summary().practiceCount, 0);
+  assert.equal(run.calls.length, 0);
+  assert.ok(run.events.some((event) => event.detail.type === "sync"));
+  assert.equal(await run.SH.store.markSignSeen("am"), true);
+  assert.equal(run.SH.store.isSignSeen("am"), true);
+  assert.equal(run.calls[0].headers["X-SH-User"], "user-a");
+});
+
+test("server bootstrap still detects an account change on later sync", async () => {
+  const run = runtime({ bootstrap: true });
+  await run.SH.ready;
+  run.changeUser();
+  await assert.rejects(run.SH.store.sync(), /account_changed/);
+  assert.ok(run.redirects.includes("reload"));
+  assert.equal(run.SH.auth.user().id, "user-a");
+});
+
+test("a server snapshot error offers recovery without repeating the failed read", async () => {
+  const run = runtime({ bootstrapError: true });
+  await assert.rejects(run.SH.ready, /learning_unavailable/);
+  assert.equal(run.calls.length, 0);
+  assert.equal(run.SH.auth.isAuthenticated(), false);
 });

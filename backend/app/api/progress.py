@@ -88,12 +88,18 @@ def validate_event(body: LearningEvent):
         raise sb.SupabaseError(422, "invalid_learning_event")
 
 
-@router.get("/state")
-async def state(request: Request, response: Response):
-    who = await sb.identity(request)
+async def snapshot_for(who: sb.Identity) -> dict:
+    """Build the same verified state for page bootstrapping and later API syncs."""
     snapshot = await sb.rpc("sh_learning_snapshot", who)
     snapshot["user"] = sb.public_user(who.user)
     snapshot["streak"] = streak_for(snapshot.get("activities", []))
+    return snapshot
+
+
+@router.get("/state")
+async def state(request: Request, response: Response):
+    who = await sb.identity(request)
+    snapshot = await snapshot_for(who)
     if who.refreshed:
         sb.set_session(response, request, who.refreshed)
     return snapshot

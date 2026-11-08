@@ -29,13 +29,14 @@ import app_modules  # noqa: E402
 from serve import page_context, render_page  # noqa: E402
 
 
-def render(locale: str, path: str) -> tuple[str, int]:
+def render(locale: str, path: str, *, initial_state: dict | None = None) -> tuple[str, int]:
     if path == "/login":
         return render_page(locale, "/login", "login").decode("utf-8"), 200
     if app_modules.is_app_path(path):
         try:
             return app_modules.render(
-                locale, path.rstrip("/"), page_context(locale, path, "app")
+                locale, path.rstrip("/"), page_context(locale, path, "app"),
+                initial_state=initial_state,
             ), 200
         except app_modules.NotFound:
             pass

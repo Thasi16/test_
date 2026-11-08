@@ -37,6 +37,10 @@ import serve
 from app.services import supabase as sb
 from unittest.mock import AsyncMock
 sb.identity = AsyncMock(return_value=sb.Identity('test-token', {'id':'test-user'}))
+sb.rpc = AsyncMock(return_value={
+    'lessons': {}, 'signs': {}, 'quiz': {}, 'practice': [], 'favorites': [],
+    'activity': None, 'activities': [], 'profile': {},
+})
 expected = Path(sys.argv[1]) / 'legacy_site'
 assert legacy.ROOT == expected
 assert Path(serve.__file__).parent == expected

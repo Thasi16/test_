@@ -247,6 +247,60 @@ def test_auth_and_progress_responses_are_not_cacheable(client):
         assert response.headers["cache-control"] == "private, no-store"
 
 
+@pytest.mark.parametrize("route", ["/app", "/app/dictionary", "/app/account"])
+@pytest.mark.parametrize("locale", ["vi", "en"])
+def test_learning_pages_bootstrap_state_with_one_identity_check(client, upstream, route, locale):
+    client.cookies.set("sh_access", "valid")
+    response = client.get(route + "?lang=" + locale)
+    assert response.status_code == 200
+    assert 'is-auth-ready' in response.text
+    assert 'data-auth-loading' not in response.text
+    encoded = response.text.split('<script type="application/json" id="sh-state">')[1].split(
+        '</script>'
+    )[0]
+    snapshot = json.loads(encoded)
+    assert snapshot["user"]["id"] == UID
+    assert snapshot["profile"]["display_name"] == "Learner"
+    assert snapshot["streak"]["current"] == 0
+    assert "access_token" not in encoded and "refresh_token" not in encoded
+    assert [r.url.path for r in upstream] == [
+        "/auth/v1/user", "/rest/v1/rpc/sh_learning_snapshot",
+    ]
+    assert response.headers["cache-control"] == "private, no-store"
+    assert "Cookie" in response.headers["vary"].split(", ")
+
+
+def test_bootstrap_escapes_user_content_and_preserves_refreshed_cookies(client, monkeypatch):
+    name = '</script><script>alert("name")</script>'
+    monkeypatch.setitem(USER["user_metadata"], "display_name", name)
+    client.cookies.set("sh_access", "expired")
+    client.cookies.set("sh_refresh", "refresh")
+    response = client.get("/app")
+    assert response.cookies["sh_access"] == "valid"
+    encoded = response.text.split('<script type="application/json" id="sh-state">')[1].split(
+        '</script>'
+    )[0]
+    assert '<script>' not in encoded
+    assert json.loads(encoded)["user"]["user_metadata"]["display_name"] == name
+
+
+def test_snapshot_outage_keeps_recovery_screen_without_ready_or_fake_progress(client, monkeypatch):
+    from unittest.mock import AsyncMock
+
+    client.cookies.set("sh_access", "valid")
+    monkeypatch.setattr(
+        sb, "rpc", AsyncMock(side_effect=sb.SupabaseError(503, "learning_unavailable"))
+    )
+    response = client.get("/app")
+    assert response.status_code == 200
+    assert 'is-auth-ready' not in response.text
+    assert 'data-auth-loading' in response.text
+    encoded = response.text.split('<script type="application/json" id="sh-state">')[1].split(
+        '</script>'
+    )[0]
+    assert json.loads(encoded) == {"error": "learning_unavailable"}
+
+
 def test_backend_reads_named_environment_variables(monkeypatch):
     monkeypatch.setenv("SUPABASE_URL", "https://env-project.supabase.co")
     monkeypatch.setenv("SUPABASE_PUBLISHABLE_KEY", "sb_publishable_from_env")
