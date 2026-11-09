@@ -4,6 +4,8 @@ Only publishable credentials are used; database requests carry the verified user
 access token so PostgreSQL RLS remains the final authorization boundary.
 """
 
+from contextlib import asynccontextmanager
+from contextvars import ContextVar
 from dataclasses import dataclass
 from urllib.parse import urlsplit
 
@@ -11,9 +13,30 @@ import httpx
 from fastapi import Request, Response
 
 from app.core.config import get_settings
+from app.core.timing import measure
 
 ACCESS_COOKIE = "sh_access"
 REFRESH_COOKIE = "sh_refresh"
+_client: ContextVar[httpx.AsyncClient | None] = ContextVar("supabase_client", default=None)
+
+
+@asynccontextmanager
+async def client_scope(shared: httpx.AsyncClient | None = None):
+    """Reuse connections, while keeping credentials on each individual request."""
+    current = shared if shared is not None else _client.get()
+    if current is not None:
+        token = _client.set(current)
+        try:
+            yield current
+        finally:
+            _client.reset(token)
+    else:
+        async with httpx.AsyncClient(timeout=15) as client:
+            token = _client.set(client)
+            try:
+                yield client
+            finally:
+                _client.reset(token)
 
 
 class SupabaseError(Exception):
@@ -29,11 +52,15 @@ async def call(method: str, path: str, *, token: str = "", payload=None):
     headers = {"apikey": settings.supabase_publishable_key}
     if token:
         headers["Authorization"] = "Bearer " + token
+    metric = "auth" if path.startswith("/auth/") else (
+        "snapshot" if path == "/rest/v1/rpc/sh_learning_snapshot" else "save"
+    )
     try:
-        async with httpx.AsyncClient(timeout=15) as client:
-            result = await client.request(
-                method, settings.supabase_url + path, headers=headers, json=payload
-            )
+        with measure(metric):
+            async with client_scope() as client:
+                result = await client.request(
+                    method, settings.supabase_url + path, headers=headers, json=payload
+                )
     except httpx.HTTPError as error:
         raise SupabaseError(503, "supabase_unavailable") from error
     if result.is_error:

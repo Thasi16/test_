@@ -11,6 +11,7 @@ from fastapi.testclient import TestClient
 from app.api.progress import streak_for
 from app.core.config import Settings
 from app.main import create_app
+from app.services import legacy
 from app.services import supabase as sb
 
 UID = "11111111-1111-4111-8111-111111111111"
@@ -245,6 +246,69 @@ def test_auth_and_progress_responses_are_not_cacheable(client):
     for path in ("/api/auth/session", "/api/learning/state"):
         response = client.get(path)
         assert response.headers["cache-control"] == "private, no-store"
+
+
+def test_request_timings_expose_only_phase_durations(client):
+    client.cookies.set("sh_access", "valid")
+    response = client.get("/app/courses")
+    timing = response.headers["server-timing"]
+    phases = dict(part.strip().split(";dur=") for part in timing.split(","))
+    assert set(phases) == {"auth", "snapshot", "render", "app"}
+    assert all(float(duration) >= 0 for duration in phases.values())
+    assert "valid" not in timing and USER["email"] not in timing
+    # Timings belong to the current request, not a previous authenticated page.
+    health = client.get("/api/health")
+    assert health.headers["server-timing"].startswith("app;dur=")
+
+
+def test_connection_pool_keeps_each_users_credentials_on_their_own_requests(client, upstream):
+    for token, uid in (("valid", UID), ("other", OTHER), ("valid", UID)):
+        client.cookies.set("sh_access", token)
+        response = client.get("/api/learning/state")
+        assert response.json()["user"]["id"] == uid
+        assert [r.headers["authorization"] for r in upstream[-2:]] == [
+            "Bearer " + token, "Bearer " + token,
+        ]
+
+
+def test_serverless_without_lifespan_reuses_one_client_for_auth_and_snapshot(upstream, monkeypatch):
+    factory = sb.httpx.AsyncClient
+    clients = []
+
+    def counted_client(**options):
+        current = factory(**options)
+        clients.append(current)
+        return current
+
+    monkeypatch.setattr(sb.httpx, "AsyncClient", counted_client)
+    # Deliberately omit TestClient's context manager to model an adapter without lifespan.
+    client = TestClient(create_app(), base_url="https://testserver")
+    client.cookies.set("sh_access", "valid")
+    assert client.get("/app/courses").status_code == 200
+    assert len(clients) == 1
+    assert clients[0].is_closed
+
+
+def test_only_version_matched_public_assets_are_cached_long_term(client):
+    asset = legacy.static_file("/static/app/core.js")
+    version = legacy.asset_version(asset)
+    response = client.get("/static/app/core.js?v=" + version)
+    assert response.status_code == 200
+    assert response.headers["cache-control"] == "public, max-age=31536000, immutable"
+    for suffix in ("", "?v=old-version"):
+        assert client.get("/static/app/core.js" + suffix).headers["cache-control"] == "no-cache"
+    client.cookies.set("sh_access", "valid")
+    page = client.get("/app/courses")
+    assert f'/static/app/core.js?v={version}' in page.text
+    assert page.headers["cache-control"] == "private, no-store"
+
+
+def test_asset_versions_follow_content_updates(tmp_path):
+    asset = tmp_path / "asset.js"
+    asset.write_text("before", encoding="utf-8")
+    before = legacy.asset_version(asset)
+    asset.write_text("after change", encoding="utf-8")
+    assert legacy.asset_version(asset) != before
 
 
 @pytest.mark.parametrize("route", ["/app", "/app/dictionary", "/app/account"])

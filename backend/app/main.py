@@ -7,13 +7,20 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.api import auth, health, learning, progress
 from app.core.config import get_settings
 from app.core.errors import install_error_handlers
+from app.core.timing import measure, request_timings, server_timing
 from app.db.session import get_engine
+from app.services import supabase as sb
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # No connection, schema creation or seed at application startup.
-    yield
+    async with sb.client_scope() as client:
+        app.state.supabase_client = client
+        try:
+            yield
+        finally:
+            app.state.supabase_client = None
     if get_engine.cache_info().currsize:
         get_engine().dispose()
         get_engine.cache_clear()
@@ -33,7 +40,18 @@ def create_app() -> FastAPI:
     @app.middleware("http")
     async def request_id(request: Request, call_next):
         request.state.request_id = str(uuid4())
-        response = await call_next(request)
+        with request_timings() as timings:
+            with measure("app"):
+                if request.url.path == "/app" or request.url.path.startswith(
+                    ("/app/", "/api/auth/", "/api/learning/")
+                ):
+                    # Some serverless adapters do not run ASGI lifespan. In that
+                    # case still reuse one client for auth + data in this request.
+                    async with sb.client_scope(getattr(app.state, "supabase_client", None)):
+                        response = await call_next(request)
+                else:
+                    response = await call_next(request)
+            response.headers["Server-Timing"] = server_timing(timings)
         response.headers["X-Request-ID"] = request.state.request_id
         response.headers["X-Content-Type-Options"] = "nosniff"
         if request.url.path.startswith("/api/auth/") or request.url.path.startswith(

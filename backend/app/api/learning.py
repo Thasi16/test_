@@ -2,6 +2,7 @@ from fastapi import APIRouter, Request
 from fastapi.responses import FileResponse, HTMLResponse, RedirectResponse, Response
 
 from app.api.progress import snapshot_for
+from app.core.timing import measure
 from app.services import legacy
 from app.services import supabase as sb
 
@@ -18,7 +19,8 @@ def page_response(request: Request, path: str, initial_state: dict | None = None
     locale = locale_for(request)
     # Unknown paths never enter template URLs.
     canonical = path if path == "/login" or legacy.app_modules.is_app_path(path) else "/404"
-    body, status = legacy.render(locale, canonical, initial_state=initial_state)
+    with measure("render"):
+        body, status = legacy.render(locale, canonical, initial_state=initial_state)
     response = HTMLResponse(
         body,
         status_code=status,
@@ -100,5 +102,9 @@ async def learning_page(request: Request, path: str = "") -> Response:
 def static_asset(request: Request, path: str) -> Response:
     candidate = legacy.static_file("/static/" + path)
     if candidate:
-        return FileResponse(candidate, headers={"Cache-Control": "no-cache"})
+        cache = "no-cache"
+        version = request.query_params.get("v")
+        if version and candidate.suffix != ".mp4" and version == legacy.asset_version(candidate):
+            cache = "public, max-age=31536000, immutable"
+        return FileResponse(candidate, headers={"Cache-Control": cache})
     return page_response(request, "/404")
