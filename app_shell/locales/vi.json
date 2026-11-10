@@ -1,6 +1,9 @@
 {
   "shell.meta.description": "Khu học tập SignHearing: lộ trình VSL theo học phần, từ điển ký hiệu, tự luyện tập và theo dõi tiến độ.",
   "shell.nav.label": "Điều hướng khu học tập",
+  "shell.welcome.opening": "Đang mở khu học tập...",
+  "shell.welcome.greeting": "Xin chào, {name}!",
+  "shell.welcome.fallback": "bạn",
   "shell.crumb.label": "Vị trí hiện tại",
   "shell.crumb.root": "Khu học tập",
   "shell.sidebar.motivation": "Mỗi bước nhỏ đều đáng tự hào",

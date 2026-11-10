@@ -2,6 +2,12 @@
 <html lang="{{locale}}"><head>{{layout.head}}</head>
 <body class="app-page m-{{module.id}}{{shell.auth.class}}">
 {{shell.loading.html}}
+<div class="app-welcome-transition" data-entry-welcome hidden role="status" aria-live="polite">
+  <span class="app-welcome-spark app-welcome-spark-one" aria-hidden="true">✦</span><span class="app-welcome-spark app-welcome-spark-two" aria-hidden="true">✦</span>
+  <img src="/static/assets/mascot.png" alt="" width="1351" height="1164">
+  <p>{{shell.welcome.opening}}</p>
+  <strong data-entry-welcome-name></strong>
+</div>
 <a class="skip-link" href="#main">{{a11y.skip}}</a>
 <div class="app-frame">
   <aside class="app-sidebar">

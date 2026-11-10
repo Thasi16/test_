@@ -1,6 +1,9 @@
 {
   "shell.meta.description": "SignHearing learning area: a VSL path by module, a sign dictionary, self-practice and progress tracking.",
   "shell.nav.label": "Learning area navigation",
+  "shell.welcome.opening": "Opening your learning area...",
+  "shell.welcome.greeting": "Welcome, {name}!",
+  "shell.welcome.fallback": "friend",
   "shell.crumb.label": "You are here",
   "shell.crumb.root": "Learning area",
   "shell.sidebar.motivation": "Every small step is worth celebrating",

@@ -6,6 +6,15 @@
 .app-frame{display:grid;visibility:hidden;grid-template-columns:var(--sidebar) minmax(0,1fr);min-height:100vh;background:radial-gradient(circle at 86% 16%,#e8f3ff 0,transparent 28%),radial-gradient(circle at 72% 82%,#fff1f6 0,transparent 24%),linear-gradient(145deg,#f9fcff 0%,#f2f7ff 62%,#fff8fb 130%);transition:grid-template-columns .22s ease}
 .app-page.is-auth-ready .app-frame{visibility:visible}
 .sh-auth-loading{margin:32px auto;max-width:680px;padding:24px}
+.app-welcome-transition{position:fixed;inset:0;z-index:200;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:24px;background:radial-gradient(circle at 50% 45%,#fff 0,#e8f3ff 45%,#fff0f5 110%);color:#315b86;text-align:center;pointer-events:none;animation:app-welcome-fade 1.8s ease both}
+.app-welcome-transition[hidden]{display:none}
+.app-welcome-transition img{width:min(38vw,230px);height:auto;filter:drop-shadow(0 16px 20px #174f8c25);animation:app-welcome-arrive .7s cubic-bezier(.18,.75,.25,1) both}
+.app-welcome-transition p{font-size:14px;font-weight:700;letter-spacing:.03em}
+.app-welcome-transition strong{max-width:min(80vw,400px);color:#0a3b70;font-size:22px;overflow-wrap:anywhere}
+.app-welcome-spark{position:absolute;color:#ee82a8;font-size:27px}.app-welcome-spark-one{left:25%;top:30%}.app-welcome-spark-two{right:25%;bottom:27%;color:#3b8bea}
+@keyframes app-welcome-arrive{from{opacity:0;transform:translateX(-35px) scale(.85)}to{opacity:1;transform:translateX(0) scale(1)}}
+@keyframes app-welcome-fade{0%,80%{opacity:1}100%{opacity:0}}
+@media(prefers-reduced-motion:reduce){.app-welcome-transition,.app-welcome-transition img{animation:none}}
 .sh-streak{margin:18px 0;padding:22px;border:1px solid #cfe1f3;border-radius:20px;background:linear-gradient(130deg,#edf5ff,#fff5fa)}
 .sh-streak dl{display:flex;flex-wrap:wrap;gap:24px;margin:0}
 .sh-streak dd{font-size:1.8rem;font-weight:800;margin:4px 0;color:#1556ad}

@@ -173,6 +173,18 @@
     : initialState?.error ? Promise.reject(new Error(initialState.error)) : hydrate()).then(() => {
     document.body.classList.add('is-auth-ready');
     const loading = document.querySelector('[data-auth-loading]'); if (loading) loading.remove();
+    try {
+      const referrer = new URL(document.referrer);
+      const welcome = document.querySelector('[data-entry-welcome]');
+      if (welcome && referrer.origin === location.origin && referrer.pathname === '/') {
+        const metadata = state.user?.user_metadata || {};
+        const candidates = [state.profile?.display_name, metadata.display_name, metadata.full_name, state.user?.email?.split('@')[0]];
+        const name = candidates.find(value => typeof value === 'string' && value.trim())?.trim() || t('shell.welcome.fallback');
+        welcome.querySelector('[data-entry-welcome-name]').textContent = t('shell.welcome.greeting', {name});
+        welcome.hidden = false;
+        setTimeout(() => { welcome.hidden = true; }, matchMedia('(prefers-reduced-motion: reduce)').matches ? 300 : 1800);
+      }
+    } catch (ignored) { /* Direct navigation or missing referrer: open normally. */ }
   }).catch(error => {
     const loading = document.querySelector('[data-auth-loading]');
     if (loading) {

@@ -89,6 +89,7 @@
     if (busy) return;
     registering = !registering;
     form.querySelector('[data-register-fields]').hidden = !registering;
+    form.elements.display_name.required = registering;
     form.elements.confirm.required = registering;
     form.elements.password.autocomplete = registering ? 'new-password' : 'current-password';
     form.elements.password.minLength = registering ? 8 : 1;
@@ -104,6 +105,9 @@
     if (registering && form.elements.password.value !== form.elements.confirm.value) {
       error.textContent = text('Mật khẩu xác nhận không khớp.', 'Passwords do not match.'); error.hidden = false; return;
     }
+    if (registering && !form.elements.display_name.value.trim()) {
+      error.textContent = text('Vui lòng nhập tên hiển thị.', 'Please enter a display name.'); error.hidden = false; return;
+    }
     setBusy(true); error.hidden = true;
     try {
       const body = {email:form.elements.username.value.trim(),password:form.elements.password.value};
@@ -115,7 +119,9 @@
       if (!response.ok) throw new Error(errors[result.error?.code] || text('Không thể đăng nhập/đăng ký. Kiểm tra thông tin và thử lại.', 'Could not sign in/register. Check your details and retry.'));
       try { localStorage.removeItem('signhearing:demo-auth'); localStorage.removeItem('signhearing:demo-user'); } catch (ignored) { /* optional cleanup */ }
       form.elements.password.value = ''; form.elements.confirm.value = '';
-      const user = result.user.user_metadata?.display_name || result.user.email;
+      const metadata = result.user.user_metadata || {};
+      const candidates = [metadata.display_name, metadata.full_name, result.user.email?.split('@')[0]];
+      const user = candidates.find(value => typeof value === 'string' && value.trim())?.trim() || text('bạn', 'friend');
       document.querySelector('[data-transition-user]').textContent = text('Xin chào, ', 'Welcome, ') + user + '!';
       transition.setAttribute('aria-hidden', 'false');
       document.body.classList.add('is-authenticating');
