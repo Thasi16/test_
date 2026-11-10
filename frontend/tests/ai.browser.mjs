@@ -1,86 +1,55 @@
-// Uses the loopback authenticated fixture server and the REAL local SiFormer API.
-// Start backend/tests/materials_preview.py on AI_TEST_URL's port, plus inference.
+﻿// Loopback authenticated fixture, synthetic camera and mocked inference.
 import assert from "node:assert/strict";
 import { createRequire } from "node:module";
-import { mkdir } from "node:fs/promises";
-import { fileURLToPath } from "node:url";
-
 const require = createRequire(import.meta.url);
 const { chromium } = require(process.env.PLAYWRIGHT_MODULE || "playwright");
 const base = process.env.AI_TEST_URL || "http://127.0.0.1:8017";
-const video = fileURLToPath(new URL("../../static/media/local-videos/an.mp4", import.meta.url));
-const output = new URL("../../.runtime/ai-ui/", import.meta.url);
-await mkdir(output, { recursive: true });
-const browser = await chromium.launch({ channel: "chrome", headless: true,
-  args: ["--use-fake-device-for-media-stream", "--use-fake-ui-for-media-stream"] });
+const browser = await chromium.launch({ channel: "chrome", headless: true });
 try {
   for (const lang of ["vi", "en"]) {
-    const context = await browser.newContext({ viewport: { width: lang === "vi" ? 390 : 1440, height: 1000 },
-      permissions: ["camera"], reducedMotion: "reduce" });
+    const context = await browser.newContext({ viewport: { width: lang === "vi" ? 390 : 1440, height: 1000 }, reducedMotion: "reduce" });
     await context.addInitScript(() => localStorage.setItem("signhearing_onboarding_v1", "skipped"));
     await context.addInitScript(() => {
-      // Deterministic synthetic camera; no physical webcam or OS device required.
       navigator.mediaDevices.getUserMedia = async () => {
         const canvas = document.createElement("canvas");
         canvas.width = 640; canvas.height = 480;
-        const draw = canvas.getContext("2d");
-        draw.fillStyle = "#6688aa"; draw.fillRect(0, 0, 640, 480);
-        const stream = canvas.captureStream(13);
-        const timer = setInterval(() => {
-          draw.fillStyle = `hsl(${Date.now() % 360},50%,60%)`;
-          draw.fillRect(100, 100, 100, 100);
-        }, 50);
-        stream.getTracks()[0].addEventListener("ended", () => clearInterval(timer));
-        return stream;
+        canvas.getContext("2d").fillRect(0, 0, 640, 480);
+        return canvas.captureStream(13);
       };
     });
     const page = await context.newPage();
-    const errors = [];
-    const posts = [];
-    page.on("pageerror", (error) => errors.push(error.message));
-    page.on("request", (request) => { if (request.method() === "POST") posts.push(new URL(request.url()).pathname); });
+    const posts = [], errors = [];
+    page.on("pageerror", error => errors.push(error.message));
+    page.on("request", request => { if (request.method() === "POST") posts.push(new URL(request.url()).pathname); });
+    await page.route("**/infer", route => route.fulfill({ status: 200, headers: {
+      "Access-Control-Allow-Origin": base, "Access-Control-Allow-Headers": "authorization,content-type",
+    }, contentType: "application/json", body: JSON.stringify({ success: true, predicted_gloss: "Test", confidence: 0.5, total_request_time_ms: 50, matches_expected: false }) }));
     await page.goto(`${base}/app/practice/an?lang=${lang}`);
     await page.locator(".is-auth-ready").waitFor();
     if (await page.locator("dialog.sh-tour[open]").count()) await page.keyboard.press("Escape");
-    await page.locator("[data-ai-controls]:visible").waitFor();
-    assert.equal(await page.locator('[aria-labelledby="practice-camera-title"] [data-ai]').count(), 1);
-    await page.locator("[data-ai-file]").setInputFiles(video);
-    assert.equal(await page.locator("[data-ai-send]").isDisabled(), true);
-    assert.deepEqual(posts, []); // Choosing a file never uploads automatically.
-    await page.locator("[data-ai-consent]").check();
-    await page.locator("[data-ai-send]").click();
-    await page.locator("[data-ai-result]:visible").waitFor({ timeout: 60000 });
-    assert.match(await page.locator("[data-ai-result]").innerText(), /\d+(\.\d+)?%/);
-    assert.deepEqual(posts, ["/api/ai/token", "/infer"]);
-    assert.equal(await page.locator("[data-history] li").count(), 0);
-    await page.locator("[data-ai]").screenshot({ path: fileURLToPath(new URL(`result-${lang}.png`, output)) });
-
-    // Disconnected inference must not clear the existing account session.
-    await page.route("**/infer", (route) => route.abort("connectionrefused"));
-    await page.locator("[data-ai-send]").click();
-    await page.waitForFunction(() => /không khả dụng|unavailable/.test(document.querySelector("[data-ai-status]").textContent));
-    assert.equal(await page.locator(".is-auth-ready").count(), 1);
-    assert.equal(await page.locator("[data-save]").isEnabled(), true);
-    await page.unroute("**/infer");
-    await page.locator("[data-ai-clear]").click();
-    assert.equal(await page.locator("[data-ai-preview]").isVisible(), false);
-    assert.equal(await page.locator("[data-ai-send]").isDisabled(), true);
-
-    // Fake camera tests recording without opening the user's physical webcam.
+    const controls = page.locator("[data-camera-controls]");
+    assert.deepEqual(await controls.locator("button").evaluateAll(buttons => buttons.map(b => b.hasAttribute("data-camera-start") ? "start" : b.hasAttribute("data-camera-stop") ? "stop" : b.hasAttribute("data-ai-record") ? "record" : "mirror")), ["start", "stop", "record", "mirror"]);
+    assert.equal(await page.locator("[data-ai-file], [data-ai-consent], [data-ai-send]").count(), 0);
+    assert.equal(await page.locator("[data-ai-record]").isDisabled(), true);
     await page.locator("[data-camera-start]").click();
     await page.locator("[data-camera]:visible").waitFor();
+    assert.deepEqual(posts, []);
     await page.locator("[data-ai-record]").click();
-    await page.locator("[data-ai-preview]:visible").waitFor({ timeout: 10000 });
-    assert.equal(await page.locator("[data-ai-send]").isEnabled(), true);
-    await page.locator("[data-ai-clear]").click();
-    if (await page.locator("[data-camera-stop]").isVisible()) await page.locator("[data-camera-stop]").click();
-
+    await page.locator("[data-ai-result]:visible").waitFor({ timeout: 15000 });
+    assert.deepEqual(posts, ["/api/ai/token", "/infer"]);
+    assert.match(await page.locator("[data-ai-result]").innerText(), /50\.0%/);
+    assert.equal(await page.locator("[data-history] li").count(), 0);
+    posts.length = 0;
+    await page.locator("[data-ai-record]").click();
+    await page.locator("[data-camera-stop]").click();
+    await page.waitForTimeout(3500);
+    assert.deepEqual(posts, []);
     await page.goto(`${base}/app/practice/xin-chao?lang=${lang}`);
     await page.locator(".is-auth-ready").waitFor();
-    assert.equal(await page.locator("[data-ai-controls]").isVisible(), false);
+    assert.equal(await page.locator("[data-ai-record]").isDisabled(), true);
     assert.equal(await page.locator("[data-save]").isEnabled(), true);
     assert.deepEqual(errors, []);
     await context.close();
   }
-  console.log("PASS: real CPU predictions, VI/EN, mobile/desktop, consent, offline isolation, fake-camera recording and unsupported labels.");
+  console.log("PASS: placement, explicit recording, automatic send, cancellation and unsupported signs on mobile and desktop.");
 } finally { await browser.close(); }

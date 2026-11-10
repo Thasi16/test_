@@ -148,8 +148,8 @@ tự luyện chỉ thêm đúng origin cấu hình. `vercel.json` và các rewri
   chỉ trả mã đã cho phép. `/health` kiểm tra tiến trình; `/ready` kiểm tra workers.
 
 UI nằm trong module tự luyện hiện có, được frontend Next.js/Vercel route tới
-FastAPI. Upload và ghi hình đều cần thao tác chủ động; checkbox đồng ý không
-được chọn sẵn. Video ghi xong được xem lại, chỉ gửi khi bấm nút riêng.
+FastAPI. Nút Ghi hình chủ động ghi ba giây rồi gửi video để nhận diện; thông báo
+cạnh nút nêu rõ việc gửi và cách xử lý tạm thời.
 Gương lật chỉ là CSS; video gửi đi giữ chiều gốc.
 
 ## Kết quả xác minh ngày 10/11/2026
@@ -179,8 +179,8 @@ NVIDIA RTX 4050 được hệ điều hành nhận diện. Cả TensorFlow Windo
 tự luyện**, **12 test frontend unit/deployment**; một test database được skip
 vì không có PostgreSQL kiểm thử. Đã kiểm tra token/CORS/timeout/replay/cleanup, checksum nguồn và
 checkpoint, build Next.js, frontend unit/deployment và browser VI/EN ở
-390/1440 px. Browser gửi video thật tới API CPU, kiểm tra consent, mất kết nối
-không đăng xuất, từ không hỗ trợ và ghi hình bằng camera tổng hợp phục vụ QA.
+390/1440 px. Phiên bản trước được kiểm tra gửi video thật tới API CPU; phiên bản
+nút Ghi hình mới được kiểm thử với camera tổng hợp và API nhận diện giả lập.
 Camera vật lý và đăng nhập Google trực tiếp chưa được kiểm thử; OAuth callback
 và schema/RLS Supabase không đổi, các test auth dùng mock upstream hiện có.
 
@@ -214,7 +214,7 @@ Fixture chỉ được bind `127.0.0.1`, không được đưa lên tunnel.
 - Laptop cắm nguồn, CPU inference `/ready` đạt, đúng checkpoint đã nạp.
 - Tunnel còn kết nối; `AI_API_URL`, signing key và CORS khớp.
 - Website Vercel truy cập được; kiểm tra Google login và Supabase bằng tài khoản thật.
-- Chọn từ được hỗ trợ, đồng ý gửi video, kiểm tra dự đoán hiển thị.
+- Chọn từ được hỗ trợ, bật camera, chọn Ghi hình và kiểm tra dự đoán hiển thị.
 - Đánh giá chất lượng nhận diện bằng video/người ký phù hợp trước khi dùng
   làm minh họa nhận diện đúng. Ba video kiểm tra hiện tại đều nhận sai.
 - Ngắt AI thử một lần: bài học, đăng nhập và checklist vẫn dùng được.

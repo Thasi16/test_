@@ -78,6 +78,7 @@
 
   function stopCamera(message = 'practice.camera.off') {
     requestId += 1;
+    aiClear();
     clearTimeout(cameraTimer);
     cameraTimer = null;
     const previousStream = stream;
@@ -93,6 +94,8 @@
     stopButton.hidden = true;
     stopButton.textContent = SH.t('practice.camera.stop');
     mirrorButton.disabled = true;
+    aiPaint();
+    if (ai.dataset.aiSupported === 'true') aiStatus.textContent = '';
     cameraStatus.textContent = SH.t(message);
   }
 
@@ -137,6 +140,7 @@
       startCamera.hidden = true;
       stopButton.textContent = SH.t('practice.camera.stop');
       mirrorButton.disabled = false;
+      aiPaint();
       cameraStatus.textContent = SH.t('practice.camera.live');
       incoming.getVideoTracks().forEach((track) => track.addEventListener('ended', () => {
         if (stream === incoming) stopCamera('practice.camera.ended');
@@ -263,83 +267,54 @@
     if (reference.error) missingReference();
   }
 
-  // AI is an explicit opt-in. Self-assessment history and login do not depend on it.
+  // Clicking record explicitly starts a three-second recording and sends it for recognition.
   const ai = find('[data-ai]');
-  let aiAbort = null, aiRecorder = null, aiTimer = null, aiBlob = null, aiURL = null;
-  let aiBusy = false;
   const aiStatus = find('[data-ai-status]');
   const aiResult = find('[data-ai-result]');
-  const aiPreview = find('[data-ai-preview]');
-  const aiConsent = find('[data-ai-consent]');
-  const aiSend = find('[data-ai-send]');
   const aiRecord = find('[data-ai-record]');
-
+  let aiAbort = null, aiRecorder = null, aiTimer = null, aiBusy = false;
   function aiPaint() {
-    aiSend.disabled = aiBusy || !aiBlob || !aiConsent.checked;
-    aiRecord.disabled = aiBusy;
-    find('[data-ai-file]').disabled = aiBusy;
+    aiRecord.disabled = aiBusy || !stream || !stream.active || ai.dataset.aiSupported !== 'true';
   }
   function aiClear() {
     if (aiAbort) aiAbort.abort();
     aiAbort = null;
     clearTimeout(aiTimer);
-    if (aiRecorder && aiRecorder.state !== 'inactive') {
+    if (aiRecorder) {
       aiRecorder.onstop = null;
-      aiRecorder.stop();
+      if (aiRecorder.state !== 'inactive') aiRecorder.stop();
     }
     aiRecorder = null;
-    if (aiURL) URL.revokeObjectURL(aiURL);
-    aiPreview.pause(); aiPreview.removeAttribute('src'); aiPreview.load();
-    aiPreview.hidden = true; aiResult.hidden = true;
-    aiURL = null; aiBlob = null; aiBusy = false;
-    aiRecord.textContent = SH.t('practice.ai.record');
-    find('[data-ai-file]').value = '';
+    aiBusy = false;
     aiPaint();
   }
-  function aiChoose(blob) {
-    if (!blob || !blob.size || blob.size > 20 * 1024 * 1024 || !['video/mp4', 'video/webm'].includes(blob.type.split(';')[0])) {
-      aiStatus.textContent = SH.t('practice.ai.invalid'); return;
-    }
-    if (aiURL) URL.revokeObjectURL(aiURL);
-    aiBlob = blob; aiURL = URL.createObjectURL(blob);
-    aiPreview.src = aiURL; aiPreview.hidden = false; aiResult.hidden = true;
-    aiStatus.textContent = SH.t('practice.ai.selected'); aiPaint();
-  }
-  if (ai.dataset.aiSupported === 'true') {
-    find('[data-ai-controls]').hidden = false;
-    aiStatus.textContent = SH.t('practice.ai.initial');
-  } else aiStatus.textContent = SH.t('practice.ai.unsupported');
-  aiConsent.addEventListener('change', () => {
-    if (!aiConsent.checked) { aiClear(); aiStatus.textContent = SH.t('practice.ai.initial'); }
-    aiPaint();
-  });
-  find('[data-ai-clear]').addEventListener('click', () => { aiClear(); aiStatus.textContent = SH.t('practice.ai.initial'); });
-  find('[data-ai-file]').addEventListener('change', (event) => {
-    if (!aiBusy) { const file = event.target.files[0]; aiClear(); aiChoose(file); }
-  });
+  if (ai.dataset.aiSupported !== 'true') aiStatus.textContent = SH.t('practice.ai.unsupported');
   aiRecord.addEventListener('click', () => {
-    if (!aiConsent.checked) { aiStatus.textContent = SH.t('practice.ai.need_consent'); return; }
-    if (!stream || !stream.active) { aiStatus.textContent = SH.t('practice.ai.need_camera'); startCamera.focus(); return; }
+    if (aiBusy || ai.dataset.aiSupported !== 'true') return;
+    if (!stream || !stream.active) { aiStatus.textContent = SH.t('practice.ai.need_camera'); return; }
     if (typeof MediaRecorder === 'undefined') { aiStatus.textContent = SH.t('practice.ai.record_unavailable'); return; }
     const mime = ['video/webm;codecs=vp8', 'video/webm', 'video/mp4'].find((type) => MediaRecorder.isTypeSupported(type));
     if (!mime) { aiStatus.textContent = SH.t('practice.ai.record_unavailable'); return; }
-    aiClear(); aiBusy = true; aiPaint();
+    aiClear(); aiBusy = true; aiPaint(); aiResult.hidden = true;
     const chunks = [];
     try {
       aiRecorder = new MediaRecorder(stream, { mimeType: mime, videoBitsPerSecond: 1800000 });
       aiRecorder.ondataavailable = (event) => { if (event.data.size) chunks.push(event.data); };
       aiRecorder.onerror = () => { aiClear(); aiStatus.textContent = SH.t('practice.ai.record_unavailable'); };
       aiRecorder.onstop = () => {
-        aiBusy = false; aiRecorder = null;
-        aiChoose(new Blob(chunks, { type: mime })); aiPaint();
+        aiRecorder = null;
+        const blob = new Blob(chunks, { type: mime });
+        if (!blob.size || blob.size > 20 * 1024 * 1024) {
+          aiBusy = false; aiPaint(); aiStatus.textContent = SH.t('practice.ai.invalid'); return;
+        }
+        sendRecording(blob);
       };
       aiRecorder.start();
       aiStatus.textContent = SH.t('practice.ai.recording');
       aiTimer = setTimeout(() => { if (aiRecorder && aiRecorder.state !== 'inactive') aiRecorder.stop(); }, 3000);
     } catch (error) { aiClear(); aiStatus.textContent = SH.t('practice.ai.record_unavailable'); }
   });
-  aiSend.addEventListener('click', async () => {
-    if (aiBusy || !aiBlob || !aiConsent.checked) return;
+  async function sendRecording(blob) {
     aiBusy = true; aiPaint(); aiResult.hidden = true;
     aiStatus.textContent = SH.t('practice.ai.running');
     const abort = new AbortController(); aiAbort = abort;
@@ -351,8 +326,8 @@
       if (!auth.ok) throw new Error(config.error?.code || 'ai_unavailable');
       if (abort.signal.aborted) return;
       const response = await fetch(config.endpoint, { method: 'POST', credentials: 'omit',
-        headers: { 'Authorization': 'Bearer ' + config.token, 'Content-Type': aiBlob.type.split(';')[0] },
-        body: aiBlob, signal: abort.signal, redirect: 'error', referrerPolicy: 'no-referrer' });
+        headers: { 'Authorization': 'Bearer ' + config.token, 'Content-Type': blob.type.split(';')[0] },
+        body: blob, signal: abort.signal, redirect: 'error', referrerPolicy: 'no-referrer' });
       const result = await response.json();
       if (!response.ok || result.success !== true) throw new Error(result.error?.code || 'ai_unavailable');
       if (abort.signal.aborted) return;
@@ -373,11 +348,10 @@
       clearTimeout(timer);
       if (aiAbort === abort) { aiAbort = null; aiBusy = false; aiPaint(); }
     }
-  });
+  }
 
   function suspend() {
     aiClear();
-    aiConsent.checked = false;
     stopCamera();
     cancelCountdown();
     if (reference) reference.pause();
