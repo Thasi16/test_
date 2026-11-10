@@ -42,7 +42,7 @@ try {
       await page.locator("[data-toolbar]:visible").waitFor();
       assert.equal(await page.locator(".dictionary-item").count(), 408);
       await page.locator('[data-module-filter="local"]').click();
-      assert.equal(await page.locator(".dictionary-item:visible").count(), 12);
+      assert.equal(await page.locator(".dictionary-item:visible").count(), 18);
       await page.locator('[data-module-filter="all"]').click();
       await page.locator("[data-search-input]").fill("con meo");
       assert.equal(

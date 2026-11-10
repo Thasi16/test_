@@ -30,11 +30,32 @@ Tìm “cam on” ra “Cảm ơn”; tìm “thank” ra “Cảm ơn”; slug 
 - `/` đưa focus vào ô tìm khi không nhập liệu; `Esc` xóa truy vấn. Số kết quả dùng vùng thông báo `aria-live`.
 - Yêu thích và nhãn trên thẻ cập nhật qua `sh:store`, kể cả sau reset. Không ghi nhận lượt xem hay thay đổi trạng thái bài học.
 - Media chỉ dùng đường dẫn cùng site. Video thiếu hoặc phát lỗi hiển thị thông báo của shell; video có sẵn luôn tắt âm thanh.
-- Bộ sưu tập `local-videos` có 12 video do người dùng cung cấp, trạng thái mẫu, chưa được chuyên gia duyệt. Các mục này có `lesson: null`, không tự mở bài hay thay đổi khung giáo trình. “Anh” giữ riêng với “Anh trai”; “Bận” dùng slug `ban-ron` để không trùng “Bạn”.
+- Bộ sưu tập `local-videos` hiện có 18 video do người dùng cung cấp, trạng thái mẫu, chưa được chuyên gia duyệt, đã ghép vào bài theo từ tiếng Việt trong giáo trình. “Anh” giữ riêng với “Anh trai”; “Bận” dùng slug `ban-ron` để không trùng “Bạn”.
 - Video gốc MPEG-4 Part 2 được giữ nguyên ở `demo_thasi/data/`. Bản H.264 dùng trên web nằm trong `static/media/local-videos/`, có checksum truy vết về bản gốc. Server hỗ trợ byte ranges để phát/tua bằng trình duyệt. Chuẩn bị video dùng PyAV đã có sẵn trên máy phát triển; website không import hoặc cần thư viện này khi chạy.
 - P1 sắp xếp A–Z/theo bài chưa triển khai; phím tắt `/` đã có.
 
 ## Kiểm tra
+
+### Bổ sung video từ `data_fill` (10/11/2026)
+
+Đã ghép 6 video mới vào các mục từ có sẵn: Uống (bài 8), Thức dậy (bài 10),
+Nhà (bài 13), Xe đạp và Ô tô (bài 14), Khóc (bài 17). Video Ăn (bài 8)
+trùng checksum bản gốc đã có nên giữ nguyên. Tổng cộng hiện có 18 video;
+giáo trình vẫn gồm 400 từ và 18 bài. Các video mới giữ trạng thái mẫu như bộ cũ.
+
+Bản web dùng H.264/yuv420p, giữ độ phân giải, tốc độ và số khung hình, hỗ trợ
+fast start. Mỗi mục có checksum bản gốc/bản web trong `data/curriculum.json`;
+`source.directory: data_fill` xác định nguồn của 6 video bổ sung.
+
+Để nhập lại an toàn, dùng Python có PyAV (chỉ cần khi chuẩn bị dữ liệu):
+
+```powershell
+python modules/dictionary/tools/import_fill_videos.py --source C:\Users\Admin\Desktop\data_fill
+```
+
+Công cụ giữ video đã nhập nếu checksum khớp và từ chối ghi đè video khác.
+Kiểm tra bằng `backend/tests/test_fill_videos.py` và
+`backend/tests/test_curriculum_materials.py` qua pytest.
 
 Chạy từ thư mục gốc dự án, không cần cài thư viện:
 

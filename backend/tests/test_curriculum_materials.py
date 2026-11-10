@@ -27,10 +27,10 @@ def test_syllabus_has_400_unique_words_and_all_18_lessons():
     assert data["_syllabus"]["words"] == 400
 
 
-def test_existing_video_files_are_unchanged_and_still_sample_media():
+def test_video_files_match_provenance_and_remain_sample_media():
     content = legacy.app_modules.content
     videos = [sign for sign in content.signs() if sign.get("video")]
-    assert len(videos) == 12
+    assert len(videos) == 18
     for sign in videos:
         assert sign["status"] == "sample"
         media = legacy.ROOT / sign["video"].lstrip("/")

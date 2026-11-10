@@ -2920,13 +2920,21 @@
         "vi": "Uống"
       },
       "meaning": {},
-      "status": "published",
-      "video": null,
+      "status": "sample",
+      "video": "/static/media/local-videos/uong.mp4",
       "thumbnail": null,
       "variants": [],
       "ai_supported": false,
       "lesson": 8,
-      "source_gloss": "Uống"
+      "source_gloss": "Uống",
+      "collection": "local-videos",
+      "source": {
+        "directory": "data_fill",
+        "relative_path": "uống/000736.mp4",
+        "sha256": "26bded6f9868ba61c607a1e8360537d438bc398eca0eccd36b99ddcba4745e4a",
+        "web_sha256": "b5b07ce421d0a802351bfce1e55707cacab7a160876b7b8194af96b8d049ac08",
+        "web_codec": "h264"
+      }
     },
     {
       "slug": "an",
@@ -3856,13 +3864,21 @@
         "vi": "Thức dậy"
       },
       "meaning": {},
-      "status": "published",
-      "video": null,
+      "status": "sample",
+      "video": "/static/media/local-videos/thuc-day.mp4",
       "thumbnail": null,
       "variants": [],
       "ai_supported": false,
       "lesson": 10,
-      "source_gloss": "Thức dậy"
+      "source_gloss": "Thức dậy",
+      "collection": "local-videos",
+      "source": {
+        "directory": "data_fill",
+        "relative_path": "thức dậy/000450.mp4",
+        "sha256": "43f7ec23bb8479d281cb1d9b4eff9af9d3ee9736462b3a3c3d393002dd7b0e0f",
+        "web_sha256": "f15ad3efbf4a6ba25b31e64c238114bb896e9a3b42c73c2df1e7b334b53ac296",
+        "web_codec": "h264"
+      }
     },
     {
       "slug": "tam-rua",
@@ -4600,13 +4616,21 @@
         "vi": "Nhà"
       },
       "meaning": {},
-      "status": "published",
-      "video": null,
+      "status": "sample",
+      "video": "/static/media/local-videos/nha.mp4",
       "thumbnail": null,
       "variants": [],
       "ai_supported": false,
       "lesson": 13,
-      "source_gloss": "Nhà"
+      "source_gloss": "Nhà",
+      "collection": "local-videos",
+      "source": {
+        "directory": "data_fill",
+        "relative_path": "nhà/000074.mp4",
+        "sha256": "39ac2926146142bab7a9ce3f6b0d04fa1e98fd1db804255b2f07b98d521fb2c8",
+        "web_sha256": "3380df537d7123446b3e5925139e585b2ca9fa58fe3c9b349cf1d93526a2374e",
+        "web_codec": "h264"
+      }
     },
     {
       "slug": "nha-hang",
@@ -5000,13 +5024,21 @@
         "vi": "Xe đạp"
       },
       "meaning": {},
-      "status": "published",
-      "video": null,
+      "status": "sample",
+      "video": "/static/media/local-videos/xe-dap.mp4",
       "thumbnail": null,
       "variants": [],
       "ai_supported": false,
       "lesson": 14,
-      "source_gloss": "Xe đạp"
+      "source_gloss": "Xe đạp",
+      "collection": "local-videos",
+      "source": {
+        "directory": "data_fill",
+        "relative_path": "xe đạp/000410.mp4",
+        "sha256": "acedeb09e50bd740d942c6cc82ff1f7551e4429077e9e03a938ada7adeacd4cf",
+        "web_sha256": "53979d9739a835f43f60849ecf8841a8d9ed57c135cb89497c6041424d5a389a",
+        "web_codec": "h264"
+      }
     },
     {
       "slug": "o-to",
@@ -5014,13 +5046,21 @@
         "vi": "Ô tô"
       },
       "meaning": {},
-      "status": "published",
-      "video": null,
+      "status": "sample",
+      "video": "/static/media/local-videos/o-to.mp4",
       "thumbnail": null,
       "variants": [],
       "ai_supported": false,
       "lesson": 14,
-      "source_gloss": "Ô tô"
+      "source_gloss": "Ô tô",
+      "collection": "local-videos",
+      "source": {
+        "directory": "data_fill",
+        "relative_path": "ô tô/000402.mp4",
+        "sha256": "2fa8b4090e9da17c845ebb11baf584a31de2c5d785efa810a6e1b960dc5a36fc",
+        "web_sha256": "d03f56fb672602a0722c0d6ce634490500ca5d25daf61b4fe3fb83ca92485dda",
+        "web_codec": "h264"
+      }
     },
     {
       "slug": "di-2",
@@ -5826,13 +5866,21 @@
         "vi": "Khóc"
       },
       "meaning": {},
-      "status": "published",
-      "video": null,
+      "status": "sample",
+      "video": "/static/media/local-videos/khoc.mp4",
       "thumbnail": null,
       "variants": [],
       "ai_supported": false,
       "lesson": 17,
-      "source_gloss": "Khóc"
+      "source_gloss": "Khóc",
+      "collection": "local-videos",
+      "source": {
+        "directory": "data_fill",
+        "relative_path": "khóc/000744.mp4",
+        "sha256": "fd5d9c91f6ba383a474cc2e9029e1eea0fe33212e6e4ed05ab99b738627f93d3",
+        "web_sha256": "fa9e9c922da470624d2fb3c4edae41eee30f4b53d50534aabc03692724146fcb",
+        "web_codec": "h264"
+      }
     },
     {
       "slug": "khong-quen",
@@ -6586,7 +6634,7 @@
     "source_directory": "../data",
     "reviewed": false,
     "translations_reviewed": false,
-    "note": "Existing sample videos mapped by exact Vietnamese gloss to the supplied syllabus. No additional videos imported; sample media remains unreviewed."
+    "note": "User-supplied sample videos mapped by exact Vietnamese gloss to the syllabus. Original and web checksums record provenance; media remains unreviewed."
   },
   "_syllabus": {
     "file": "Giao_trinh_VSL_400_Tu_vung.pdf.pdf",
