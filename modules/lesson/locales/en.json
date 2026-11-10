@@ -1,6 +1,6 @@
 {
   "lesson.title": "Lesson",
-  "lesson.lead": "Watch each reference sign, read what to observe, then move on to self-practice or the quiz.",
+  "lesson.lead": "Explore vocabulary from the VSL 400 syllabus. Signs with reference videos include observation and self-practice tools.",
   "lesson.number": "Lesson {n}",
   "lesson.module": "MODULE {n}",
   "lesson.signs": "{n} signs",
@@ -20,7 +20,7 @@
   "lesson.dictionary": "View in dictionary",
   "lesson.quiz": "Take the quiz",
   "lesson.back": "Back to learning path",
-  "lesson.ready": "You have viewed every sign in this lesson. Take the quiz when you are ready.",
+  "lesson.ready": "You have viewed every vocabulary word in this lesson.",
   "lesson.empty": "There are no signs to display in this lesson yet.",
   "lesson.observe.title": "What to observe",
   "lesson.observe.hint": "Compare this aspect with the reference video.",

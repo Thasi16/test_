@@ -26,7 +26,10 @@ export function Footer({ locale }: { locale: Locale }) {
           <p className="footer-tagline">{t["site.tagline"]}</p>
         </div>
         <div className="footer-bottom">
-          <small>© 2026 SignHearing</small>
+          <div className="footer-copyright">
+            <small>© 2026 SignHearing</small>
+            <p className="footer-attribution">{t["footer.attribution"]}</p>
+          </div>
           <p>{t["footer.note"]}</p>
           <a href={localized("/#lien-he", locale)}>
             {t["action.contact"]}

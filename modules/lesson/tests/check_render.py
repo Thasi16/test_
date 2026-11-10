@@ -39,7 +39,7 @@ def fixture():
 
 class RenderChecks(unittest.TestCase):
     def test_invalid_and_closed_lessons(self):
-        for identifier in ('3', '999', 'abc', '-1', ''):
+        for identifier in ('999', 'abc', '-1', ''):
             with self.subTest(identifier=identifier), self.assertRaises(app_modules.NotFound):
                 VIEW.context(request(lesson_id=identifier))
 
@@ -48,13 +48,22 @@ class RenderChecks(unittest.TestCase):
         en = {key for key in DICTIONARIES['en'] if key.startswith('lesson.')}
         self.assertEqual(vi, en)
         for locale in ('vi', 'en'):
-            for identifier in ('1', '2'):
+            for identifier in map(str, range(1, 19)):
                 values = VIEW.context(request(locale, identifier))
                 self.assertTrue(all(key.startswith('lesson.') for key in values))
                 for sign in content.signs(int(identifier)):
                     self.assertIn('href="#sign-' + sign['slug'] + '"', values['lesson.list.html'])
                     self.assertIn('id="sign-' + sign['slug'] + '"', values['lesson.articles.html'])
-                self.assertEqual(values['lesson.articles.html'].count('data-video-missing'), len(content.signs(int(identifier))))
+                self.assertEqual(values['lesson.articles.html'].count('data-video-missing'),
+                                 sum(bool(s['video']) for s in content.signs(int(identifier))))
+
+    def test_vocabulary_only_lesson_has_no_empty_player_or_quiz(self):
+        values = VIEW.context(request(lesson_id='18'))
+        self.assertNotIn('lesson-media', values['lesson.articles.html'])
+        self.assertNotIn('lesson-observe', values['lesson.articles.html'])
+        self.assertNotIn('/app/practice/', values['lesson.articles.html'])
+        self.assertEqual('', values['lesson.quiz.html'])
+        self.assertEqual(10, values['lesson.articles.html'].count('<article'))
 
     def test_escape_all_content_and_media_attributes(self):
         sign = dict(content.signs(1)[0])

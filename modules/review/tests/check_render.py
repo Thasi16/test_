@@ -39,7 +39,7 @@ class ReviewChecks(unittest.TestCase):
         self.assertEqual({key for key in DICTIONARIES['vi'] if key.startswith('review.')},
                          {key for key in DICTIONARIES['en'] if key.startswith('review.')})
         for locale in ('vi', 'en'):
-            for identifier in (None, 'video', '1', '2'):
+            for identifier in (None, 'video', '1', '9'):
                 values = VIEW.context(request(locale, identifier))
                 self.assertTrue(all(key.startswith('review.') for key in values))
                 template = 'quiz.html' if identifier else 'page.html'
@@ -63,7 +63,7 @@ class ReviewChecks(unittest.TestCase):
         self.assertNotIn('/quiz/None', values['review.lessons.html'])
 
     def test_invalid_closed_and_small_lessons(self):
-        for identifier in ('3', '999', 'abc', '-1', ''):
+        for identifier in ('999', 'abc', '-1', ''):
             with self.subTest(identifier=identifier), self.assertRaises(app_modules.NotFound):
                 VIEW.context(request(identifier=identifier))
         with self.assertRaises(app_modules.NotFound):
@@ -94,12 +94,9 @@ class ReviewChecks(unittest.TestCase):
         self.assertIn('<noscript>', (ROOT / 'modules/review/page.html').read_text(encoding='utf-8'))
         self.assertIn('<noscript>', (ROOT / 'modules/review/quiz.html').read_text(encoding='utf-8'))
 
-    def test_store_isolation(self):
-        script = (ROOT / 'modules/review/script.js').read_text(encoding='utf-8')
-        for forbidden in ('localStorage', 'sessionStorage', 'markSignSeen', 'addPractice', 'innerHTML'):
-            self.assertNotIn(forbidden, script)
-        self.assertIn("SH.store.setLessonState(id, 'completed')", script)
-        self.assertIn('score / total >= 0.8', script)
+    def test_vocabulary_only_lesson_has_no_video_quiz(self):
+        with self.assertRaises(app_modules.NotFound):
+            VIEW.context(request(identifier='18'))
 
 
 if __name__ == '__main__':

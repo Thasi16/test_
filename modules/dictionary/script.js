@@ -24,7 +24,8 @@
       let count = 0;
       cards.forEach((card) => {
         const match = tokens.every((token) => card.dataset.search.includes(token))
-          && (moduleId === 'all' || card.dataset.module === moduleId)
+          && (moduleId === 'all' || card.dataset.module === moduleId
+            || (moduleId === 'local' && card.dataset.collection === 'local-videos'))
           && (!onlyFavorites || SH.store.isFavorite(card.dataset.slug));
         card.hidden = !match;
         if (match) count += 1;

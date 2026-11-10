@@ -1,6 +1,6 @@
 {
-  "version": "vsl400-framework-draft",
-  "_readme": "Owned by the content lead. Lesson titles 3-18 (null = not entered yet) and all sign lists still have to be copied from the VSL 400 syllabus and reviewed. status: planned | draft | sample | published. 'sample' = UI-development placeholder, only shown when site-config show_sample_content is true. video stays null until an approved video exists.",
+  "version": "vsl400-syllabus-vocabulary-1",
+  "_readme": "All 400 word labels and 18 lesson titles follow the supplied VSL 400 PDF. Published lessons expose vocabulary; video availability is independent. Only pre-existing sample videos are retained; no source videos were imported. English word labels fall back to Vietnamese where a translation is not available.",
   "modules": [
     {
       "id": 1,
@@ -106,330 +106,628 @@
       "id": 1,
       "module": 1,
       "title": {
-        "vi": "Chào hỏi cơ bản",
-        "en": "Basic greetings"
+        "vi": "Gia đình & Họ hàng",
+        "en": "Family & relatives"
       },
-      "status": "sample",
+      "status": "published",
       "signs": [
-        "xin-chao",
-        "tam-biet",
-        "cam-on",
-        "xin-loi",
-        "toi",
-        "ban",
-        "ten"
-      ]
+        "ba-ngoai",
+        "ba-noi",
+        "bac",
+        "bo",
+        "chau",
+        "chu",
+        "chi",
+        "chong",
+        "con-gai",
+        "con-trai",
+        "co",
+        "cau",
+        "di",
+        "em",
+        "ho-hang",
+        "me",
+        "ong-ngoai",
+        "ong-noi",
+        "vo"
+      ],
+      "source_page": 1
     },
     {
       "id": 2,
       "module": 1,
       "title": {
-        "vi": "Thành viên gia đình",
-        "en": "Family members"
+        "vi": "Hành động & Phản hồi giao tiếp cơ bản",
+        "en": "Basic communication actions & responses"
       },
-      "status": "sample",
+      "status": "published",
       "signs": [
-        "gia-dinh",
-        "bo",
-        "me",
-        "anh-trai",
-        "chi-gai",
-        "em"
-      ]
+        "bat-buoc",
+        "bat-chuoc",
+        "cho",
+        "chu-y",
+        "co-2",
+        "cam-on",
+        "can",
+        "giup-do",
+        "gioi-thieu",
+        "goi",
+        "hua",
+        "khong-cho",
+        "khong-can",
+        "khong-nen",
+        "muon",
+        "mach",
+        "nghe",
+        "nen",
+        "noi",
+        "noi-chuyen",
+        "quan-sat",
+        "thay-doi",
+        "thu",
+        "tiep-tuc",
+        "tim",
+        "tu-choi",
+        "xin",
+        "xin-loi",
+        "dong-y"
+      ],
+      "source_page": 1
     },
     {
       "id": 3,
       "module": 2,
-      "title": null,
-      "status": "planned",
-      "signs": []
+      "title": {
+        "vi": "Khái niệm Thời gian & Các buổi trong ngày",
+        "en": "Time & times of day"
+      },
+      "status": "published",
+      "signs": [
+        "buoi-chieu",
+        "buoi-sang",
+        "buoi-trua",
+        "buoi-toi",
+        "bay-gio",
+        "binh-minh",
+        "chu-nhat",
+        "giay",
+        "gio",
+        "hoang-hon",
+        "ngay",
+        "nam",
+        "phut",
+        "som",
+        "thoi-gian",
+        "thu-ba",
+        "thu-bay",
+        "thu-hai",
+        "thu-nam",
+        "thu-sau",
+        "thu-tu",
+        "tre"
+      ],
+      "source_page": 2
     },
     {
       "id": 4,
       "module": 2,
-      "title": null,
-      "status": "planned",
-      "signs": []
+      "title": {
+        "vi": "Tháng trong năm & Các ngày Lễ hội",
+        "en": "Months & festivals"
+      },
+      "status": "published",
+      "signs": [
+        "giang-sinh",
+        "ngay-nha-giao-viet-nam",
+        "ngay-quoc-te-lao-dong",
+        "ngay-quoc-te-phu-nu",
+        "ngay-quoc-te-thieu-nhi",
+        "thang",
+        "thang-mot",
+        "thang-hai",
+        "thang-ba",
+        "thang-tu",
+        "thang-nam",
+        "thang-sau",
+        "thang-bay",
+        "thang-tam",
+        "thang-chin",
+        "thang-muoi",
+        "thang-muoi-mot",
+        "thang-muoi-hai",
+        "trung-thu",
+        "tet-am-lich"
+      ],
+      "source_page": 2
     },
     {
       "id": 5,
       "module": 2,
-      "title": null,
-      "status": "planned",
-      "signs": []
+      "title": {
+        "vi": "Thời tiết, Khí hậu & Các mùa",
+        "en": "Weather, climate & seasons"
+      },
+      "status": "published",
+      "signs": [
+        "gio-2",
+        "kho",
+        "lanh",
+        "mat-me",
+        "mua-he",
+        "mua-kho",
+        "mua-mua",
+        "mua-thu",
+        "mua-xuan",
+        "mua-dong",
+        "mua",
+        "nong",
+        "nang",
+        "thoi-tiet",
+        "uot",
+        "am"
+      ],
+      "source_page": 2
     },
     {
       "id": 6,
       "module": 3,
-      "title": null,
-      "status": "planned",
-      "signs": []
+      "title": {
+        "vi": "Món ăn & Đồ uống",
+        "en": "Food & drinks"
+      },
+      "status": "published",
+      "signs": [
+        "bia",
+        "banh-bao",
+        "banh-chung",
+        "banh-tet",
+        "banh-xeo",
+        "bun",
+        "ca-phe",
+        "gao",
+        "kem",
+        "keo",
+        "mi-goi",
+        "nuoc",
+        "pho",
+        "ruou",
+        "sua",
+        "thit",
+        "tra",
+        "trung",
+        "xoi"
+      ],
+      "source_page": 2
     },
     {
       "id": 7,
       "module": 3,
-      "title": null,
-      "status": "planned",
-      "signs": []
+      "title": {
+        "vi": "Các loại Trái cây",
+        "en": "Fruit"
+      },
+      "status": "published",
+      "signs": [
+        "qua-bo",
+        "qua-cam",
+        "qua-chuoi",
+        "qua-dau",
+        "qua-dua",
+        "qua-dua-2",
+        "qua-man",
+        "qua-xoai",
+        "qua-du-du",
+        "qua-dao"
+      ],
+      "source_page": 2
     },
     {
       "id": 8,
       "module": 3,
-      "title": null,
-      "status": "planned",
-      "signs": []
+      "title": {
+        "vi": "Chế biến, Hương vị & Mua sắm",
+        "en": "Cooking, flavours & shopping"
+      },
+      "status": "published",
+      "signs": [
+        "cay",
+        "chua",
+        "cung-cap",
+        "do",
+        "hoi",
+        "mua-ban",
+        "man",
+        "ngon-mieng",
+        "ngot",
+        "ngui",
+        "nhat",
+        "nuong",
+        "nau",
+        "nem",
+        "re",
+        "tham-an",
+        "them",
+        "thom",
+        "uong",
+        "an",
+        "dam",
+        "dang",
+        "dat"
+      ],
+      "source_page": 2
     },
     {
       "id": 9,
       "module": 4,
-      "title": null,
-      "status": "planned",
-      "signs": []
+      "title": {
+        "vi": "Trang phục, Phụ kiện & Màu sắc",
+        "en": "Clothing, accessories & colours"
+      },
+      "status": "published",
+      "signs": [
+        "ba-lo",
+        "cai-quan",
+        "cai-ao",
+        "day-chuyen",
+        "dep",
+        "giay-2",
+        "khan-quang-co",
+        "kep-toc",
+        "mu",
+        "mu-bao-hiem",
+        "quan-thun",
+        "quan-tay",
+        "quan-dui",
+        "tui-xach",
+        "vong-tay",
+        "ao-so-mi",
+        "ao-thun",
+        "ao-dam",
+        "do-buoc-toc",
+        "dong-ho-deo-tay",
+        "mau-cam",
+        "mau-hong",
+        "mau-nau",
+        "mau-trang",
+        "mau-tim",
+        "mau-vang",
+        "mau-xanh-da-troi",
+        "mau-xanh-la-cay",
+        "mau-den",
+        "mau-do"
+      ],
+      "source_page": 3
     },
     {
       "id": 10,
       "module": 4,
-      "title": null,
-      "status": "planned",
-      "signs": []
+      "title": {
+        "vi": "Đồ dùng gia đình & Sinh hoạt thường nhật",
+        "en": "Household items & daily routines"
+      },
+      "status": "published",
+      "signs": [
+        "chia-khoa",
+        "cai-ban",
+        "cai-chao",
+        "cai-cua",
+        "cai-ghe",
+        "cai-keo",
+        "cai-noi",
+        "cai-den",
+        "cua-so",
+        "giuong",
+        "goi-dau",
+        "may-giat",
+        "may-dieu-hoa",
+        "men",
+        "noi-com-dien",
+        "quat-dung",
+        "tivi",
+        "tuong",
+        "tu-lanh",
+        "dien-thoai",
+        "do-dung",
+        "giat-do",
+        "goi-dau-2",
+        "nghi-ngoi",
+        "ngu",
+        "phoi-do",
+        "rua-chen",
+        "rua-mat",
+        "rua-tay",
+        "thuc-day",
+        "tam-rua"
+      ],
+      "source_page": 3
     },
     {
       "id": 11,
       "module": 5,
-      "title": null,
-      "status": "planned",
-      "signs": []
+      "title": {
+        "vi": "Trường lớp & Dụng cụ học tập",
+        "en": "School & learning supplies"
+      },
+      "status": "published",
+      "signs": [
+        "but-bi",
+        "but-chi",
+        "bang",
+        "cuc-tay",
+        "dung-cu-hoc-tap",
+        "giay-nhap",
+        "hieu-truong",
+        "hoc",
+        "hoc-sinh",
+        "kinh-lup",
+        "lam-bai-tap",
+        "may-chieu",
+        "may-tinh-cam-tay",
+        "qua-dia-cau",
+        "sinh-vien",
+        "sach",
+        "thuoc-ke",
+        "truong-cao-dang",
+        "truong-hoc",
+        "truong-dai-hoc",
+        "vien-phan",
+        "viet",
+        "vo-2",
+        "doc"
+      ],
+      "source_page": 3
     },
     {
       "id": 12,
       "module": 5,
-      "title": null,
-      "status": "planned",
-      "signs": []
+      "title": {
+        "vi": "Nghề nghiệp & Môi trường Công sở",
+        "en": "Occupations & the workplace"
+      },
+      "status": "published",
+      "signs": [
+        "ban-phim",
+        "bac-si",
+        "bao-cao",
+        "bao-ve",
+        "ban-ron",
+        "ca-si",
+        "chu-tich",
+        "cong-ty",
+        "dien-vien",
+        "giam-doc",
+        "ke-toan",
+        "laptop",
+        "luat-su",
+        "lam-viec",
+        "le-tan",
+        "nghe-nghiep",
+        "nhan-vien-phuc-vu",
+        "nhan-vien-van-phong",
+        "nong-dan",
+        "thu-ky",
+        "y-ta",
+        "dau-bep"
+      ],
+      "source_page": 3
     },
     {
       "id": 13,
       "module": 6,
-      "title": null,
-      "status": "planned",
-      "signs": []
+      "title": {
+        "vi": "Địa điểm, Quốc gia & Khoảng cách",
+        "en": "Places, countries & distances"
+      },
+      "status": "published",
+      "signs": [
+        "benh-vien",
+        "cho-2",
+        "cong-vien",
+        "ngan-hang",
+        "nha",
+        "nha-hang",
+        "nha-sach",
+        "nha-tro",
+        "quan-ca-phe",
+        "rap-chieu-phim",
+        "sieu-thi",
+        "thanh-pho",
+        "tinh",
+        "anh",
+        "gan",
+        "han-quoc",
+        "my",
+        "nhat-ban",
+        "thai-lan",
+        "trung-quoc",
+        "viet-nam",
+        "xa"
+      ],
+      "source_page": 3
     },
     {
       "id": 14,
       "module": 6,
-      "title": null,
-      "status": "planned",
-      "signs": []
+      "title": {
+        "vi": "Phương tiện & Hoạt động di chuyển",
+        "en": "Transport & movement"
+      },
+      "status": "published",
+      "signs": [
+        "chay",
+        "dung-lai",
+        "may-bay",
+        "taxi",
+        "thuyen",
+        "truc-thang",
+        "tau-hoa",
+        "xe-buyt",
+        "xe-may",
+        "xe-tai",
+        "xe-dap",
+        "o-to",
+        "di-2"
+      ],
+      "source_page": 3
     },
     {
       "id": 15,
       "module": 7,
-      "title": null,
-      "status": "planned",
-      "signs": []
+      "title": {
+        "vi": "Thể thao & Hoạt động Giải trí",
+        "en": "Sports & leisure"
+      },
+      "status": "published",
+      "signs": [
+        "bong-ban",
+        "bong-chuyen",
+        "bong-ro",
+        "bong-da",
+        "boi-loi",
+        "choi-co",
+        "chup-hinh",
+        "cau-long",
+        "cam-trai",
+        "hat",
+        "mua-2",
+        "nhay-cao",
+        "nhay-day",
+        "the-duc-the-thao",
+        "vo-3",
+        "xem",
+        "dien-kinh",
+        "da-cau"
+      ],
+      "source_page": 4
     },
     {
       "id": 16,
       "module": 7,
-      "title": null,
-      "status": "planned",
-      "signs": []
+      "title": {
+        "vi": "Ngoại hình, Sức khỏe & Tính chất vật lý",
+        "en": "Appearance, health & physical properties"
+      },
+      "status": "published",
+      "signs": [
+        "cao-nguoi",
+        "chet",
+        "gia",
+        "kham-benh",
+        "khoe",
+        "lun",
+        "manh",
+        "map",
+        "met",
+        "tre-2",
+        "xau-nguoi",
+        "yeu",
+        "dau",
+        "dep-nguoi",
+        "om",
+        "cao-do-vat",
+        "chat",
+        "cu",
+        "cung",
+        "dai",
+        "do-2",
+        "hu",
+        "hep",
+        "mem",
+        "moi",
+        "ngan",
+        "nhe",
+        "nang-2",
+        "rong",
+        "sach-se",
+        "thap-do-vat",
+        "xau-vat",
+        "dep-vat"
+      ],
+      "source_page": 4
     },
     {
       "id": 17,
       "module": 8,
-      "title": null,
-      "status": "planned",
-      "signs": []
+      "title": {
+        "vi": "Cảm xúc, Tính cách & Đánh giá",
+        "en": "Emotions, personality & judgements"
+      },
+      "status": "published",
+      "signs": [
+        "cuoi",
+        "cam-thay",
+        "doi",
+        "ghet",
+        "hy-vong",
+        "khoc",
+        "khong-quen",
+        "quen",
+        "thich",
+        "yeu-thuong",
+        "cham-chi",
+        "dung-cam",
+        "du",
+        "giau",
+        "gioi",
+        "hien",
+        "hai-huoc",
+        "khoe-khoang",
+        "khong-nghe-loi",
+        "luoi-bieng",
+        "ngheo",
+        "ngoan",
+        "ngu-ngoc",
+        "sang-tao",
+        "tham-lam",
+        "thong-minh",
+        "tot-bung",
+        "vang-loi",
+        "cham-chap",
+        "de",
+        "hay-khen",
+        "kho-2",
+        "nhanh",
+        "nham-lan",
+        "sai",
+        "thu-vi",
+        "yen-tinh",
+        "dung",
+        "on-ao"
+      ],
+      "source_page": 4
     },
     {
       "id": 18,
       "module": 8,
-      "title": null,
-      "status": "planned",
-      "signs": []
+      "title": {
+        "vi": "Thế giới Động vật",
+        "en": "Animals"
+      },
+      "status": "published",
+      "signs": [
+        "con-bo",
+        "con-cho",
+        "con-de",
+        "con-ga",
+        "con-heo",
+        "con-meo",
+        "con-rua",
+        "con-tho",
+        "con-trau",
+        "con-vit"
+      ],
+      "source_page": 4
     }
   ],
   "signs": [
-    {
-      "slug": "anh",
-      "word": {
-        "vi": "Anh",
-        "en": "Older brother / male addressee"
-      },
-      "meaning": {
-        "vi": "Ký hiệu trong bộ video của bạn.",
-        "en": "Sign from your video collection."
-      },
-      "lesson": null,
-      "collection": "local-videos",
-      "status": "sample",
-      "video": "/static/media/local-videos/anh.mp4",
-      "thumbnail": null,
-      "variants": [],
-      "ai_supported": false,
-      "source": {
-        "relative_path": "Anh/000000.mp4",
-        "sha256": "d124b2f15b22b1d1a15fee1667e171ead509963ec98c2176da6b6e96cd581ce2",
-        "web_sha256": "3e5cbe3805e4df925d19bbf91fb063f308308d9b511b6fcf0eef17bd443db866",
-        "web_codec": "h264"
-      }
-    },
-    {
-      "slug": "an",
-      "word": {
-        "vi": "Ăn",
-        "en": "Eat"
-      },
-      "meaning": {
-        "vi": "Ký hiệu trong bộ video của bạn.",
-        "en": "Sign from your video collection."
-      },
-      "lesson": null,
-      "collection": "local-videos",
-      "status": "sample",
-      "video": "/static/media/local-videos/an.mp4",
-      "thumbnail": null,
-      "variants": [],
-      "ai_supported": false,
-      "source": {
-        "relative_path": "Ăn/000734.mp4",
-        "sha256": "07377898668dbcec088003424b125a319d33594ed078fe6c4d20dbf46f4867ce",
-        "web_sha256": "daa1bf4a5c6f85d61c259ff221346a997932c62591730c451ea1125f47358fac",
-        "web_codec": "h264"
-      }
-    },
-    {
-      "slug": "am",
-      "word": {
-        "vi": "Ấm",
-        "en": "Warm / kettle"
-      },
-      "meaning": {
-        "vi": "Ký hiệu trong bộ video của bạn.",
-        "en": "Sign from your video collection."
-      },
-      "lesson": null,
-      "collection": "local-videos",
-      "status": "sample",
-      "video": "/static/media/local-videos/am.mp4",
-      "thumbnail": null,
-      "variants": [],
-      "ai_supported": false,
-      "source": {
-        "relative_path": "Ấm/000579.mp4",
-        "sha256": "afec19a0e42b7dd270efe1ceee23c06828b450b584c24767ac8d3ed155aadd53",
-        "web_sha256": "a9a5eb539f712bd71d27ff79f7b0bedcf482801455f68db94889251c1a500085",
-        "web_codec": "h264"
-      }
-    },
-    {
-      "slug": "ao-so-mi",
-      "word": {
-        "vi": "Áo sơ mi",
-        "en": "Shirt"
-      },
-      "meaning": {
-        "vi": "Ký hiệu trong bộ video của bạn.",
-        "en": "Sign from your video collection."
-      },
-      "lesson": null,
-      "collection": "local-videos",
-      "status": "sample",
-      "video": "/static/media/local-videos/ao-so-mi.mp4",
-      "thumbnail": null,
-      "variants": [],
-      "ai_supported": false,
-      "source": {
-        "relative_path": "Áo sơ mi/000334.mp4",
-        "sha256": "67c6c23ffece6e4f07b5b1e73a17c280a3e5b1164e7cd0466f890c1971c2da4b",
-        "web_sha256": "cf282f561388942eef8948bfca1e752c01b570be481ba3d775e889f0ee28e69e",
-        "web_codec": "h264"
-      }
-    },
-    {
-      "slug": "ao-thun",
-      "word": {
-        "vi": "Áo thun",
-        "en": "T-shirt"
-      },
-      "meaning": {
-        "vi": "Ký hiệu trong bộ video của bạn.",
-        "en": "Sign from your video collection."
-      },
-      "lesson": null,
-      "collection": "local-videos",
-      "status": "sample",
-      "video": "/static/media/local-videos/ao-thun.mp4",
-      "thumbnail": null,
-      "variants": [],
-      "ai_supported": false,
-      "source": {
-        "relative_path": "Áo thun/000326.mp4",
-        "sha256": "ca0d61adb9f999bb9dc97e28a5d40f79ef580ca925ba56e60c3b0769392a0ca8",
-        "web_sha256": "89de776db0e079f02d569db79ffb638c59391f3db4ec2e9074b469a21c343678",
-        "web_codec": "h264"
-      }
-    },
-    {
-      "slug": "ao-dam",
-      "word": {
-        "vi": "Áo đầm",
-        "en": "Dress"
-      },
-      "meaning": {
-        "vi": "Ký hiệu trong bộ video của bạn.",
-        "en": "Sign from your video collection."
-      },
-      "lesson": null,
-      "collection": "local-videos",
-      "status": "sample",
-      "video": "/static/media/local-videos/ao-dam.mp4",
-      "thumbnail": null,
-      "variants": [],
-      "ai_supported": false,
-      "source": {
-        "relative_path": "Áo đầm/000338.mp4",
-        "sha256": "f43e2a72bc95aa7e8187e6cdecdeac7b0a7d138f2f2d2580416137ed200e823b",
-        "web_sha256": "6ecf3417868ca443f4ac20a7ce900f0e677107a6c9b940745d2ceabf8748e17e",
-        "web_codec": "h264"
-      }
-    },
-    {
-      "slug": "ba-lo",
-      "word": {
-        "vi": "Ba lô",
-        "en": "Backpack"
-      },
-      "meaning": {
-        "vi": "Ký hiệu trong bộ video của bạn.",
-        "en": "Sign from your video collection."
-      },
-      "lesson": null,
-      "collection": "local-videos",
-      "status": "sample",
-      "video": "/static/media/local-videos/ba-lo.mp4",
-      "thumbnail": null,
-      "variants": [],
-      "ai_supported": false,
-      "source": {
-        "relative_path": "Ba lô/000300.mp4",
-        "sha256": "c83731bc73a1b16c523eeb505f73e348e5f718bfaf78021afe7224293b74ef85",
-        "web_sha256": "ecbeafed95e4bbff3bc08066ba526faea29da758a9eefba721ebc9d1007cfb54",
-        "web_codec": "h264"
-      }
-    },
     {
       "slug": "ba-ngoai",
       "word": {
         "vi": "Bà ngoại",
         "en": "Maternal grandmother"
       },
-      "meaning": {
-        "vi": "Ký hiệu trong bộ video của bạn.",
-        "en": "Sign from your video collection."
-      },
-      "lesson": null,
+      "meaning": {},
+      "lesson": 1,
       "collection": "local-videos",
       "status": "sample",
       "video": "/static/media/local-videos/ba-ngoai.mp4",
@@ -441,7 +739,8 @@
         "sha256": "23c40db38014e84703f5f343f201189e77994330553c4d498da8d40f6a79f82a",
         "web_sha256": "2863ad719f2ce5f9707e9b8c11c8cfd9b7fcd506c2230377f1eb490ef945a988",
         "web_codec": "h264"
-      }
+      },
+      "source_gloss": "Bà ngoại"
     },
     {
       "slug": "ba-noi",
@@ -449,11 +748,8 @@
         "vi": "Bà nội",
         "en": "Paternal grandmother"
       },
-      "meaning": {
-        "vi": "Ký hiệu trong bộ video của bạn.",
-        "en": "Sign from your video collection."
-      },
-      "lesson": null,
+      "meaning": {},
+      "lesson": 1,
       "collection": "local-videos",
       "status": "sample",
       "video": "/static/media/local-videos/ba-noi.mp4",
@@ -465,7 +761,8 @@
         "sha256": "a1c167a95bbd61b447e0c280e16fb5e63c7c391726a1b2c738a48cab907ec6b5",
         "web_sha256": "fa660fa29f1011dbc43fb1829304506af77f0e74fc5eb187eca7660b973c0edd",
         "web_codec": "h264"
-      }
+      },
+      "source_gloss": "Bà nội"
     },
     {
       "slug": "bac",
@@ -473,11 +770,8 @@
         "vi": "Bác",
         "en": "Elder aunt / uncle"
       },
-      "meaning": {
-        "vi": "Ký hiệu trong bộ video của bạn.",
-        "en": "Sign from your video collection."
-      },
-      "lesson": null,
+      "meaning": {},
+      "lesson": 1,
       "collection": "local-videos",
       "status": "sample",
       "video": "/static/media/local-videos/bac.mp4",
@@ -489,191 +783,8 @@
         "sha256": "829d680d7c5c5a9d513e3d1d3a15183a2e764da4205be658689f9511031a5e9e",
         "web_sha256": "ff28105ee6f867973331c5761dffd1d3cabde2275762c712ca8cfed80c904369",
         "web_codec": "h264"
-      }
-    },
-    {
-      "slug": "bac-si",
-      "word": {
-        "vi": "Bác sĩ",
-        "en": "Doctor"
       },
-      "meaning": {
-        "vi": "Ký hiệu trong bộ video của bạn.",
-        "en": "Sign from your video collection."
-      },
-      "lesson": null,
-      "collection": "local-videos",
-      "status": "sample",
-      "video": "/static/media/local-videos/bac-si.mp4",
-      "thumbnail": null,
-      "variants": [],
-      "ai_supported": false,
-      "source": {
-        "relative_path": "Bác sĩ/000365.mp4",
-        "sha256": "7e882962b216e8482249e3f0271c18fabf53d5cca4bc7cb1d4dab7be3cd2f7b8",
-        "web_sha256": "8e061c7c0b9720c5acb278efb48f63ca946cf27dabf93eefd27aafbc5d3e3771",
-        "web_codec": "h264"
-      }
-    },
-    {
-      "slug": "ban-ron",
-      "word": {
-        "vi": "Bận",
-        "en": "Busy / occupied"
-      },
-      "meaning": {
-        "vi": "Ký hiệu trong bộ video của bạn.",
-        "en": "Sign from your video collection."
-      },
-      "lesson": null,
-      "collection": "local-videos",
-      "status": "sample",
-      "video": "/static/media/local-videos/ban-ron.mp4",
-      "thumbnail": null,
-      "variants": [],
-      "ai_supported": false,
-      "source": {
-        "relative_path": "Bận/000758.mp4",
-        "sha256": "4b54db256364e56c2eca74e78bc9c16f8634bcb87cf0fe707fcb2e038e7288d0",
-        "web_sha256": "9b6cecf4d29d4cc4b48ecbcdf8c4cabfe1bb01aedeabe50f167caa1e8f6a6983",
-        "web_codec": "h264"
-      }
-    },
-    {
-      "slug": "xin-chao",
-      "word": {
-        "vi": "Xin chào",
-        "en": "Hello"
-      },
-      "meaning": {
-        "vi": "Lời chào khi gặp ai đó.",
-        "en": "A greeting when you meet someone."
-      },
-      "lesson": 1,
-      "status": "sample",
-      "video": null,
-      "thumbnail": null,
-      "variants": [],
-      "ai_supported": false
-    },
-    {
-      "slug": "tam-biet",
-      "word": {
-        "vi": "Tạm biệt",
-        "en": "Goodbye"
-      },
-      "meaning": {
-        "vi": "Lời chào khi chia tay.",
-        "en": "Said when parting."
-      },
-      "lesson": 1,
-      "status": "sample",
-      "video": null,
-      "thumbnail": null,
-      "variants": [],
-      "ai_supported": false
-    },
-    {
-      "slug": "cam-on",
-      "word": {
-        "vi": "Cảm ơn",
-        "en": "Thank you"
-      },
-      "meaning": {
-        "vi": "Bày tỏ sự biết ơn.",
-        "en": "Expressing thanks."
-      },
-      "lesson": 1,
-      "status": "sample",
-      "video": null,
-      "thumbnail": null,
-      "variants": [],
-      "ai_supported": false
-    },
-    {
-      "slug": "xin-loi",
-      "word": {
-        "vi": "Xin lỗi",
-        "en": "Sorry"
-      },
-      "meaning": {
-        "vi": "Nhận lỗi hoặc xin phép một cách lịch sự.",
-        "en": "Apologising or politely asking."
-      },
-      "lesson": 1,
-      "status": "sample",
-      "video": null,
-      "thumbnail": null,
-      "variants": [],
-      "ai_supported": false
-    },
-    {
-      "slug": "toi",
-      "word": {
-        "vi": "Tôi",
-        "en": "I / me"
-      },
-      "meaning": {
-        "vi": "Chỉ bản thân người nói.",
-        "en": "Refers to the speaker."
-      },
-      "lesson": 1,
-      "status": "sample",
-      "video": null,
-      "thumbnail": null,
-      "variants": [],
-      "ai_supported": false
-    },
-    {
-      "slug": "ban",
-      "word": {
-        "vi": "Bạn",
-        "en": "You"
-      },
-      "meaning": {
-        "vi": "Chỉ người đang trò chuyện cùng.",
-        "en": "Refers to the person you are talking to."
-      },
-      "lesson": 1,
-      "status": "sample",
-      "video": null,
-      "thumbnail": null,
-      "variants": [],
-      "ai_supported": false
-    },
-    {
-      "slug": "ten",
-      "word": {
-        "vi": "Tên",
-        "en": "Name"
-      },
-      "meaning": {
-        "vi": "Tên gọi của một người.",
-        "en": "What a person is called."
-      },
-      "lesson": 1,
-      "status": "sample",
-      "video": null,
-      "thumbnail": null,
-      "variants": [],
-      "ai_supported": false
-    },
-    {
-      "slug": "gia-dinh",
-      "word": {
-        "vi": "Gia đình",
-        "en": "Family"
-      },
-      "meaning": {
-        "vi": "Những người thân cùng một nhà.",
-        "en": "The people related to you."
-      },
-      "lesson": 2,
-      "status": "sample",
-      "video": null,
-      "thumbnail": null,
-      "variants": [],
-      "ai_supported": false
+      "source_gloss": "Bác"
     },
     {
       "slug": "bo",
@@ -685,63 +796,139 @@
         "vi": "Người cha.",
         "en": "Your father."
       },
-      "lesson": 2,
-      "status": "sample",
+      "lesson": 1,
+      "status": "published",
       "video": null,
       "thumbnail": null,
       "variants": [],
-      "ai_supported": false
+      "ai_supported": false,
+      "source_gloss": "Bố"
     },
     {
-      "slug": "me",
+      "slug": "chau",
       "word": {
-        "vi": "Mẹ",
-        "en": "Mother"
+        "vi": "Cháu"
       },
-      "meaning": {
-        "vi": "Người mẹ.",
-        "en": "Your mother."
-      },
-      "lesson": 2,
-      "status": "sample",
+      "meaning": {},
+      "status": "published",
       "video": null,
       "thumbnail": null,
       "variants": [],
-      "ai_supported": false
+      "ai_supported": false,
+      "lesson": 1,
+      "source_gloss": "Cháu"
     },
     {
-      "slug": "anh-trai",
+      "slug": "chu",
       "word": {
-        "vi": "Anh trai",
-        "en": "Older brother"
+        "vi": "Chú"
       },
-      "meaning": {
-        "vi": "Anh ruột, lớn tuổi hơn mình.",
-        "en": "A brother older than you."
-      },
-      "lesson": 2,
-      "status": "sample",
+      "meaning": {},
+      "status": "published",
       "video": null,
       "thumbnail": null,
       "variants": [],
-      "ai_supported": false
+      "ai_supported": false,
+      "lesson": 1,
+      "source_gloss": "Chú"
     },
     {
-      "slug": "chi-gai",
+      "slug": "chi",
       "word": {
-        "vi": "Chị gái",
-        "en": "Older sister"
+        "vi": "Chị"
       },
-      "meaning": {
-        "vi": "Chị ruột, lớn tuổi hơn mình.",
-        "en": "A sister older than you."
-      },
-      "lesson": 2,
-      "status": "sample",
+      "meaning": {},
+      "status": "published",
       "video": null,
       "thumbnail": null,
       "variants": [],
-      "ai_supported": false
+      "ai_supported": false,
+      "lesson": 1,
+      "source_gloss": "Chị"
+    },
+    {
+      "slug": "chong",
+      "word": {
+        "vi": "Chồng"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 1,
+      "source_gloss": "Chồng"
+    },
+    {
+      "slug": "con-gai",
+      "word": {
+        "vi": "Con gái"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 1,
+      "source_gloss": "Con gái"
+    },
+    {
+      "slug": "con-trai",
+      "word": {
+        "vi": "Con trai"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 1,
+      "source_gloss": "Con trai"
+    },
+    {
+      "slug": "co",
+      "word": {
+        "vi": "Cô"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 1,
+      "source_gloss": "Cô"
+    },
+    {
+      "slug": "cau",
+      "word": {
+        "vi": "Cậu"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 1,
+      "source_gloss": "Cậu"
+    },
+    {
+      "slug": "di",
+      "word": {
+        "vi": "Dì"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 1,
+      "source_gloss": "Dì"
     },
     {
       "slug": "em",
@@ -753,12 +940,5645 @@
         "vi": "Em ruột, nhỏ tuổi hơn mình.",
         "en": "A sibling younger than you."
       },
+      "lesson": 1,
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "source_gloss": "Em"
+    },
+    {
+      "slug": "ho-hang",
+      "word": {
+        "vi": "Họ hàng"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 1,
+      "source_gloss": "Họ hàng"
+    },
+    {
+      "slug": "me",
+      "word": {
+        "vi": "Mẹ",
+        "en": "Mother"
+      },
+      "meaning": {
+        "vi": "Người mẹ.",
+        "en": "Your mother."
+      },
+      "lesson": 1,
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "source_gloss": "Mẹ"
+    },
+    {
+      "slug": "ong-ngoai",
+      "word": {
+        "vi": "Ông ngoại"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 1,
+      "source_gloss": "Ông ngoại"
+    },
+    {
+      "slug": "ong-noi",
+      "word": {
+        "vi": "Ông nội"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 1,
+      "source_gloss": "Ông nội"
+    },
+    {
+      "slug": "vo",
+      "word": {
+        "vi": "Vợ"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 1,
+      "source_gloss": "Vợ"
+    },
+    {
+      "slug": "bat-buoc",
+      "word": {
+        "vi": "Bắt buộc"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
       "lesson": 2,
+      "source_gloss": "Bắt buộc"
+    },
+    {
+      "slug": "bat-chuoc",
+      "word": {
+        "vi": "Bắt chước"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 2,
+      "source_gloss": "Bắt chước"
+    },
+    {
+      "slug": "cho",
+      "word": {
+        "vi": "Cho"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 2,
+      "source_gloss": "Cho"
+    },
+    {
+      "slug": "chu-y",
+      "word": {
+        "vi": "Chú ý"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 2,
+      "source_gloss": "Chú ý"
+    },
+    {
+      "slug": "co-2",
+      "word": {
+        "vi": "Có"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 2,
+      "source_gloss": "Có"
+    },
+    {
+      "slug": "cam-on",
+      "word": {
+        "vi": "Cảm ơn",
+        "en": "Thank you"
+      },
+      "meaning": {
+        "vi": "Bày tỏ sự biết ơn.",
+        "en": "Expressing thanks."
+      },
+      "lesson": 2,
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "source_gloss": "Cảm ơn"
+    },
+    {
+      "slug": "can",
+      "word": {
+        "vi": "Cần"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 2,
+      "source_gloss": "Cần"
+    },
+    {
+      "slug": "giup-do",
+      "word": {
+        "vi": "Giúp đỡ"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 2,
+      "source_gloss": "Giúp đỡ"
+    },
+    {
+      "slug": "gioi-thieu",
+      "word": {
+        "vi": "Giới thiệu"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 2,
+      "source_gloss": "Giới thiệu"
+    },
+    {
+      "slug": "goi",
+      "word": {
+        "vi": "Gọi"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 2,
+      "source_gloss": "Gọi"
+    },
+    {
+      "slug": "hua",
+      "word": {
+        "vi": "Hứa"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 2,
+      "source_gloss": "Hứa"
+    },
+    {
+      "slug": "khong-cho",
+      "word": {
+        "vi": "Không cho"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 2,
+      "source_gloss": "Không cho"
+    },
+    {
+      "slug": "khong-can",
+      "word": {
+        "vi": "Không cần"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 2,
+      "source_gloss": "Không cần"
+    },
+    {
+      "slug": "khong-nen",
+      "word": {
+        "vi": "Không nên"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 2,
+      "source_gloss": "Không nên"
+    },
+    {
+      "slug": "muon",
+      "word": {
+        "vi": "Muốn"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 2,
+      "source_gloss": "Muốn"
+    },
+    {
+      "slug": "mach",
+      "word": {
+        "vi": "Mách"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 2,
+      "source_gloss": "Mách"
+    },
+    {
+      "slug": "nghe",
+      "word": {
+        "vi": "Nghe"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 2,
+      "source_gloss": "Nghe"
+    },
+    {
+      "slug": "nen",
+      "word": {
+        "vi": "Nên"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 2,
+      "source_gloss": "Nên"
+    },
+    {
+      "slug": "noi",
+      "word": {
+        "vi": "Nói"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 2,
+      "source_gloss": "Nói"
+    },
+    {
+      "slug": "noi-chuyen",
+      "word": {
+        "vi": "Nói chuyện"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 2,
+      "source_gloss": "Nói chuyện"
+    },
+    {
+      "slug": "quan-sat",
+      "word": {
+        "vi": "Quan sát"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 2,
+      "source_gloss": "Quan sát"
+    },
+    {
+      "slug": "thay-doi",
+      "word": {
+        "vi": "Thay đổi"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 2,
+      "source_gloss": "Thay đổi"
+    },
+    {
+      "slug": "thu",
+      "word": {
+        "vi": "Thử"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 2,
+      "source_gloss": "Thử"
+    },
+    {
+      "slug": "tiep-tuc",
+      "word": {
+        "vi": "Tiếp tục"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 2,
+      "source_gloss": "Tiếp tục"
+    },
+    {
+      "slug": "tim",
+      "word": {
+        "vi": "Tìm"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 2,
+      "source_gloss": "Tìm"
+    },
+    {
+      "slug": "tu-choi",
+      "word": {
+        "vi": "Từ chối"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 2,
+      "source_gloss": "Từ chối"
+    },
+    {
+      "slug": "xin",
+      "word": {
+        "vi": "Xin"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 2,
+      "source_gloss": "Xin"
+    },
+    {
+      "slug": "xin-loi",
+      "word": {
+        "vi": "Xin lỗi",
+        "en": "Sorry"
+      },
+      "meaning": {
+        "vi": "Nhận lỗi hoặc xin phép một cách lịch sự.",
+        "en": "Apologising or politely asking."
+      },
+      "lesson": 2,
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "source_gloss": "Xin lỗi"
+    },
+    {
+      "slug": "dong-y",
+      "word": {
+        "vi": "Đồng ý"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 2,
+      "source_gloss": "Đồng ý"
+    },
+    {
+      "slug": "buoi-chieu",
+      "word": {
+        "vi": "Buổi chiều"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 3,
+      "source_gloss": "Buổi chiều"
+    },
+    {
+      "slug": "buoi-sang",
+      "word": {
+        "vi": "Buổi sáng"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 3,
+      "source_gloss": "Buổi sáng"
+    },
+    {
+      "slug": "buoi-trua",
+      "word": {
+        "vi": "Buổi trưa"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 3,
+      "source_gloss": "Buổi trưa"
+    },
+    {
+      "slug": "buoi-toi",
+      "word": {
+        "vi": "Buổi tối"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 3,
+      "source_gloss": "Buổi tối"
+    },
+    {
+      "slug": "bay-gio",
+      "word": {
+        "vi": "Bây giờ"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 3,
+      "source_gloss": "Bây giờ"
+    },
+    {
+      "slug": "binh-minh",
+      "word": {
+        "vi": "Bình minh"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 3,
+      "source_gloss": "Bình minh"
+    },
+    {
+      "slug": "chu-nhat",
+      "word": {
+        "vi": "Chủ nhật"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 3,
+      "source_gloss": "Chủ nhật"
+    },
+    {
+      "slug": "giay",
+      "word": {
+        "vi": "Giây"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 3,
+      "source_gloss": "Giây"
+    },
+    {
+      "slug": "gio",
+      "word": {
+        "vi": "Giờ"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 3,
+      "source_gloss": "Giờ"
+    },
+    {
+      "slug": "hoang-hon",
+      "word": {
+        "vi": "Hoàng hôn"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 3,
+      "source_gloss": "Hoàng hôn"
+    },
+    {
+      "slug": "ngay",
+      "word": {
+        "vi": "Ngày"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 3,
+      "source_gloss": "Ngày"
+    },
+    {
+      "slug": "nam",
+      "word": {
+        "vi": "Năm"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 3,
+      "source_gloss": "Năm"
+    },
+    {
+      "slug": "phut",
+      "word": {
+        "vi": "Phút"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 3,
+      "source_gloss": "Phút"
+    },
+    {
+      "slug": "som",
+      "word": {
+        "vi": "Sớm"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 3,
+      "source_gloss": "Sớm"
+    },
+    {
+      "slug": "thoi-gian",
+      "word": {
+        "vi": "Thời gian"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 3,
+      "source_gloss": "Thời gian"
+    },
+    {
+      "slug": "thu-ba",
+      "word": {
+        "vi": "Thứ ba"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 3,
+      "source_gloss": "Thứ ba"
+    },
+    {
+      "slug": "thu-bay",
+      "word": {
+        "vi": "Thứ bảy"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 3,
+      "source_gloss": "Thứ bảy"
+    },
+    {
+      "slug": "thu-hai",
+      "word": {
+        "vi": "Thứ hai"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 3,
+      "source_gloss": "Thứ hai"
+    },
+    {
+      "slug": "thu-nam",
+      "word": {
+        "vi": "Thứ năm"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 3,
+      "source_gloss": "Thứ năm"
+    },
+    {
+      "slug": "thu-sau",
+      "word": {
+        "vi": "Thứ sáu"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 3,
+      "source_gloss": "Thứ sáu"
+    },
+    {
+      "slug": "thu-tu",
+      "word": {
+        "vi": "Thứ tư"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 3,
+      "source_gloss": "Thứ tư"
+    },
+    {
+      "slug": "tre",
+      "word": {
+        "vi": "Trễ"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 3,
+      "source_gloss": "Trễ"
+    },
+    {
+      "slug": "giang-sinh",
+      "word": {
+        "vi": "Giáng sinh"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 4,
+      "source_gloss": "Giáng sinh"
+    },
+    {
+      "slug": "ngay-nha-giao-viet-nam",
+      "word": {
+        "vi": "Ngày Nhà giáo Việt Nam"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 4,
+      "source_gloss": "Ngày Nhà giáo Việt Nam"
+    },
+    {
+      "slug": "ngay-quoc-te-lao-dong",
+      "word": {
+        "vi": "Ngày Quốc tế Lao động"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 4,
+      "source_gloss": "Ngày Quốc tế Lao động"
+    },
+    {
+      "slug": "ngay-quoc-te-phu-nu",
+      "word": {
+        "vi": "Ngày Quốc tế Phụ nữ"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 4,
+      "source_gloss": "Ngày Quốc tế Phụ nữ"
+    },
+    {
+      "slug": "ngay-quoc-te-thieu-nhi",
+      "word": {
+        "vi": "Ngày Quốc tế Thiếu nhi"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 4,
+      "source_gloss": "Ngày Quốc tế Thiếu nhi"
+    },
+    {
+      "slug": "thang",
+      "word": {
+        "vi": "Tháng"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 4,
+      "source_gloss": "Tháng"
+    },
+    {
+      "slug": "thang-mot",
+      "word": {
+        "vi": "Tháng một"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 4,
+      "source_gloss": "Tháng một"
+    },
+    {
+      "slug": "thang-hai",
+      "word": {
+        "vi": "Tháng hai"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 4,
+      "source_gloss": "Tháng hai"
+    },
+    {
+      "slug": "thang-ba",
+      "word": {
+        "vi": "Tháng ba"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 4,
+      "source_gloss": "Tháng ba"
+    },
+    {
+      "slug": "thang-tu",
+      "word": {
+        "vi": "Tháng tư"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 4,
+      "source_gloss": "Tháng tư"
+    },
+    {
+      "slug": "thang-nam",
+      "word": {
+        "vi": "Tháng năm"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 4,
+      "source_gloss": "Tháng năm"
+    },
+    {
+      "slug": "thang-sau",
+      "word": {
+        "vi": "Tháng sáu"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 4,
+      "source_gloss": "Tháng sáu"
+    },
+    {
+      "slug": "thang-bay",
+      "word": {
+        "vi": "Tháng bảy"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 4,
+      "source_gloss": "Tháng bảy"
+    },
+    {
+      "slug": "thang-tam",
+      "word": {
+        "vi": "Tháng tám"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 4,
+      "source_gloss": "Tháng tám"
+    },
+    {
+      "slug": "thang-chin",
+      "word": {
+        "vi": "Tháng chín"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 4,
+      "source_gloss": "Tháng chín"
+    },
+    {
+      "slug": "thang-muoi",
+      "word": {
+        "vi": "Tháng mười"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 4,
+      "source_gloss": "Tháng mười"
+    },
+    {
+      "slug": "thang-muoi-mot",
+      "word": {
+        "vi": "Tháng mười một"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 4,
+      "source_gloss": "Tháng mười một"
+    },
+    {
+      "slug": "thang-muoi-hai",
+      "word": {
+        "vi": "Tháng mười hai"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 4,
+      "source_gloss": "Tháng mười hai"
+    },
+    {
+      "slug": "trung-thu",
+      "word": {
+        "vi": "Trung thu"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 4,
+      "source_gloss": "Trung thu"
+    },
+    {
+      "slug": "tet-am-lich",
+      "word": {
+        "vi": "Tết Âm lịch"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 4,
+      "source_gloss": "Tết Âm lịch"
+    },
+    {
+      "slug": "gio-2",
+      "word": {
+        "vi": "Gió"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 5,
+      "source_gloss": "Gió"
+    },
+    {
+      "slug": "kho",
+      "word": {
+        "vi": "Khô"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 5,
+      "source_gloss": "Khô"
+    },
+    {
+      "slug": "lanh",
+      "word": {
+        "vi": "Lạnh"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 5,
+      "source_gloss": "Lạnh"
+    },
+    {
+      "slug": "mat-me",
+      "word": {
+        "vi": "Mát mẻ"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 5,
+      "source_gloss": "Mát mẻ"
+    },
+    {
+      "slug": "mua-he",
+      "word": {
+        "vi": "Mùa hè"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 5,
+      "source_gloss": "Mùa hè"
+    },
+    {
+      "slug": "mua-kho",
+      "word": {
+        "vi": "Mùa khô"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 5,
+      "source_gloss": "Mùa khô"
+    },
+    {
+      "slug": "mua-mua",
+      "word": {
+        "vi": "Mùa mưa"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 5,
+      "source_gloss": "Mùa mưa"
+    },
+    {
+      "slug": "mua-thu",
+      "word": {
+        "vi": "Mùa thu"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 5,
+      "source_gloss": "Mùa thu"
+    },
+    {
+      "slug": "mua-xuan",
+      "word": {
+        "vi": "Mùa xuân"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 5,
+      "source_gloss": "Mùa xuân"
+    },
+    {
+      "slug": "mua-dong",
+      "word": {
+        "vi": "Mùa đông"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 5,
+      "source_gloss": "Mùa đông"
+    },
+    {
+      "slug": "mua",
+      "word": {
+        "vi": "Mưa"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 5,
+      "source_gloss": "Mưa"
+    },
+    {
+      "slug": "nong",
+      "word": {
+        "vi": "Nóng"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 5,
+      "source_gloss": "Nóng"
+    },
+    {
+      "slug": "nang",
+      "word": {
+        "vi": "Nắng"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 5,
+      "source_gloss": "Nắng"
+    },
+    {
+      "slug": "thoi-tiet",
+      "word": {
+        "vi": "Thời tiết"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 5,
+      "source_gloss": "Thời tiết"
+    },
+    {
+      "slug": "uot",
+      "word": {
+        "vi": "Ướt"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 5,
+      "source_gloss": "Ướt"
+    },
+    {
+      "slug": "am",
+      "word": {
+        "vi": "Ấm",
+        "en": "Warm"
+      },
+      "meaning": {},
+      "lesson": 5,
+      "collection": "local-videos",
+      "status": "sample",
+      "video": "/static/media/local-videos/am.mp4",
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "source": {
+        "relative_path": "Ấm/000579.mp4",
+        "sha256": "afec19a0e42b7dd270efe1ceee23c06828b450b584c24767ac8d3ed155aadd53",
+        "web_sha256": "a9a5eb539f712bd71d27ff79f7b0bedcf482801455f68db94889251c1a500085",
+        "web_codec": "h264"
+      },
+      "source_gloss": "Ấm"
+    },
+    {
+      "slug": "bia",
+      "word": {
+        "vi": "Bia"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 6,
+      "source_gloss": "Bia"
+    },
+    {
+      "slug": "banh-bao",
+      "word": {
+        "vi": "Bánh bao"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 6,
+      "source_gloss": "Bánh bao"
+    },
+    {
+      "slug": "banh-chung",
+      "word": {
+        "vi": "Bánh chưng"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 6,
+      "source_gloss": "Bánh chưng"
+    },
+    {
+      "slug": "banh-tet",
+      "word": {
+        "vi": "Bánh tét"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 6,
+      "source_gloss": "Bánh tét"
+    },
+    {
+      "slug": "banh-xeo",
+      "word": {
+        "vi": "Bánh xèo"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 6,
+      "source_gloss": "Bánh xèo"
+    },
+    {
+      "slug": "bun",
+      "word": {
+        "vi": "Bún"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 6,
+      "source_gloss": "Bún"
+    },
+    {
+      "slug": "ca-phe",
+      "word": {
+        "vi": "Cà phê"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 6,
+      "source_gloss": "Cà phê"
+    },
+    {
+      "slug": "gao",
+      "word": {
+        "vi": "Gạo"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 6,
+      "source_gloss": "Gạo"
+    },
+    {
+      "slug": "kem",
+      "word": {
+        "vi": "Kem"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 6,
+      "source_gloss": "Kem"
+    },
+    {
+      "slug": "keo",
+      "word": {
+        "vi": "Kẹo"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 6,
+      "source_gloss": "Kẹo"
+    },
+    {
+      "slug": "mi-goi",
+      "word": {
+        "vi": "Mì gói"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 6,
+      "source_gloss": "Mì gói"
+    },
+    {
+      "slug": "nuoc",
+      "word": {
+        "vi": "Nước"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 6,
+      "source_gloss": "Nước"
+    },
+    {
+      "slug": "pho",
+      "word": {
+        "vi": "Phở"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 6,
+      "source_gloss": "Phở"
+    },
+    {
+      "slug": "ruou",
+      "word": {
+        "vi": "Rượu"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 6,
+      "source_gloss": "Rượu"
+    },
+    {
+      "slug": "sua",
+      "word": {
+        "vi": "Sữa"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 6,
+      "source_gloss": "Sữa"
+    },
+    {
+      "slug": "thit",
+      "word": {
+        "vi": "Thịt"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 6,
+      "source_gloss": "Thịt"
+    },
+    {
+      "slug": "tra",
+      "word": {
+        "vi": "Trà"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 6,
+      "source_gloss": "Trà"
+    },
+    {
+      "slug": "trung",
+      "word": {
+        "vi": "Trứng"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 6,
+      "source_gloss": "Trứng"
+    },
+    {
+      "slug": "xoi",
+      "word": {
+        "vi": "Xôi"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 6,
+      "source_gloss": "Xôi"
+    },
+    {
+      "slug": "qua-bo",
+      "word": {
+        "vi": "Quả bơ"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 7,
+      "source_gloss": "Quả bơ"
+    },
+    {
+      "slug": "qua-cam",
+      "word": {
+        "vi": "Quả cam"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 7,
+      "source_gloss": "Quả cam"
+    },
+    {
+      "slug": "qua-chuoi",
+      "word": {
+        "vi": "Quả chuối"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 7,
+      "source_gloss": "Quả chuối"
+    },
+    {
+      "slug": "qua-dau",
+      "word": {
+        "vi": "Quả dâu"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 7,
+      "source_gloss": "Quả dâu"
+    },
+    {
+      "slug": "qua-dua",
+      "word": {
+        "vi": "Quả dứa"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 7,
+      "source_gloss": "Quả dứa"
+    },
+    {
+      "slug": "qua-dua-2",
+      "word": {
+        "vi": "Quả dừa"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 7,
+      "source_gloss": "Quả dừa"
+    },
+    {
+      "slug": "qua-man",
+      "word": {
+        "vi": "Quả mận"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 7,
+      "source_gloss": "Quả mận"
+    },
+    {
+      "slug": "qua-xoai",
+      "word": {
+        "vi": "Quả xoài"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 7,
+      "source_gloss": "Quả xoài"
+    },
+    {
+      "slug": "qua-du-du",
+      "word": {
+        "vi": "Quả đu đủ"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 7,
+      "source_gloss": "Quả đu đủ"
+    },
+    {
+      "slug": "qua-dao",
+      "word": {
+        "vi": "Quả đào"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 7,
+      "source_gloss": "Quả đào"
+    },
+    {
+      "slug": "cay",
+      "word": {
+        "vi": "Cay"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 8,
+      "source_gloss": "Cay"
+    },
+    {
+      "slug": "chua",
+      "word": {
+        "vi": "Chua"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 8,
+      "source_gloss": "Chua"
+    },
+    {
+      "slug": "cung-cap",
+      "word": {
+        "vi": "Cung cấp"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 8,
+      "source_gloss": "Cung cấp"
+    },
+    {
+      "slug": "do",
+      "word": {
+        "vi": "Dở"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 8,
+      "source_gloss": "Dở"
+    },
+    {
+      "slug": "hoi",
+      "word": {
+        "vi": "Hôi"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 8,
+      "source_gloss": "Hôi"
+    },
+    {
+      "slug": "mua-ban",
+      "word": {
+        "vi": "Mua bán"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 8,
+      "source_gloss": "Mua bán"
+    },
+    {
+      "slug": "man",
+      "word": {
+        "vi": "Mặn"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 8,
+      "source_gloss": "Mặn"
+    },
+    {
+      "slug": "ngon-mieng",
+      "word": {
+        "vi": "Ngon miệng"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 8,
+      "source_gloss": "Ngon miệng"
+    },
+    {
+      "slug": "ngot",
+      "word": {
+        "vi": "Ngọt"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 8,
+      "source_gloss": "Ngọt"
+    },
+    {
+      "slug": "ngui",
+      "word": {
+        "vi": "Ngửi"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 8,
+      "source_gloss": "Ngửi"
+    },
+    {
+      "slug": "nhat",
+      "word": {
+        "vi": "Nhạt"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 8,
+      "source_gloss": "Nhạt"
+    },
+    {
+      "slug": "nuong",
+      "word": {
+        "vi": "Nướng"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 8,
+      "source_gloss": "Nướng"
+    },
+    {
+      "slug": "nau",
+      "word": {
+        "vi": "Nấu"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 8,
+      "source_gloss": "Nấu"
+    },
+    {
+      "slug": "nem",
+      "word": {
+        "vi": "Nếm"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 8,
+      "source_gloss": "Nếm"
+    },
+    {
+      "slug": "re",
+      "word": {
+        "vi": "Rẻ"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 8,
+      "source_gloss": "Rẻ"
+    },
+    {
+      "slug": "tham-an",
+      "word": {
+        "vi": "Tham ăn"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 8,
+      "source_gloss": "Tham ăn"
+    },
+    {
+      "slug": "them",
+      "word": {
+        "vi": "Thèm"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 8,
+      "source_gloss": "Thèm"
+    },
+    {
+      "slug": "thom",
+      "word": {
+        "vi": "Thơm"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 8,
+      "source_gloss": "Thơm"
+    },
+    {
+      "slug": "uong",
+      "word": {
+        "vi": "Uống"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 8,
+      "source_gloss": "Uống"
+    },
+    {
+      "slug": "an",
+      "word": {
+        "vi": "Ăn",
+        "en": "Eat"
+      },
+      "meaning": {},
+      "lesson": 8,
+      "collection": "local-videos",
+      "status": "sample",
+      "video": "/static/media/local-videos/an.mp4",
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "source": {
+        "relative_path": "Ăn/000734.mp4",
+        "sha256": "07377898668dbcec088003424b125a319d33594ed078fe6c4d20dbf46f4867ce",
+        "web_sha256": "daa1bf4a5c6f85d61c259ff221346a997932c62591730c451ea1125f47358fac",
+        "web_codec": "h264"
+      },
+      "source_gloss": "Ăn"
+    },
+    {
+      "slug": "dam",
+      "word": {
+        "vi": "Đậm"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 8,
+      "source_gloss": "Đậm"
+    },
+    {
+      "slug": "dang",
+      "word": {
+        "vi": "Đắng"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 8,
+      "source_gloss": "Đắng"
+    },
+    {
+      "slug": "dat",
+      "word": {
+        "vi": "Đắt"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 8,
+      "source_gloss": "Đắt"
+    },
+    {
+      "slug": "ba-lo",
+      "word": {
+        "vi": "Ba lô",
+        "en": "Backpack"
+      },
+      "meaning": {},
+      "lesson": 9,
+      "collection": "local-videos",
+      "status": "sample",
+      "video": "/static/media/local-videos/ba-lo.mp4",
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "source": {
+        "relative_path": "Ba lô/000300.mp4",
+        "sha256": "c83731bc73a1b16c523eeb505f73e348e5f718bfaf78021afe7224293b74ef85",
+        "web_sha256": "ecbeafed95e4bbff3bc08066ba526faea29da758a9eefba721ebc9d1007cfb54",
+        "web_codec": "h264"
+      },
+      "source_gloss": "Ba lô"
+    },
+    {
+      "slug": "cai-quan",
+      "word": {
+        "vi": "Cái quần"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 9,
+      "source_gloss": "Cái quần"
+    },
+    {
+      "slug": "cai-ao",
+      "word": {
+        "vi": "Cái áo"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 9,
+      "source_gloss": "Cái áo"
+    },
+    {
+      "slug": "day-chuyen",
+      "word": {
+        "vi": "Dây chuyền"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 9,
+      "source_gloss": "Dây chuyền"
+    },
+    {
+      "slug": "dep",
+      "word": {
+        "vi": "Dép"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 9,
+      "source_gloss": "Dép"
+    },
+    {
+      "slug": "giay-2",
+      "word": {
+        "vi": "Giày"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 9,
+      "source_gloss": "Giày"
+    },
+    {
+      "slug": "khan-quang-co",
+      "word": {
+        "vi": "Khăn quàng cổ"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 9,
+      "source_gloss": "Khăn quàng cổ"
+    },
+    {
+      "slug": "kep-toc",
+      "word": {
+        "vi": "Kẹp tóc"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 9,
+      "source_gloss": "Kẹp tóc"
+    },
+    {
+      "slug": "mu",
+      "word": {
+        "vi": "Mũ"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 9,
+      "source_gloss": "Mũ"
+    },
+    {
+      "slug": "mu-bao-hiem",
+      "word": {
+        "vi": "Mũ bảo hiểm"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 9,
+      "source_gloss": "Mũ bảo hiểm"
+    },
+    {
+      "slug": "quan-thun",
+      "word": {
+        "vi": "Quần thun"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 9,
+      "source_gloss": "Quần thun"
+    },
+    {
+      "slug": "quan-tay",
+      "word": {
+        "vi": "Quần tây"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 9,
+      "source_gloss": "Quần tây"
+    },
+    {
+      "slug": "quan-dui",
+      "word": {
+        "vi": "Quần đùi"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 9,
+      "source_gloss": "Quần đùi"
+    },
+    {
+      "slug": "tui-xach",
+      "word": {
+        "vi": "Túi xách"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 9,
+      "source_gloss": "Túi xách"
+    },
+    {
+      "slug": "vong-tay",
+      "word": {
+        "vi": "Vòng tay"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 9,
+      "source_gloss": "Vòng tay"
+    },
+    {
+      "slug": "ao-so-mi",
+      "word": {
+        "vi": "Áo sơ mi",
+        "en": "Shirt"
+      },
+      "meaning": {},
+      "lesson": 9,
+      "collection": "local-videos",
+      "status": "sample",
+      "video": "/static/media/local-videos/ao-so-mi.mp4",
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "source": {
+        "relative_path": "Áo sơ mi/000334.mp4",
+        "sha256": "67c6c23ffece6e4f07b5b1e73a17c280a3e5b1164e7cd0466f890c1971c2da4b",
+        "web_sha256": "cf282f561388942eef8948bfca1e752c01b570be481ba3d775e889f0ee28e69e",
+        "web_codec": "h264"
+      },
+      "source_gloss": "Áo sơ mi"
+    },
+    {
+      "slug": "ao-thun",
+      "word": {
+        "vi": "Áo thun",
+        "en": "T-shirt"
+      },
+      "meaning": {},
+      "lesson": 9,
+      "collection": "local-videos",
+      "status": "sample",
+      "video": "/static/media/local-videos/ao-thun.mp4",
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "source": {
+        "relative_path": "Áo thun/000326.mp4",
+        "sha256": "ca0d61adb9f999bb9dc97e28a5d40f79ef580ca925ba56e60c3b0769392a0ca8",
+        "web_sha256": "89de776db0e079f02d569db79ffb638c59391f3db4ec2e9074b469a21c343678",
+        "web_codec": "h264"
+      },
+      "source_gloss": "Áo thun"
+    },
+    {
+      "slug": "ao-dam",
+      "word": {
+        "vi": "Áo đầm",
+        "en": "Dress"
+      },
+      "meaning": {},
+      "lesson": 9,
+      "collection": "local-videos",
+      "status": "sample",
+      "video": "/static/media/local-videos/ao-dam.mp4",
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "source": {
+        "relative_path": "Áo đầm/000338.mp4",
+        "sha256": "f43e2a72bc95aa7e8187e6cdecdeac7b0a7d138f2f2d2580416137ed200e823b",
+        "web_sha256": "6ecf3417868ca443f4ac20a7ce900f0e677107a6c9b940745d2ceabf8748e17e",
+        "web_codec": "h264"
+      },
+      "source_gloss": "Áo đầm"
+    },
+    {
+      "slug": "do-buoc-toc",
+      "word": {
+        "vi": "Đồ buộc tóc"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 9,
+      "source_gloss": "Đồ buộc tóc"
+    },
+    {
+      "slug": "dong-ho-deo-tay",
+      "word": {
+        "vi": "Đồng hồ đeo tay"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 9,
+      "source_gloss": "Đồng hồ đeo tay"
+    },
+    {
+      "slug": "mau-cam",
+      "word": {
+        "vi": "Màu cam"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 9,
+      "source_gloss": "Màu cam"
+    },
+    {
+      "slug": "mau-hong",
+      "word": {
+        "vi": "Màu hồng"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 9,
+      "source_gloss": "Màu hồng"
+    },
+    {
+      "slug": "mau-nau",
+      "word": {
+        "vi": "Màu nâu"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 9,
+      "source_gloss": "Màu nâu"
+    },
+    {
+      "slug": "mau-trang",
+      "word": {
+        "vi": "Màu trắng"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 9,
+      "source_gloss": "Màu trắng"
+    },
+    {
+      "slug": "mau-tim",
+      "word": {
+        "vi": "Màu tím"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 9,
+      "source_gloss": "Màu tím"
+    },
+    {
+      "slug": "mau-vang",
+      "word": {
+        "vi": "Màu vàng"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 9,
+      "source_gloss": "Màu vàng"
+    },
+    {
+      "slug": "mau-xanh-da-troi",
+      "word": {
+        "vi": "Màu xanh da trời"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 9,
+      "source_gloss": "Màu xanh da trời"
+    },
+    {
+      "slug": "mau-xanh-la-cay",
+      "word": {
+        "vi": "Màu xanh lá cây"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 9,
+      "source_gloss": "Màu xanh lá cây"
+    },
+    {
+      "slug": "mau-den",
+      "word": {
+        "vi": "Màu đen"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 9,
+      "source_gloss": "Màu đen"
+    },
+    {
+      "slug": "mau-do",
+      "word": {
+        "vi": "Màu đỏ"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 9,
+      "source_gloss": "Màu đỏ"
+    },
+    {
+      "slug": "chia-khoa",
+      "word": {
+        "vi": "Chìa khóa"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 10,
+      "source_gloss": "Chìa khóa"
+    },
+    {
+      "slug": "cai-ban",
+      "word": {
+        "vi": "Cái bàn"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 10,
+      "source_gloss": "Cái bàn"
+    },
+    {
+      "slug": "cai-chao",
+      "word": {
+        "vi": "Cái chảo"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 10,
+      "source_gloss": "Cái chảo"
+    },
+    {
+      "slug": "cai-cua",
+      "word": {
+        "vi": "Cái cửa"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 10,
+      "source_gloss": "Cái cửa"
+    },
+    {
+      "slug": "cai-ghe",
+      "word": {
+        "vi": "Cái ghế"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 10,
+      "source_gloss": "Cái ghế"
+    },
+    {
+      "slug": "cai-keo",
+      "word": {
+        "vi": "Cái kéo"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 10,
+      "source_gloss": "Cái kéo"
+    },
+    {
+      "slug": "cai-noi",
+      "word": {
+        "vi": "Cái nồi"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 10,
+      "source_gloss": "Cái nồi"
+    },
+    {
+      "slug": "cai-den",
+      "word": {
+        "vi": "Cái đèn"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 10,
+      "source_gloss": "Cái đèn"
+    },
+    {
+      "slug": "cua-so",
+      "word": {
+        "vi": "Cửa sổ"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 10,
+      "source_gloss": "Cửa sổ"
+    },
+    {
+      "slug": "giuong",
+      "word": {
+        "vi": "Giường"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 10,
+      "source_gloss": "Giường"
+    },
+    {
+      "slug": "goi-dau",
+      "word": {
+        "vi": "Gối (đầu)"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 10,
+      "source_gloss": "Gối (đầu)"
+    },
+    {
+      "slug": "may-giat",
+      "word": {
+        "vi": "Máy giặt"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 10,
+      "source_gloss": "Máy giặt"
+    },
+    {
+      "slug": "may-dieu-hoa",
+      "word": {
+        "vi": "Máy điều hòa"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 10,
+      "source_gloss": "Máy điều hòa"
+    },
+    {
+      "slug": "men",
+      "word": {
+        "vi": "Mền"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 10,
+      "source_gloss": "Mền"
+    },
+    {
+      "slug": "noi-com-dien",
+      "word": {
+        "vi": "Nồi cơm điện"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 10,
+      "source_gloss": "Nồi cơm điện"
+    },
+    {
+      "slug": "quat-dung",
+      "word": {
+        "vi": "Quạt (đứng)"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 10,
+      "source_gloss": "Quạt (đứng)"
+    },
+    {
+      "slug": "tivi",
+      "word": {
+        "vi": "Tivi"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 10,
+      "source_gloss": "Tivi"
+    },
+    {
+      "slug": "tuong",
+      "word": {
+        "vi": "Tường"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 10,
+      "source_gloss": "Tường"
+    },
+    {
+      "slug": "tu-lanh",
+      "word": {
+        "vi": "Tủ lạnh"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 10,
+      "source_gloss": "Tủ lạnh"
+    },
+    {
+      "slug": "dien-thoai",
+      "word": {
+        "vi": "Điện thoại"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 10,
+      "source_gloss": "Điện thoại"
+    },
+    {
+      "slug": "do-dung",
+      "word": {
+        "vi": "Đồ dùng"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 10,
+      "source_gloss": "Đồ dùng"
+    },
+    {
+      "slug": "giat-do",
+      "word": {
+        "vi": "Giặt đồ"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 10,
+      "source_gloss": "Giặt đồ"
+    },
+    {
+      "slug": "goi-dau-2",
+      "word": {
+        "vi": "Gội đầu"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 10,
+      "source_gloss": "Gội đầu"
+    },
+    {
+      "slug": "nghi-ngoi",
+      "word": {
+        "vi": "Nghỉ ngơi"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 10,
+      "source_gloss": "Nghỉ ngơi"
+    },
+    {
+      "slug": "ngu",
+      "word": {
+        "vi": "Ngủ"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 10,
+      "source_gloss": "Ngủ"
+    },
+    {
+      "slug": "phoi-do",
+      "word": {
+        "vi": "Phơi đồ"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 10,
+      "source_gloss": "Phơi đồ"
+    },
+    {
+      "slug": "rua-chen",
+      "word": {
+        "vi": "Rửa chén"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 10,
+      "source_gloss": "Rửa chén"
+    },
+    {
+      "slug": "rua-mat",
+      "word": {
+        "vi": "Rửa mặt"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 10,
+      "source_gloss": "Rửa mặt"
+    },
+    {
+      "slug": "rua-tay",
+      "word": {
+        "vi": "Rửa tay"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 10,
+      "source_gloss": "Rửa tay"
+    },
+    {
+      "slug": "thuc-day",
+      "word": {
+        "vi": "Thức dậy"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 10,
+      "source_gloss": "Thức dậy"
+    },
+    {
+      "slug": "tam-rua",
+      "word": {
+        "vi": "Tắm rửa"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 10,
+      "source_gloss": "Tắm rửa"
+    },
+    {
+      "slug": "but-bi",
+      "word": {
+        "vi": "Bút bi"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 11,
+      "source_gloss": "Bút bi"
+    },
+    {
+      "slug": "but-chi",
+      "word": {
+        "vi": "Bút chì"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 11,
+      "source_gloss": "Bút chì"
+    },
+    {
+      "slug": "bang",
+      "word": {
+        "vi": "Bảng"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 11,
+      "source_gloss": "Bảng"
+    },
+    {
+      "slug": "cuc-tay",
+      "word": {
+        "vi": "Cục tẩy"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 11,
+      "source_gloss": "Cục tẩy"
+    },
+    {
+      "slug": "dung-cu-hoc-tap",
+      "word": {
+        "vi": "Dụng cụ học tập"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 11,
+      "source_gloss": "Dụng cụ học tập"
+    },
+    {
+      "slug": "giay-nhap",
+      "word": {
+        "vi": "Giấy nháp"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 11,
+      "source_gloss": "Giấy nháp"
+    },
+    {
+      "slug": "hieu-truong",
+      "word": {
+        "vi": "Hiệu trưởng"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 11,
+      "source_gloss": "Hiệu trưởng"
+    },
+    {
+      "slug": "hoc",
+      "word": {
+        "vi": "Học"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 11,
+      "source_gloss": "Học"
+    },
+    {
+      "slug": "hoc-sinh",
+      "word": {
+        "vi": "Học sinh"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 11,
+      "source_gloss": "Học sinh"
+    },
+    {
+      "slug": "kinh-lup",
+      "word": {
+        "vi": "Kính lúp"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 11,
+      "source_gloss": "Kính lúp"
+    },
+    {
+      "slug": "lam-bai-tap",
+      "word": {
+        "vi": "Làm bài tập"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 11,
+      "source_gloss": "Làm bài tập"
+    },
+    {
+      "slug": "may-chieu",
+      "word": {
+        "vi": "Máy chiếu"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 11,
+      "source_gloss": "Máy chiếu"
+    },
+    {
+      "slug": "may-tinh-cam-tay",
+      "word": {
+        "vi": "Máy tính cầm tay"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 11,
+      "source_gloss": "Máy tính cầm tay"
+    },
+    {
+      "slug": "qua-dia-cau",
+      "word": {
+        "vi": "Quả địa cầu"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 11,
+      "source_gloss": "Quả địa cầu"
+    },
+    {
+      "slug": "sinh-vien",
+      "word": {
+        "vi": "Sinh viên"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 11,
+      "source_gloss": "Sinh viên"
+    },
+    {
+      "slug": "sach",
+      "word": {
+        "vi": "Sách"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 11,
+      "source_gloss": "Sách"
+    },
+    {
+      "slug": "thuoc-ke",
+      "word": {
+        "vi": "Thước kẻ"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 11,
+      "source_gloss": "Thước kẻ"
+    },
+    {
+      "slug": "truong-cao-dang",
+      "word": {
+        "vi": "Trường Cao đẳng"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 11,
+      "source_gloss": "Trường Cao đẳng"
+    },
+    {
+      "slug": "truong-hoc",
+      "word": {
+        "vi": "Trường học"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 11,
+      "source_gloss": "Trường học"
+    },
+    {
+      "slug": "truong-dai-hoc",
+      "word": {
+        "vi": "Trường Đại học"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 11,
+      "source_gloss": "Trường Đại học"
+    },
+    {
+      "slug": "vien-phan",
+      "word": {
+        "vi": "Viên phấn"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 11,
+      "source_gloss": "Viên phấn"
+    },
+    {
+      "slug": "viet",
+      "word": {
+        "vi": "Viết"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 11,
+      "source_gloss": "Viết"
+    },
+    {
+      "slug": "vo-2",
+      "word": {
+        "vi": "Vở"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 11,
+      "source_gloss": "Vở"
+    },
+    {
+      "slug": "doc",
+      "word": {
+        "vi": "Đọc"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 11,
+      "source_gloss": "Đọc"
+    },
+    {
+      "slug": "ban-phim",
+      "word": {
+        "vi": "Bàn phím"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 12,
+      "source_gloss": "Bàn phím"
+    },
+    {
+      "slug": "bac-si",
+      "word": {
+        "vi": "Bác sĩ",
+        "en": "Doctor"
+      },
+      "meaning": {},
+      "lesson": 12,
+      "collection": "local-videos",
+      "status": "sample",
+      "video": "/static/media/local-videos/bac-si.mp4",
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "source": {
+        "relative_path": "Bác sĩ/000365.mp4",
+        "sha256": "7e882962b216e8482249e3f0271c18fabf53d5cca4bc7cb1d4dab7be3cd2f7b8",
+        "web_sha256": "8e061c7c0b9720c5acb278efb48f63ca946cf27dabf93eefd27aafbc5d3e3771",
+        "web_codec": "h264"
+      },
+      "source_gloss": "Bác sĩ"
+    },
+    {
+      "slug": "bao-cao",
+      "word": {
+        "vi": "Báo cáo"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 12,
+      "source_gloss": "Báo cáo"
+    },
+    {
+      "slug": "bao-ve",
+      "word": {
+        "vi": "Bảo vệ"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 12,
+      "source_gloss": "Bảo vệ"
+    },
+    {
+      "slug": "ban-ron",
+      "word": {
+        "vi": "Bận",
+        "en": "Busy / occupied"
+      },
+      "meaning": {},
+      "lesson": 12,
+      "collection": "local-videos",
+      "status": "sample",
+      "video": "/static/media/local-videos/ban-ron.mp4",
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "source": {
+        "relative_path": "Bận/000758.mp4",
+        "sha256": "4b54db256364e56c2eca74e78bc9c16f8634bcb87cf0fe707fcb2e038e7288d0",
+        "web_sha256": "9b6cecf4d29d4cc4b48ecbcdf8c4cabfe1bb01aedeabe50f167caa1e8f6a6983",
+        "web_codec": "h264"
+      },
+      "source_gloss": "Bận"
+    },
+    {
+      "slug": "ca-si",
+      "word": {
+        "vi": "Ca sĩ"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 12,
+      "source_gloss": "Ca sĩ"
+    },
+    {
+      "slug": "chu-tich",
+      "word": {
+        "vi": "Chủ tịch"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 12,
+      "source_gloss": "Chủ tịch"
+    },
+    {
+      "slug": "cong-ty",
+      "word": {
+        "vi": "Công ty"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 12,
+      "source_gloss": "Công ty"
+    },
+    {
+      "slug": "dien-vien",
+      "word": {
+        "vi": "Diễn viên"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 12,
+      "source_gloss": "Diễn viên"
+    },
+    {
+      "slug": "giam-doc",
+      "word": {
+        "vi": "Giám đốc"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 12,
+      "source_gloss": "Giám đốc"
+    },
+    {
+      "slug": "ke-toan",
+      "word": {
+        "vi": "Kế toán"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 12,
+      "source_gloss": "Kế toán"
+    },
+    {
+      "slug": "laptop",
+      "word": {
+        "vi": "Laptop"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 12,
+      "source_gloss": "Laptop"
+    },
+    {
+      "slug": "luat-su",
+      "word": {
+        "vi": "Luật sư"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 12,
+      "source_gloss": "Luật sư"
+    },
+    {
+      "slug": "lam-viec",
+      "word": {
+        "vi": "Làm việc"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 12,
+      "source_gloss": "Làm việc"
+    },
+    {
+      "slug": "le-tan",
+      "word": {
+        "vi": "Lễ tân"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 12,
+      "source_gloss": "Lễ tân"
+    },
+    {
+      "slug": "nghe-nghiep",
+      "word": {
+        "vi": "Nghề nghiệp"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 12,
+      "source_gloss": "Nghề nghiệp"
+    },
+    {
+      "slug": "nhan-vien-phuc-vu",
+      "word": {
+        "vi": "Nhân viên phục vụ"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 12,
+      "source_gloss": "Nhân viên phục vụ"
+    },
+    {
+      "slug": "nhan-vien-van-phong",
+      "word": {
+        "vi": "Nhân viên văn phòng"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 12,
+      "source_gloss": "Nhân viên văn phòng"
+    },
+    {
+      "slug": "nong-dan",
+      "word": {
+        "vi": "Nông dân"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 12,
+      "source_gloss": "Nông dân"
+    },
+    {
+      "slug": "thu-ky",
+      "word": {
+        "vi": "Thư ký"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 12,
+      "source_gloss": "Thư ký"
+    },
+    {
+      "slug": "y-ta",
+      "word": {
+        "vi": "Y tá"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 12,
+      "source_gloss": "Y tá"
+    },
+    {
+      "slug": "dau-bep",
+      "word": {
+        "vi": "Đầu bếp"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 12,
+      "source_gloss": "Đầu bếp"
+    },
+    {
+      "slug": "benh-vien",
+      "word": {
+        "vi": "Bệnh viện"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 13,
+      "source_gloss": "Bệnh viện"
+    },
+    {
+      "slug": "cho-2",
+      "word": {
+        "vi": "Chợ"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 13,
+      "source_gloss": "Chợ"
+    },
+    {
+      "slug": "cong-vien",
+      "word": {
+        "vi": "Công viên"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 13,
+      "source_gloss": "Công viên"
+    },
+    {
+      "slug": "ngan-hang",
+      "word": {
+        "vi": "Ngân hàng"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 13,
+      "source_gloss": "Ngân hàng"
+    },
+    {
+      "slug": "nha",
+      "word": {
+        "vi": "Nhà"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 13,
+      "source_gloss": "Nhà"
+    },
+    {
+      "slug": "nha-hang",
+      "word": {
+        "vi": "Nhà hàng"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 13,
+      "source_gloss": "Nhà hàng"
+    },
+    {
+      "slug": "nha-sach",
+      "word": {
+        "vi": "Nhà sách"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 13,
+      "source_gloss": "Nhà sách"
+    },
+    {
+      "slug": "nha-tro",
+      "word": {
+        "vi": "Nhà trọ"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 13,
+      "source_gloss": "Nhà trọ"
+    },
+    {
+      "slug": "quan-ca-phe",
+      "word": {
+        "vi": "Quán cà phê"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 13,
+      "source_gloss": "Quán cà phê"
+    },
+    {
+      "slug": "rap-chieu-phim",
+      "word": {
+        "vi": "Rạp chiếu phim"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 13,
+      "source_gloss": "Rạp chiếu phim"
+    },
+    {
+      "slug": "sieu-thi",
+      "word": {
+        "vi": "Siêu thị"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 13,
+      "source_gloss": "Siêu thị"
+    },
+    {
+      "slug": "thanh-pho",
+      "word": {
+        "vi": "Thành phố"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 13,
+      "source_gloss": "Thành phố"
+    },
+    {
+      "slug": "tinh",
+      "word": {
+        "vi": "Tỉnh"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 13,
+      "source_gloss": "Tỉnh"
+    },
+    {
+      "slug": "anh",
+      "word": {
+        "vi": "Anh",
+        "en": "United Kingdom"
+      },
+      "meaning": {},
+      "lesson": 13,
+      "collection": "local-videos",
+      "status": "sample",
+      "video": "/static/media/local-videos/anh.mp4",
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "source": {
+        "relative_path": "Anh/000000.mp4",
+        "sha256": "d124b2f15b22b1d1a15fee1667e171ead509963ec98c2176da6b6e96cd581ce2",
+        "web_sha256": "3e5cbe3805e4df925d19bbf91fb063f308308d9b511b6fcf0eef17bd443db866",
+        "web_codec": "h264"
+      },
+      "source_gloss": "Anh"
+    },
+    {
+      "slug": "gan",
+      "word": {
+        "vi": "Gần"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 13,
+      "source_gloss": "Gần"
+    },
+    {
+      "slug": "han-quoc",
+      "word": {
+        "vi": "Hàn Quốc"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 13,
+      "source_gloss": "Hàn Quốc"
+    },
+    {
+      "slug": "my",
+      "word": {
+        "vi": "Mỹ"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 13,
+      "source_gloss": "Mỹ"
+    },
+    {
+      "slug": "nhat-ban",
+      "word": {
+        "vi": "Nhật Bản"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 13,
+      "source_gloss": "Nhật Bản"
+    },
+    {
+      "slug": "thai-lan",
+      "word": {
+        "vi": "Thái Lan"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 13,
+      "source_gloss": "Thái Lan"
+    },
+    {
+      "slug": "trung-quoc",
+      "word": {
+        "vi": "Trung Quốc"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 13,
+      "source_gloss": "Trung Quốc"
+    },
+    {
+      "slug": "viet-nam",
+      "word": {
+        "vi": "Việt Nam"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 13,
+      "source_gloss": "Việt Nam"
+    },
+    {
+      "slug": "xa",
+      "word": {
+        "vi": "Xa"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 13,
+      "source_gloss": "Xa"
+    },
+    {
+      "slug": "chay",
+      "word": {
+        "vi": "Chạy"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 14,
+      "source_gloss": "Chạy"
+    },
+    {
+      "slug": "dung-lai",
+      "word": {
+        "vi": "Dừng lại"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 14,
+      "source_gloss": "Dừng lại"
+    },
+    {
+      "slug": "may-bay",
+      "word": {
+        "vi": "Máy bay"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 14,
+      "source_gloss": "Máy bay"
+    },
+    {
+      "slug": "taxi",
+      "word": {
+        "vi": "Taxi"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 14,
+      "source_gloss": "Taxi"
+    },
+    {
+      "slug": "thuyen",
+      "word": {
+        "vi": "Thuyền"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 14,
+      "source_gloss": "Thuyền"
+    },
+    {
+      "slug": "truc-thang",
+      "word": {
+        "vi": "Trực thăng"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 14,
+      "source_gloss": "Trực thăng"
+    },
+    {
+      "slug": "tau-hoa",
+      "word": {
+        "vi": "Tàu hỏa"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 14,
+      "source_gloss": "Tàu hỏa"
+    },
+    {
+      "slug": "xe-buyt",
+      "word": {
+        "vi": "Xe buýt"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 14,
+      "source_gloss": "Xe buýt"
+    },
+    {
+      "slug": "xe-may",
+      "word": {
+        "vi": "Xe máy"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 14,
+      "source_gloss": "Xe máy"
+    },
+    {
+      "slug": "xe-tai",
+      "word": {
+        "vi": "Xe tải"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 14,
+      "source_gloss": "Xe tải"
+    },
+    {
+      "slug": "xe-dap",
+      "word": {
+        "vi": "Xe đạp"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 14,
+      "source_gloss": "Xe đạp"
+    },
+    {
+      "slug": "o-to",
+      "word": {
+        "vi": "Ô tô"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 14,
+      "source_gloss": "Ô tô"
+    },
+    {
+      "slug": "di-2",
+      "word": {
+        "vi": "Đi"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 14,
+      "source_gloss": "Đi"
+    },
+    {
+      "slug": "bong-ban",
+      "word": {
+        "vi": "Bóng bàn"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 15,
+      "source_gloss": "Bóng bàn"
+    },
+    {
+      "slug": "bong-chuyen",
+      "word": {
+        "vi": "Bóng chuyền"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 15,
+      "source_gloss": "Bóng chuyền"
+    },
+    {
+      "slug": "bong-ro",
+      "word": {
+        "vi": "Bóng rổ"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 15,
+      "source_gloss": "Bóng rổ"
+    },
+    {
+      "slug": "bong-da",
+      "word": {
+        "vi": "Bóng đá"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 15,
+      "source_gloss": "Bóng đá"
+    },
+    {
+      "slug": "boi-loi",
+      "word": {
+        "vi": "Bơi lội"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 15,
+      "source_gloss": "Bơi lội"
+    },
+    {
+      "slug": "choi-co",
+      "word": {
+        "vi": "Chơi cờ"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 15,
+      "source_gloss": "Chơi cờ"
+    },
+    {
+      "slug": "chup-hinh",
+      "word": {
+        "vi": "Chụp hình"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 15,
+      "source_gloss": "Chụp hình"
+    },
+    {
+      "slug": "cau-long",
+      "word": {
+        "vi": "Cầu lông"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 15,
+      "source_gloss": "Cầu lông"
+    },
+    {
+      "slug": "cam-trai",
+      "word": {
+        "vi": "Cắm trại"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 15,
+      "source_gloss": "Cắm trại"
+    },
+    {
+      "slug": "hat",
+      "word": {
+        "vi": "Hát"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 15,
+      "source_gloss": "Hát"
+    },
+    {
+      "slug": "mua-2",
+      "word": {
+        "vi": "Múa"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 15,
+      "source_gloss": "Múa"
+    },
+    {
+      "slug": "nhay-cao",
+      "word": {
+        "vi": "Nhảy cao"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 15,
+      "source_gloss": "Nhảy cao"
+    },
+    {
+      "slug": "nhay-day",
+      "word": {
+        "vi": "Nhảy dây"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 15,
+      "source_gloss": "Nhảy dây"
+    },
+    {
+      "slug": "the-duc-the-thao",
+      "word": {
+        "vi": "Thể dục (thể thao)"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 15,
+      "source_gloss": "Thể dục (thể thao)"
+    },
+    {
+      "slug": "vo-3",
+      "word": {
+        "vi": "Võ"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 15,
+      "source_gloss": "Võ"
+    },
+    {
+      "slug": "xem",
+      "word": {
+        "vi": "Xem"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 15,
+      "source_gloss": "Xem"
+    },
+    {
+      "slug": "dien-kinh",
+      "word": {
+        "vi": "Điền kinh"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 15,
+      "source_gloss": "Điền kinh"
+    },
+    {
+      "slug": "da-cau",
+      "word": {
+        "vi": "Đá cầu"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 15,
+      "source_gloss": "Đá cầu"
+    },
+    {
+      "slug": "cao-nguoi",
+      "word": {
+        "vi": "Cao (người)"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 16,
+      "source_gloss": "Cao (người)"
+    },
+    {
+      "slug": "chet",
+      "word": {
+        "vi": "Chết"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 16,
+      "source_gloss": "Chết"
+    },
+    {
+      "slug": "gia",
+      "word": {
+        "vi": "Già"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 16,
+      "source_gloss": "Già"
+    },
+    {
+      "slug": "kham-benh",
+      "word": {
+        "vi": "Khám bệnh"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 16,
+      "source_gloss": "Khám bệnh"
+    },
+    {
+      "slug": "khoe",
+      "word": {
+        "vi": "Khỏe"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 16,
+      "source_gloss": "Khỏe"
+    },
+    {
+      "slug": "lun",
+      "word": {
+        "vi": "Lùn"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 16,
+      "source_gloss": "Lùn"
+    },
+    {
+      "slug": "manh",
+      "word": {
+        "vi": "Mạnh"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 16,
+      "source_gloss": "Mạnh"
+    },
+    {
+      "slug": "map",
+      "word": {
+        "vi": "Mập"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 16,
+      "source_gloss": "Mập"
+    },
+    {
+      "slug": "met",
+      "word": {
+        "vi": "Mệt"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 16,
+      "source_gloss": "Mệt"
+    },
+    {
+      "slug": "tre-2",
+      "word": {
+        "vi": "Trẻ"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 16,
+      "source_gloss": "Trẻ"
+    },
+    {
+      "slug": "xau-nguoi",
+      "word": {
+        "vi": "Xấu (người)"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 16,
+      "source_gloss": "Xấu (người)"
+    },
+    {
+      "slug": "yeu",
+      "word": {
+        "vi": "Yếu"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 16,
+      "source_gloss": "Yếu"
+    },
+    {
+      "slug": "dau",
+      "word": {
+        "vi": "Đau"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 16,
+      "source_gloss": "Đau"
+    },
+    {
+      "slug": "dep-nguoi",
+      "word": {
+        "vi": "Đẹp (người)"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 16,
+      "source_gloss": "Đẹp (người)"
+    },
+    {
+      "slug": "om",
+      "word": {
+        "vi": "Ốm"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 16,
+      "source_gloss": "Ốm"
+    },
+    {
+      "slug": "cao-do-vat",
+      "word": {
+        "vi": "Cao (đồ vật)"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 16,
+      "source_gloss": "Cao (đồ vật)"
+    },
+    {
+      "slug": "chat",
+      "word": {
+        "vi": "Chật"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 16,
+      "source_gloss": "Chật"
+    },
+    {
+      "slug": "cu",
+      "word": {
+        "vi": "Cũ"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 16,
+      "source_gloss": "Cũ"
+    },
+    {
+      "slug": "cung",
+      "word": {
+        "vi": "Cứng"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 16,
+      "source_gloss": "Cứng"
+    },
+    {
+      "slug": "dai",
+      "word": {
+        "vi": "Dài"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 16,
+      "source_gloss": "Dài"
+    },
+    {
+      "slug": "do-2",
+      "word": {
+        "vi": "Dơ"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 16,
+      "source_gloss": "Dơ"
+    },
+    {
+      "slug": "hu",
+      "word": {
+        "vi": "Hư"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 16,
+      "source_gloss": "Hư"
+    },
+    {
+      "slug": "hep",
+      "word": {
+        "vi": "Hẹp"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 16,
+      "source_gloss": "Hẹp"
+    },
+    {
+      "slug": "mem",
+      "word": {
+        "vi": "Mềm"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 16,
+      "source_gloss": "Mềm"
+    },
+    {
+      "slug": "moi",
+      "word": {
+        "vi": "Mới"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 16,
+      "source_gloss": "Mới"
+    },
+    {
+      "slug": "ngan",
+      "word": {
+        "vi": "Ngắn"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 16,
+      "source_gloss": "Ngắn"
+    },
+    {
+      "slug": "nhe",
+      "word": {
+        "vi": "Nhẹ"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 16,
+      "source_gloss": "Nhẹ"
+    },
+    {
+      "slug": "nang-2",
+      "word": {
+        "vi": "Nặng"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 16,
+      "source_gloss": "Nặng"
+    },
+    {
+      "slug": "rong",
+      "word": {
+        "vi": "Rộng"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 16,
+      "source_gloss": "Rộng"
+    },
+    {
+      "slug": "sach-se",
+      "word": {
+        "vi": "Sạch sẽ"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 16,
+      "source_gloss": "Sạch sẽ"
+    },
+    {
+      "slug": "thap-do-vat",
+      "word": {
+        "vi": "Thấp (đồ vật)"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 16,
+      "source_gloss": "Thấp (đồ vật)"
+    },
+    {
+      "slug": "xau-vat",
+      "word": {
+        "vi": "Xấu (vật)"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 16,
+      "source_gloss": "Xấu (vật)"
+    },
+    {
+      "slug": "dep-vat",
+      "word": {
+        "vi": "Đẹp (vật)"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 16,
+      "source_gloss": "Đẹp (vật)"
+    },
+    {
+      "slug": "cuoi",
+      "word": {
+        "vi": "Cười"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 17,
+      "source_gloss": "Cười"
+    },
+    {
+      "slug": "cam-thay",
+      "word": {
+        "vi": "Cảm thấy"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 17,
+      "source_gloss": "Cảm thấy"
+    },
+    {
+      "slug": "doi",
+      "word": {
+        "vi": "Dỗi"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 17,
+      "source_gloss": "Dỗi"
+    },
+    {
+      "slug": "ghet",
+      "word": {
+        "vi": "Ghét"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 17,
+      "source_gloss": "Ghét"
+    },
+    {
+      "slug": "hy-vong",
+      "word": {
+        "vi": "Hy vọng"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 17,
+      "source_gloss": "Hy vọng"
+    },
+    {
+      "slug": "khoc",
+      "word": {
+        "vi": "Khóc"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 17,
+      "source_gloss": "Khóc"
+    },
+    {
+      "slug": "khong-quen",
+      "word": {
+        "vi": "Không quen"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 17,
+      "source_gloss": "Không quen"
+    },
+    {
+      "slug": "quen",
+      "word": {
+        "vi": "Quen"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 17,
+      "source_gloss": "Quen"
+    },
+    {
+      "slug": "thich",
+      "word": {
+        "vi": "Thích"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 17,
+      "source_gloss": "Thích"
+    },
+    {
+      "slug": "yeu-thuong",
+      "word": {
+        "vi": "Yêu thương"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 17,
+      "source_gloss": "Yêu thương"
+    },
+    {
+      "slug": "cham-chi",
+      "word": {
+        "vi": "Chăm chỉ"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 17,
+      "source_gloss": "Chăm chỉ"
+    },
+    {
+      "slug": "dung-cam",
+      "word": {
+        "vi": "Dũng cảm"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 17,
+      "source_gloss": "Dũng cảm"
+    },
+    {
+      "slug": "du",
+      "word": {
+        "vi": "Dữ"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 17,
+      "source_gloss": "Dữ"
+    },
+    {
+      "slug": "giau",
+      "word": {
+        "vi": "Giàu"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 17,
+      "source_gloss": "Giàu"
+    },
+    {
+      "slug": "gioi",
+      "word": {
+        "vi": "Giỏi"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 17,
+      "source_gloss": "Giỏi"
+    },
+    {
+      "slug": "hien",
+      "word": {
+        "vi": "Hiền"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 17,
+      "source_gloss": "Hiền"
+    },
+    {
+      "slug": "hai-huoc",
+      "word": {
+        "vi": "Hài hước"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 17,
+      "source_gloss": "Hài hước"
+    },
+    {
+      "slug": "khoe-khoang",
+      "word": {
+        "vi": "Khoe khoang"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 17,
+      "source_gloss": "Khoe khoang"
+    },
+    {
+      "slug": "khong-nghe-loi",
+      "word": {
+        "vi": "Không nghe lời"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 17,
+      "source_gloss": "Không nghe lời"
+    },
+    {
+      "slug": "luoi-bieng",
+      "word": {
+        "vi": "Lười biếng"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 17,
+      "source_gloss": "Lười biếng"
+    },
+    {
+      "slug": "ngheo",
+      "word": {
+        "vi": "Nghèo"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 17,
+      "source_gloss": "Nghèo"
+    },
+    {
+      "slug": "ngoan",
+      "word": {
+        "vi": "Ngoan"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 17,
+      "source_gloss": "Ngoan"
+    },
+    {
+      "slug": "ngu-ngoc",
+      "word": {
+        "vi": "Ngu ngốc"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 17,
+      "source_gloss": "Ngu ngốc"
+    },
+    {
+      "slug": "sang-tao",
+      "word": {
+        "vi": "Sáng tạo"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 17,
+      "source_gloss": "Sáng tạo"
+    },
+    {
+      "slug": "tham-lam",
+      "word": {
+        "vi": "Tham lam"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 17,
+      "source_gloss": "Tham lam"
+    },
+    {
+      "slug": "thong-minh",
+      "word": {
+        "vi": "Thông minh"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 17,
+      "source_gloss": "Thông minh"
+    },
+    {
+      "slug": "tot-bung",
+      "word": {
+        "vi": "Tốt bụng"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 17,
+      "source_gloss": "Tốt bụng"
+    },
+    {
+      "slug": "vang-loi",
+      "word": {
+        "vi": "Vâng lời"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 17,
+      "source_gloss": "Vâng lời"
+    },
+    {
+      "slug": "cham-chap",
+      "word": {
+        "vi": "Chậm chạp"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 17,
+      "source_gloss": "Chậm chạp"
+    },
+    {
+      "slug": "de",
+      "word": {
+        "vi": "Dễ"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 17,
+      "source_gloss": "Dễ"
+    },
+    {
+      "slug": "hay-khen",
+      "word": {
+        "vi": "Hay (khen)"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 17,
+      "source_gloss": "Hay (khen)"
+    },
+    {
+      "slug": "kho-2",
+      "word": {
+        "vi": "Khó"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 17,
+      "source_gloss": "Khó"
+    },
+    {
+      "slug": "nhanh",
+      "word": {
+        "vi": "Nhanh"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 17,
+      "source_gloss": "Nhanh"
+    },
+    {
+      "slug": "nham-lan",
+      "word": {
+        "vi": "Nhầm lẫn"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 17,
+      "source_gloss": "Nhầm lẫn"
+    },
+    {
+      "slug": "sai",
+      "word": {
+        "vi": "Sai"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 17,
+      "source_gloss": "Sai"
+    },
+    {
+      "slug": "thu-vi",
+      "word": {
+        "vi": "Thú vị"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 17,
+      "source_gloss": "Thú vị"
+    },
+    {
+      "slug": "yen-tinh",
+      "word": {
+        "vi": "Yên tĩnh"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 17,
+      "source_gloss": "Yên tĩnh"
+    },
+    {
+      "slug": "dung",
+      "word": {
+        "vi": "Đúng"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 17,
+      "source_gloss": "Đúng"
+    },
+    {
+      "slug": "on-ao",
+      "word": {
+        "vi": "Ồn ào"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 17,
+      "source_gloss": "Ồn ào"
+    },
+    {
+      "slug": "con-bo",
+      "word": {
+        "vi": "Con bò"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 18,
+      "source_gloss": "Con bò"
+    },
+    {
+      "slug": "con-cho",
+      "word": {
+        "vi": "Con chó"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 18,
+      "source_gloss": "Con chó"
+    },
+    {
+      "slug": "con-de",
+      "word": {
+        "vi": "Con dê"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 18,
+      "source_gloss": "Con dê"
+    },
+    {
+      "slug": "con-ga",
+      "word": {
+        "vi": "Con gà"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 18,
+      "source_gloss": "Con gà"
+    },
+    {
+      "slug": "con-heo",
+      "word": {
+        "vi": "Con heo"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 18,
+      "source_gloss": "Con heo"
+    },
+    {
+      "slug": "con-meo",
+      "word": {
+        "vi": "Con mèo"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 18,
+      "source_gloss": "Con mèo"
+    },
+    {
+      "slug": "con-rua",
+      "word": {
+        "vi": "Con rùa"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 18,
+      "source_gloss": "Con rùa"
+    },
+    {
+      "slug": "con-tho",
+      "word": {
+        "vi": "Con thỏ"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 18,
+      "source_gloss": "Con thỏ"
+    },
+    {
+      "slug": "con-trau",
+      "word": {
+        "vi": "Con trâu"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 18,
+      "source_gloss": "Con trâu"
+    },
+    {
+      "slug": "con-vit",
+      "word": {
+        "vi": "Con vịt"
+      },
+      "meaning": {},
+      "status": "published",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "lesson": 18,
+      "source_gloss": "Con vịt"
+    },
+    {
+      "slug": "xin-chao",
+      "word": {
+        "vi": "Xin chào",
+        "en": "Hello"
+      },
+      "meaning": {
+        "vi": "Lời chào khi gặp ai đó.",
+        "en": "A greeting when you meet someone."
+      },
+      "lesson": null,
       "status": "sample",
       "video": null,
       "thumbnail": null,
       "variants": [],
-      "ai_supported": false
+      "ai_supported": false,
+      "collection": "legacy-samples"
+    },
+    {
+      "slug": "tam-biet",
+      "word": {
+        "vi": "Tạm biệt",
+        "en": "Goodbye"
+      },
+      "meaning": {
+        "vi": "Lời chào khi chia tay.",
+        "en": "Said when parting."
+      },
+      "lesson": null,
+      "status": "sample",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "collection": "legacy-samples"
+    },
+    {
+      "slug": "toi",
+      "word": {
+        "vi": "Tôi",
+        "en": "I / me"
+      },
+      "meaning": {
+        "vi": "Chỉ bản thân người nói.",
+        "en": "Refers to the speaker."
+      },
+      "lesson": null,
+      "status": "sample",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "collection": "legacy-samples"
+    },
+    {
+      "slug": "ban",
+      "word": {
+        "vi": "Bạn",
+        "en": "You"
+      },
+      "meaning": {
+        "vi": "Chỉ người đang trò chuyện cùng.",
+        "en": "Refers to the person you are talking to."
+      },
+      "lesson": null,
+      "status": "sample",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "collection": "legacy-samples"
+    },
+    {
+      "slug": "ten",
+      "word": {
+        "vi": "Tên",
+        "en": "Name"
+      },
+      "meaning": {
+        "vi": "Tên gọi của một người.",
+        "en": "What a person is called."
+      },
+      "lesson": null,
+      "status": "sample",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "collection": "legacy-samples"
+    },
+    {
+      "slug": "gia-dinh",
+      "word": {
+        "vi": "Gia đình",
+        "en": "Family"
+      },
+      "meaning": {
+        "vi": "Những người thân cùng một nhà.",
+        "en": "The people related to you."
+      },
+      "lesson": null,
+      "status": "sample",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "collection": "legacy-samples"
+    },
+    {
+      "slug": "anh-trai",
+      "word": {
+        "vi": "Anh trai",
+        "en": "Older brother"
+      },
+      "meaning": {
+        "vi": "Anh ruột, lớn tuổi hơn mình.",
+        "en": "A brother older than you."
+      },
+      "lesson": null,
+      "status": "sample",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "collection": "legacy-samples"
+    },
+    {
+      "slug": "chi-gai",
+      "word": {
+        "vi": "Chị gái",
+        "en": "Older sister"
+      },
+      "meaning": {
+        "vi": "Chị ruột, lớn tuổi hơn mình.",
+        "en": "A sister older than you."
+      },
+      "lesson": null,
+      "status": "sample",
+      "video": null,
+      "thumbnail": null,
+      "variants": [],
+      "ai_supported": false,
+      "collection": "legacy-samples"
     }
   ],
   "_local_videos": {
@@ -766,6 +6586,26 @@
     "source_directory": "../data",
     "reviewed": false,
     "translations_reviewed": false,
-    "note": "User-supplied preview collection. lesson=null until syllabus mapping is reviewed; original lesson signs are preserved."
+    "note": "Existing sample videos mapped by exact Vietnamese gloss to the supplied syllabus. No additional videos imported; sample media remains unreviewed."
+  },
+  "_syllabus": {
+    "file": "Giao_trinh_VSL_400_Tu_vung.pdf.pdf",
+    "lessons": 18,
+    "words": 400,
+    "gloss_directories_matched": 400
+  },
+  "_legacy_samples": {
+    "count": 8,
+    "slugs": [
+      "xin-chao",
+      "tam-biet",
+      "toi",
+      "ban",
+      "ten",
+      "gia-dinh",
+      "anh-trai",
+      "chi-gai"
+    ],
+    "note": "Retained outside the 400-word syllabus so saved favorites, viewed signs and history links stay readable. No progress records are rewritten."
   }
 }

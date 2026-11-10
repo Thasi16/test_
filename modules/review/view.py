@@ -52,6 +52,8 @@ def context(request):
             raise request.NotFound()
     requested_video_signs = ([sign for sign in c.signs(requested_lesson['id']) if sign.get('video')]
                              if requested_lesson else [])
+    if requested_lesson and len(requested_video_signs) < 2:
+        raise request.NotFound()
     if lesson_id == 'video' or len(requested_video_signs) < 2:
         signs = [sign for sign in c.signs() if sign.get('video')]
         if len(signs) < 2:
@@ -75,7 +77,7 @@ def context(request):
     lesson = requested_lesson
     if not lesson or not c.is_open(lesson) or len(c.signs(lesson['id'])) < 2:
         raise request.NotFound()
-    signs = c.signs(lesson['id'])
+    signs = requested_video_signs
     reading = ''.join(
         f'<li><h3>{esc(c.text(sign["word"], locale))}</h3>{sample(sign)}'
         f'<p>{esc(c.text(sign["meaning"], locale))}</p></li>' for sign in signs)

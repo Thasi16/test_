@@ -57,6 +57,17 @@ def context(request):
             f'<li><span class="lesson-observe-number" aria-hidden="true">{esc(n)}</span>'
             f'<span>{esc(t["lesson.observe." + key])}</span></li>'
             for n, key in enumerate(observation_keys, 1))
+        meaning = c.text(sign['meaning'], locale)
+        meaning_html = f'<p class="lesson-meaning">{esc(meaning)}</p>' if meaning else ''
+        study_html = (
+            f'<div class="lesson-media">{video}{placeholder}</div>'
+            f'<section class="lesson-observe" aria-labelledby="observe-{esc(slug)}">'
+            f'<h3 id="observe-{esc(slug)}">{esc(t["lesson.observe.title"])}</h3>'
+            f'<p>{esc(t["lesson.observe.hint"])}</p><ul>{observations}</ul></section>'
+            if source else '')
+        practice_html = (
+            f'<a class="button button-outline" href="{esc(request.url("/app/practice/" + slug))}">{esc(t["lesson.practice"])}</a>'
+            if source else '')
         articles.append(
             f'<article class="sh-card lesson-sign" id="sign-{esc(slug)}" data-slug="{esc(slug)}" '
             f'aria-labelledby="sign-title-{esc(slug)}">'
@@ -64,19 +75,15 @@ def context(request):
             f'<p class="sh-eyebrow">{esc(t["lesson.position"].replace("{n}", str(index)).replace("{total}", str(len(signs))))}</p>'
             f'<h2 id="sign-title-{esc(slug)}" tabindex="-1">{esc(word)}</h2></div>{sample(sign)}'
             f'<button type="button" class="sh-chip lesson-favorite" data-favorite aria-pressed="false" hidden>{esc(t["lesson.favorite.add"])}</button></header>'
-            f'<p class="lesson-meaning">{esc(c.text(sign["meaning"], locale))}</p>'
-            f'<div class="lesson-media">{video}{placeholder}</div>'
-            f'<section class="lesson-observe" aria-labelledby="observe-{esc(slug)}">'
-            f'<h3 id="observe-{esc(slug)}">{esc(t["lesson.observe.title"])}</h3>'
-            f'<p>{esc(t["lesson.observe.hint"])}</p><ul>{observations}</ul></section>'
+            f'{meaning_html}{study_html}'
             '<div class="lesson-sign-actions">'
             f'<button type="button" class="button" data-mark-seen aria-pressed="false" hidden>{esc(t["lesson.seen.action"])}</button>'
-            f'<a class="button button-outline" href="{esc(request.url("/app/practice/" + slug))}">{esc(t["lesson.practice"])}</a>'
+            f'{practice_html}'
             f'<a class="lesson-dictionary-link" href="{esc(request.url("/app/signs/" + slug))}">{esc(t["lesson.dictionary"])}</a>'
             '</div></article>')
     quiz = (
         f'<a class="button button-outline lesson-quiz" data-quiz href="{esc(request.url("/app/review/quiz/" + str(lesson["id"])))}">'
-        f'{esc(t["lesson.quiz"])}</a>' if len(signs) >= 2 else '')
+        f'{esc(t["lesson.quiz"])}</a>' if sum(bool(sign.get('video')) for sign in signs) >= 2 else '')
     return {
         'lesson.heading': title,
         'lesson.id': str(lesson['id']),

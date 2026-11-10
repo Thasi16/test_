@@ -32,12 +32,16 @@ def context(request):
                 f'<section class="practice-group" data-practice-group aria-labelledby="practice-lesson-{esc(lesson["id"])}">'
                 f'<h2 id="practice-lesson-{esc(lesson["id"])}">{esc(title)}</h2>'
                 f'<ul class="practice-choices">{cards(signs)}</ul></section>')
-        local = [sign for sign in c.signs() if sign.get('collection') == 'local-videos' and sign['lesson'] is None]
-        if local:
-            groups.insert(0,
-                '<section class="practice-group" data-practice-group aria-labelledby="practice-local-title">'
-                f'<h2 id="practice-local-title">{esc(t["practice.collection.title"])}</h2>'
-                f'<ul class="practice-choices">{cards(local)}</ul></section>')
+        for collection, title_key, anchor in (
+            ('local-videos', 'practice.collection.title', 'practice-local-title'),
+            ('legacy-samples', 'practice.legacy.title', 'practice-legacy-title'),
+        ):
+            unassigned = [sign for sign in c.signs() if sign.get('collection') == collection and sign['lesson'] is None]
+            if unassigned:
+                groups.append(
+                    f'<section class="practice-group" data-practice-group aria-labelledby="{anchor}">'
+                    f'<h2 id="{anchor}">{esc(t[title_key])}</h2>'
+                    f'<ul class="practice-choices">{cards(unassigned)}</ul></section>')
         return {
             'practice.groups.html': ''.join(groups) if groups else f'<p class="sh-card sh-empty">{esc(t["practice.empty.content"])}</p>',
             'practice.courses_url': request.url('/app/courses'),
@@ -46,7 +50,7 @@ def context(request):
     if not sign:
         raise request.NotFound()
     lesson = c.lesson(sign['lesson'])
-    local = sign.get('collection') == 'local-videos' and sign['lesson'] is None
+    local = sign.get('collection') in ('local-videos', 'legacy-samples') and sign['lesson'] is None
     if (not lesson and not local) or (lesson and not c.is_open(lesson)):
         raise request.NotFound()
     word = c.text(sign['word'], locale)
@@ -70,7 +74,7 @@ def context(request):
         f'<label class="practice-check" for="practice-{esc(key)}"><input id="practice-{esc(key)}" '
         f'type="checkbox" data-check="{esc(key)}"><span>{esc(t["practice.check." + key])}</span></label>'
         for key in observation_keys)
-    siblings = ([other for other in c.signs() if other.get('collection') == 'local-videos' and other['lesson'] is None]
+    siblings = ([other for other in c.signs() if other.get('collection') == sign.get('collection') and other['lesson'] is None]
                 if local else c.signs(lesson['id']))
     index = next(i for i, other in enumerate(siblings) if other['slug'] == slug)
     next_link = (f'<a class="button button-outline" data-next-sign href="{esc(request.url("/app/practice/" + siblings[index + 1]["slug"]))}">{esc(t["practice.next"])}</a>'

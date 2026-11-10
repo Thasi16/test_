@@ -28,12 +28,13 @@ def context(request):
                    if lesson else t['dictionary.collection.name'])
         media_label = (t['dictionary.video.imported'] if local
                        else t['dictionary.video.available']) if video_source(sign) else t['dictionary.video.missing']
-        module_id = module['id'] if module else 'local'
-        meaning = ('' if local else
+        module_id = module['id'] if module else 'unassigned'
+        meaning = ('' if local or not c.text(sign['meaning'], locale) else
                    f'<p class="dictionary-card-meaning">{esc(c.text(sign["meaning"], locale))}</p>')
-        context = '' if local else f'<p class="dictionary-card-context">{esc(caption)}</p>'
+        context = f'<p class="dictionary-card-context">{esc(caption)}</p>' if lesson else ''
         return (
-            f'<li class="dictionary-item" data-slug="{esc(sign["slug"])}" data-module="{esc(module_id)}" data-search="{esc(search)}">'
+            f'<li class="dictionary-item" data-slug="{esc(sign["slug"])}" data-module="{esc(module_id)}" '
+            f'data-collection="{esc(sign.get("collection", ""))}" data-search="{esc(search)}">'
             f'<a class="sh-card dictionary-card" href="{esc(request.url("/app/signs/" + sign["slug"]))}">'
             f'<span class="dictionary-card-badges">{sample(sign)}'
             f'<span class="sh-badge dictionary-favorite-mark" data-favorite-mark hidden>{esc(t["dictionary.favorite.mark"])}</span></span>'
@@ -71,7 +72,8 @@ def context(request):
     if not sign:
         raise request.NotFound()
     lesson = c.lesson(sign['lesson'])
-    local = sign.get('collection') == 'local-videos' and sign['lesson'] is None
+    legacy = sign.get('collection') == 'legacy-samples'
+    local = sign.get('collection') in ('local-videos', 'legacy-samples') and sign['lesson'] is None
     if (not lesson and not local) or (lesson and not c.is_open(lesson)):
         raise request.NotFound()
     module = c.module(lesson['module']) if lesson else None
@@ -83,7 +85,7 @@ def context(request):
     video += ('<div class="sh-video-placeholder" data-video-missing' + (' hidden' if source else '') + '>'
               + f'<span>{esc(t["shell.video.missing"])}</span></div>')
     if local:
-        lesson_link = esc(t['dictionary.collection.unassigned'])
+        lesson_link = esc(t['dictionary.legacy.name'] if legacy else t['dictionary.collection.unassigned'])
     else:
         lesson_caption = t['dictionary.detail.lesson'].replace('{n}', str(lesson['id'])).replace('{title}', c.text(lesson['title'], locale))
         lesson_link = f'<a href="{esc(request.url("/app/lessons/" + str(lesson["id"])))}">{esc(lesson_caption)}</a>'
@@ -92,7 +94,7 @@ def context(request):
     variants = [value for value in variants if value.strip()]
     variants_html = ('<ul>' + ''.join(f'<li>{esc(value)}</li>' for value in variants) + '</ul>'
                      if variants else f'<p>{esc(t["dictionary.variants.empty"])}</p>')
-    related = ([other for other in c.signs() if other.get('collection') == 'local-videos' and other['slug'] != slug]
+    related = ([other for other in c.signs() if other.get('collection') == sign.get('collection') and other['slug'] != slug]
                if local else [other for other in c.signs(lesson['id']) if other['slug'] != slug])
     return {
         'dictionary.heading': c.text(sign['word'], locale),
@@ -103,9 +105,9 @@ def context(request):
         'dictionary.sample.html': sample(sign),
         'dictionary.media.html': video,
         'dictionary.lesson.html': lesson_link,
-        'dictionary.module_name': t['dictionary.collection.name'] if local else c.text(module['title'], locale),
+        'dictionary.module_name': (t['dictionary.legacy.name'] if legacy else t['dictionary.collection.name']) if local else c.text(module['title'], locale),
         'dictionary.module_caption': t['dictionary.collection.label'] if local else t['dictionary.module.label'],
-        'dictionary.related_heading': t['dictionary.collection.related'] if local else t['dictionary.related.title'],
+        'dictionary.related_heading': t['dictionary.legacy.name'] if legacy else t['dictionary.collection.related'] if local else t['dictionary.related.title'],
         'dictionary.variants.html': variants_html,
         'dictionary.practice_url': request.url('/app/practice/' + slug),
         'dictionary.back_url': request.url('/app/dictionary'),

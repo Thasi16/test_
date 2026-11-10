@@ -24,6 +24,7 @@
 .m-lesson .lesson-meaning{margin:14px 0 20px;color:var(--muted);font-size:15px}
 .m-lesson .lesson-media{overflow:hidden;border-radius:16px;background:#f0f6fd}
 .m-lesson .lesson-media video{display:block;width:100%;aspect-ratio:16/9;object-fit:contain;background:#10223b}
+.m-lesson .lesson-media video:not([controls]){cursor:pointer}
 .m-lesson .lesson-media video.is-mirrored{transform:scaleX(-1)}
 .m-lesson .lesson-video-missing{min-height:180px;line-height:1.7}
 .m-lesson .lesson-video-controls{display:flex;flex-wrap:wrap;gap:8px;padding:12px;background:#f7faff}

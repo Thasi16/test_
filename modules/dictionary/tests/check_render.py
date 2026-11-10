@@ -44,7 +44,7 @@ class RenderChecks(unittest.TestCase):
         en = {key for key in DICTIONARIES['en'] if key.startswith('dictionary.')}
         self.assertEqual(vi, en)
         for locale in ('vi', 'en'):
-            for slug in (None, 'xin-chao', 'bo'):
+            for slug in (None, 'cam-on', 'bo'):
                 values = VIEW.context(request(locale, slug))
                 self.assertTrue(all(key.startswith('dictionary.') for key in values))
                 template = 'detail.html' if slug else 'page.html'
@@ -65,7 +65,7 @@ class RenderChecks(unittest.TestCase):
         values = VIEW.context(request())
         cards = {attrs['data-slug']: attrs for tag, attrs in Markup(values['dictionary.cards.html']).tags
                  if tag == 'li'}
-        for query, slug in [('cam on', 'cam-on'), ('THANK', 'cam-on'), ('bo', 'bo'), ('bày tỏ', 'cam-on'), ('speaker', 'toi')]:
+        for query, slug in [('cam on', 'cam-on'), ('THANK', 'cam-on'), ('bo', 'bo'), ('bày tỏ', 'cam-on'), ('con meo', 'con-meo')]:
             index = cards[slug]['data-search']
             self.assertTrue(all(token in index for token in content.normalize(query).split()))
 
@@ -74,30 +74,30 @@ class RenderChecks(unittest.TestCase):
         modules = [attrs for attrs in filters if attrs['data-module-filter'] != 'local']
         self.assertEqual(len(content.modules()), len(modules))
         self.assertNotIn('disabled', modules[0])
-        self.assertTrue(all('disabled' in attrs for attrs in modules[1:]))
+        self.assertTrue(all('disabled' not in attrs for attrs in modules))
 
-    def test_local_collection_not_assigned_to_a_lesson(self):
+    def test_local_collection_mapped_to_syllabus(self):
         local = [sign for sign in content.signs() if sign.get('collection') == 'local-videos']
         for sign in local:
-            self.assertIsNone(sign['lesson'])
+            self.assertIsNotNone(content.lesson(sign['lesson']))
             for locale in ('vi', 'en'):
                 values = VIEW.context(request(locale, sign['slug']))
                 self.assertIn('<video', values['dictionary.media.html'])
                 self.assertNotIn('dictionary-video-notice', values['dictionary.media.html'])
-                self.assertNotIn('/app/lessons/', values['dictionary.lesson.html'])
+                self.assertIn('/app/lessons/' + str(sign['lesson']), values['dictionary.lesson.html'])
                 self.assertNotIn('data-slug="' + sign['slug'] + '"', values['dictionary.related.html'])
 
     def test_unknown_and_closed_signs(self):
         with self.assertRaises(app_modules.NotFound):
             VIEW.context(request(slug='khong-co'))
         with self.assertRaises(app_modules.NotFound):
-            VIEW.context(request(slug='xin-chao', lesson=lambda _id: dict(content.lesson(1), status='planned')))
+            VIEW.context(request(slug='cam-on', lesson=lambda _id: dict(content.lesson(1), status='planned')))
         with self.assertRaises(app_modules.NotFound):
-            VIEW.context(request(slug='xin-chao', sign=lambda _slug: None))
+            VIEW.context(request(slug='cam-on', sign=lambda _slug: None))
 
     def test_escaped_content_and_variants(self):
         malicious = '<img src=x onerror="bad()"> & \'quoted\''
-        sign = dict(content.sign('xin-chao'), slug=malicious, word={'vi': malicious, 'en': malicious},
+        sign = dict(content.sign('cam-on'), slug=malicious, word={'vi': malicious, 'en': malicious},
                     meaning={'vi': malicious, 'en': malicious}, variants=[{'en': malicious}],
                     video='/media/" onerror="bad.webm')
         listing = VIEW.context(request(signs=lambda *_: [sign]))
@@ -109,16 +109,16 @@ class RenderChecks(unittest.TestCase):
         self.assertIn('src="/media/&quot; onerror=&quot;bad.webm"', detail['dictionary.media.html'])
 
     def test_media_variants_and_related(self):
-        original = content.sign('xin-chao')
+        original = content.sign('cam-on')
         for source in (None, 'https://example.com/video.webm', '//example.com/video.webm', '/\\example.com/video.webm'):
-            values = VIEW.context(request(slug='xin-chao', sign=lambda _, s=source: dict(original, video=s)))
+            values = VIEW.context(request(slug='cam-on', sign=lambda _, s=source: dict(original, video=s)))
             self.assertNotIn('<video', values['dictionary.media.html'])
             self.assertIn(DICTIONARIES['en']['shell.video.missing'], values['dictionary.media.html'])
-        values = VIEW.context(request(slug='xin-chao', sign=lambda _: dict(original, video='/media/sign.webm')))
+        values = VIEW.context(request(slug='cam-on', sign=lambda _: dict(original, video='/media/sign.webm')))
         self.assertIn('controls preload="metadata" playsinline muted', values['dictionary.media.html'])
         self.assertIn(DICTIONARIES['en']['dictionary.variants.empty'], values['dictionary.variants.html'])
         related = {attrs['data-slug'] for tag, attrs in Markup(values['dictionary.related.html']).tags if tag == 'li'}
-        self.assertEqual({s['slug'] for s in content.signs(1)} - {'xin-chao'}, related)
+        self.assertEqual({s['slug'] for s in content.signs(original['lesson'])} - {original['slug']}, related)
 
     def test_empty_collection_and_no_related(self):
         values = VIEW.context(request(signs=lambda *_: []))

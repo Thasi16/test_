@@ -44,7 +44,7 @@ class PracticeChecks(unittest.TestCase):
         en = {key for key in DICTIONARIES['en'] if key.startswith('practice.')}
         self.assertEqual(vi, en)
         for locale in ('vi', 'en'):
-            for slug in (None, 'xin-chao', 'ba-lo'):
+            for slug in (None, 'cam-on', 'ba-lo'):
                 values = VIEW.context(request(locale, slug))
                 self.assertTrue(all(key.startswith('practice.') for key in values))
                 file = 'session.html' if slug else 'page.html'
@@ -68,32 +68,32 @@ class PracticeChecks(unittest.TestCase):
         groups = VIEW.context(request())['practice.groups.html']
         choices = {attrs['data-slug'] for tag, attrs in Markup(groups).tags if 'data-slug' in attrs}
         self.assertEqual({sign['slug'] for sign in content.signs()}, choices)
-        self.assertIn('practice-local-title', groups)
+        self.assertIn('practice-legacy-title', groups)
         self.assertIn('practice-lesson-1', groups)
         self.assertIn('practice-lesson-2', groups)
-        self.assertNotIn('practice-lesson-3', groups)
+        self.assertIn('practice-lesson-18', groups)
 
     def test_invalid_and_closed_signs_return_404(self):
         with self.assertRaises(app_modules.NotFound):
             VIEW.context(request(slug='khong-co'))
         with self.assertRaises(app_modules.NotFound):
-            VIEW.context(request(slug='xin-chao', lesson=lambda _: dict(content.lesson(1), status='planned')))
+            VIEW.context(request(slug='cam-on', lesson=lambda _: dict(content.lesson(1), status='planned')))
         with self.assertRaises(app_modules.NotFound):
-            VIEW.context(request(slug='bad', sign=lambda _: dict(content.sign('xin-chao'), lesson=None)))
+            VIEW.context(request(slug='bad', sign=lambda _: dict(content.sign('cam-on'), lesson=None)))
 
     def test_next_signs_and_parent_links(self):
-        first = VIEW.context(request(slug='xin-chao'))
-        self.assertIn('/app/practice/tam-biet?lang=en', first['practice.next.html'])
-        self.assertIn('/app/lessons/1?lang=en', first['practice.parent.html'])
-        self.assertEqual('', VIEW.context(request(slug='ten'))['practice.next.html'])
+        first = VIEW.context(request(slug='cam-on'))
+        self.assertIn('/app/practice/can?lang=en', first['practice.next.html'])
+        self.assertIn('/app/lessons/2?lang=en', first['practice.parent.html'])
+        self.assertEqual('', VIEW.context(request(slug='dong-y'))['practice.next.html'])
         local = VIEW.context(request(slug='ba-lo'))
-        self.assertIn('/app/practice/ba-ngoai?lang=en', local['practice.next.html'])
-        self.assertNotIn('/app/lessons/', local['practice.parent.html'])
-        self.assertEqual('', VIEW.context(request(slug='ban-ron'))['practice.next.html'])
+        self.assertIn('/app/practice/cai-quan?lang=en', local['practice.next.html'])
+        self.assertIn('/app/lessons/9', local['practice.parent.html'])
+        self.assertEqual('', VIEW.context(request(slug='dau-bep'))['practice.next.html'])
 
     def test_escape_and_site_only_media(self):
         malicious = '<img src=x onerror="bad()"> & \'quoted\''
-        original = content.sign('xin-chao')
+        original = content.sign('cam-on')
         sign = dict(original, word={'vi': malicious, 'en': malicious}, meaning={'vi': malicious, 'en': malicious}, video='/media/" onerror="bad.mp4')
         listing = VIEW.context(request(signs=lambda *_: [sign]))
         detail = VIEW.context(request(slug=sign['slug'], sign=lambda _: sign, signs=lambda *_: [sign]))

@@ -1,6 +1,6 @@
 {
   "lesson.title": "Bài học",
-  "lesson.lead": "Xem video mẫu từng ký hiệu, đọc hướng dẫn quan sát rồi chuyển sang tự luyện hoặc kiểm tra.",
+  "lesson.lead": "Xem từ vựng theo giáo trình VSL 400. Các ký hiệu có video mẫu được bổ sung phần quan sát và tự luyện.",
   "lesson.number": "Bài {n}",
   "lesson.module": "HỌC PHẦN {n}",
   "lesson.signs": "{n} ký hiệu",
@@ -20,7 +20,7 @@
   "lesson.dictionary": "Xem trong từ điển",
   "lesson.quiz": "Làm bài kiểm tra",
   "lesson.back": "Về lộ trình học",
-  "lesson.ready": "Bạn đã xem tất cả ký hiệu trong bài. Hãy chuyển sang bài kiểm tra khi sẵn sàng.",
+  "lesson.ready": "Bạn đã xem tất cả từ vựng trong bài.",
   "lesson.empty": "Bài này chưa có ký hiệu để hiển thị.",
   "lesson.observe.title": "Gợi ý quan sát",
   "lesson.observe.hint": "Đối chiếu phần này với video mẫu.",

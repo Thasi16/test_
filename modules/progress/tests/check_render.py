@@ -59,7 +59,7 @@ class ProgressChecks(unittest.TestCase):
         self.assertEqual(len(content.modules()), len(rows))
         for module, row in zip(content.modules(), rows):
             self.assertEqual(','.join(str(lesson['id']) for lesson in content.lessons(module['id']) if content.is_open(lesson)), row['data-lessons'])
-        self.assertEqual(7, sum(attrs.get('class') == 'sh-badge sh-badge--planned' for _, attrs in tags))
+        self.assertEqual(0, sum(attrs.get('class') == 'sh-badge sh-badge--planned' for _, attrs in tags))
 
     def test_no_open_content_has_no_fake_progress(self):
         values = VIEW.context(request(is_open=lambda _: False, open_lessons=lambda: [], signs=lambda: []))
