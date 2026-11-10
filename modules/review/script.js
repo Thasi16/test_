@@ -199,9 +199,8 @@
         const link = document.createElement('a');
         link.href = SH.url('/app/signs/' + sign.slug);
         link.textContent = sign.word;
-        const meaning = document.createElement('p');
-        meaning.textContent = sign.meaning;
-        item.append(link, meaning);
+        link.title = sign.meaning || '';
+        item.append(link);
         list.appendChild(item);
       });
       find('[data-mistakes]').hidden = mistakes.length === 0;

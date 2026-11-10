@@ -292,7 +292,7 @@
   "features.faq.progress.q": "Where is my progress saved?",
   "features.faq.progress.a": "In the Supabase database, linked to your account. Sign in with the same account on another device to restore progress.",
   "features.faq.video.q": "Why do some signs have no video?",
-  "features.faq.video.a": "There are 400 vocabulary words across 18 lessons. Twelve words retain imported sample clips, now assigned to the matching lessons. These clips have not been reviewed by experts; the remaining words have no video yet.",
+  "features.faq.video.a": "There are 400 vocabulary words across 18 lessons. Some words have sample clips assigned to their lessons; the others do not have videos yet. These clips have not been reviewed by experts.",
   "features.faq.language.q": "Does switching to English change the sign language?",
   "features.faq.language.a": "No. VI/EN changes the interface language only. The subject remains Vietnamese Sign Language; translations for the imported clip collection are provisional.",
   "features.cta.eyebrow": "A hello can open a connection",

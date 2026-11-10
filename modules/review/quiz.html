@@ -31,11 +31,18 @@
     </section>
     <section class="sh-card review-result" data-result hidden aria-labelledby="review-result-title">
       <h2 id="review-result-title" data-result-title tabindex="-1">{{review.result.title}}</h2>
-      <p class="review-result-score" data-result-score></p>
+      <div class="review-score-line"><span class="review-score-stars" aria-hidden="true">✦</span><p class="review-result-score" data-result-score></p><span class="review-score-medal" aria-hidden="true">🏅</span></div>
       <p class="review-result-message" data-result-message role="status" aria-live="polite"></p>
-      <div class="review-mistakes" data-mistakes hidden><h3>{{review.result.mistakes}}</h3><ul data-mistake-list></ul></div>
+      <div class="review-result-content">
+        <div class="review-result-art" aria-hidden="true">
+          <span class="review-art-sparkle review-art-sparkle-one">✦</span><span class="review-art-sparkle review-art-sparkle-two">✦</span><span class="review-art-sparkle review-art-sparkle-three">✦</span>
+          <span class="review-balloon review-balloon-blue"></span><span class="review-balloon review-balloon-pink"></span>
+          <img class="review-result-mascot" src="/static/assets/mascot.png" width="1351" height="1164" alt="">
+        </div>
+        <div class="review-mistakes" data-mistakes hidden><h3>{{review.result.mistakes}}</h3><ul data-mistake-list></ul></div>
+      </div>
       <div class="review-result-actions">
-        <button class="button" type="button" data-retry>{{review.quiz.retry}}</button>
+        <button class="button review-retry" type="button" data-retry><span aria-hidden="true">↻</span>{{review.quiz.retry}}</button>
         {{review.lesson_action.html}}
       </div>
     </section>
