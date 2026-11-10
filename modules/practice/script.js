@@ -46,6 +46,7 @@
   const find = (selector) => session.querySelector(selector);
   const slug = session.dataset.slug;
   const camera = find('[data-camera]');
+  const cameraGuide = find('[data-camera-guide]');
   const startCamera = find('[data-camera-start]');
   const stopButton = find('[data-camera-stop]');
   const mirrorButton = find('[data-mirror]');
@@ -61,6 +62,17 @@
   let countdownTimer = null;
   let leaving = false;
   let practiceId = crypto.randomUUID();
+
+  function updateCameraGuide() {
+    if (!stream || !camera.videoWidth || !camera.videoHeight) { cameraGuide.hidden = true; return; }
+    const box = camera.parentElement.getBoundingClientRect();
+    const scale = Math.min(box.width / camera.videoWidth, box.height / camera.videoHeight);
+    const side = Math.min(camera.videoWidth, camera.videoHeight) * scale;
+    cameraGuide.style.width = cameraGuide.style.height = side + 'px';
+    cameraGuide.hidden = false;
+  }
+  window.addEventListener('resize', updateCameraGuide);
+  camera.addEventListener('loadedmetadata', updateCameraGuide);
 
   function cancelCountdown() {
     clearTimeout(countdownTimer);
@@ -83,6 +95,7 @@
     cameraTimer = null;
     const previousStream = stream;
     stream = null;
+    cameraGuide.hidden = true;
     if (previousStream) previousStream.getTracks().forEach((track) => track.stop());
     camera.pause();
     camera.srcObject = null;
@@ -122,7 +135,7 @@
     }, 15000);
     try {
       const incoming = await navigator.mediaDevices.getUserMedia({
-        video: { width: { ideal: 1280, max: 1280 }, height: { ideal: 720, max: 720 }, frameRate: { ideal: 24, max: 30 }, facingMode: 'user' }, audio: false,
+        video: { width: 640, height: 480 }, audio: false,
       });
       if (currentRequest !== requestId || leaving || document.hidden) {
         incoming.getTracks().forEach((track) => track.stop());
@@ -146,6 +159,7 @@
         if (stream === incoming) stopCamera('practice.camera.ended');
       }));
       await camera.play();
+      updateCameraGuide();
     } catch (error) {
       if (currentRequest === requestId) stopCamera(cameraError(error));
     }
@@ -275,21 +289,18 @@
   const aiCountdown = find('[data-ai-countdown]');
   const aiCountdownNumber = find('[data-ai-countdown-number]');
   const aiRecording = find('[data-ai-recording]');
-  let aiAbort = null, aiRecorder = null, aiTimer = null, aiBusy = false;
+  let aiAbort = null, aiTimer = null, aiBusy = false, aiGeneration = 0;
   function aiPaint() {
     aiRecord.disabled = aiBusy || !stream || !stream.active || ai.dataset.aiSupported !== 'true';
+    mirrorButton.disabled = aiBusy || !stream || !stream.active;
   }
   function aiClear() {
+    aiGeneration += 1;
     if (aiAbort) aiAbort.abort();
     aiAbort = null;
     clearTimeout(aiTimer);
     aiCountdown.hidden = true;
     aiRecording.hidden = true;
-    if (aiRecorder) {
-      aiRecorder.onstop = null;
-      if (aiRecorder.state !== 'inactive') aiRecorder.stop();
-    }
-    aiRecorder = null;
     aiBusy = false;
     aiPaint();
   }
@@ -297,14 +308,12 @@
   aiRecord.addEventListener('click', () => {
     if (aiBusy || ai.dataset.aiSupported !== 'true') return;
     if (!stream || !stream.active) { aiStatus.textContent = SH.t('practice.ai.need_camera'); return; }
-    if (typeof MediaRecorder === 'undefined') { aiStatus.textContent = SH.t('practice.ai.record_unavailable'); return; }
-    const mime = ['video/webm;codecs=vp8', 'video/webm', 'video/mp4'].find((type) => MediaRecorder.isTypeSupported(type));
-    if (!mime) { aiStatus.textContent = SH.t('practice.ai.record_unavailable'); return; }
     aiClear(); cancelCountdown(); aiBusy = true; aiPaint(); aiResult.hidden = true;
+    const generation = aiGeneration;
     aiCountdown.hidden = false;
     aiStatus.textContent = SH.t('practice.ai.prepare');
     let remaining = 3;
-    function prepare() {
+    async function prepare() {
       if (!stream || !stream.active) { aiClear(); return; }
       if (remaining > 0) {
         aiCountdownNumber.textContent = String(remaining--);
@@ -313,28 +322,31 @@
       }
       aiCountdown.hidden = true;
       aiRecording.hidden = false;
-      const chunks = [];
       try {
-      aiRecorder = new MediaRecorder(stream, { mimeType: mime, videoBitsPerSecond: 1800000 });
-      aiRecorder.ondataavailable = (event) => { if (event.data.size) chunks.push(event.data); };
-      aiRecorder.onerror = () => { aiClear(); aiStatus.textContent = SH.t('practice.ai.record_unavailable'); };
-      aiRecorder.onstop = () => {
-        aiRecorder = null;
-        aiRecording.hidden = true;
-        const blob = new Blob(chunks, { type: mime });
-        if (!blob.size || blob.size > 20 * 1024 * 1024) {
-          aiBusy = false; aiPaint(); aiStatus.textContent = SH.t('practice.ai.invalid'); return;
+        const vw = camera.videoWidth, vh = camera.videoHeight, side = Math.min(vw, vh), out = Math.min(side, 480);
+        if (!out || camera.readyState < 2) throw new Error('camera_unavailable');
+        const canvas = document.createElement('canvas');
+        canvas.width = canvas.height = out;
+        const ctx = canvas.getContext('2d');
+        if (!ctx) throw new Error('camera_unavailable');
+        if (!camera.classList.contains('practice-is-mirrored')) ctx.setTransform(-1, 0, 0, 1, out, 0);
+        const frames = [], start = performance.now();
+        aiStatus.textContent = SH.t('practice.ai.recording');
+        for (let i = 0; i < 30; i++) {
+          const wait = start + i * 1000 / 13 - performance.now();
+          if (wait > 0) await new Promise(resolve => setTimeout(resolve, wait));
+          if (generation !== aiGeneration) return;
+          if (!stream || !stream.active || !camera.videoWidth || camera.readyState < 2) throw new Error('camera_unavailable');
+          ctx.drawImage(camera, (vw - side) / 2, (vh - side) / 2, side, side, 0, 0, out, out);
+          frames.push(canvas.toDataURL('image/jpeg', 0.92));
         }
-        sendRecording(blob);
-      };
-      aiRecorder.start();
-      aiStatus.textContent = SH.t('practice.ai.recording');
-      aiTimer = setTimeout(() => { if (aiRecorder && aiRecorder.state !== 'inactive') aiRecorder.stop(); }, 3000);
+        aiRecording.hidden = true;
+        sendRecording(frames);
       } catch (error) { aiClear(); aiStatus.textContent = SH.t('practice.ai.record_unavailable'); }
     }
     prepare();
   });
-  async function sendRecording(blob) {
+  async function sendRecording(frames) {
     aiBusy = true; aiPaint(); aiResult.hidden = true;
     aiStatus.textContent = SH.t('practice.ai.running');
     const abort = new AbortController(); aiAbort = abort;
@@ -346,8 +358,8 @@
       if (!auth.ok) throw new Error(config.error?.code || 'ai_unavailable');
       if (abort.signal.aborted) return;
       const response = await fetch(config.endpoint, { method: 'POST', credentials: 'omit',
-        headers: { 'Authorization': 'Bearer ' + config.token, 'Content-Type': blob.type.split(';')[0] },
-        body: blob, signal: abort.signal, redirect: 'error', referrerPolicy: 'no-referrer' });
+        headers: { 'Authorization': 'Bearer ' + config.token, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ frames }), signal: abort.signal, redirect: 'error', referrerPolicy: 'no-referrer' });
       const result = await response.json();
       if (!response.ok || result.success !== true) throw new Error(result.error?.code || 'ai_unavailable');
       if (abort.signal.aborted) return;

@@ -129,7 +129,7 @@ def create_app(settings=None, pool_factory=InferencePool):
         if app.state.lock.locked():
             raise HTTPException(429, "inference_busy")
         mime = request.headers.get("content-type", "").split(";")[0]
-        if mime not in ("video/mp4", "video/webm"):
+        if mime not in ("video/mp4", "video/webm", "application/json"):
             raise HTTPException(415, "unsupported_video")
         try:
             length = int(request.headers.get("content-length", "0"))
@@ -156,9 +156,7 @@ def create_app(settings=None, pool_factory=InferencePool):
             app.state.last_request[claims["sub"]] = now
             started = time.perf_counter()
             with tempfile.TemporaryDirectory(prefix="signhearing-infer-") as directory:
-                video = Path(directory) / (
-                    "clip.mp4" if mime == "video/mp4" else "clip.webm"
-                )
+                video = Path(directory) / ({"video/mp4": "clip.mp4", "video/webm": "clip.webm", "application/json": "frames.json"}[mime])
                 size = 0
                 try:
                     async with asyncio.timeout(settings.ai_upload_timeout):
@@ -172,9 +170,9 @@ def create_app(settings=None, pool_factory=InferencePool):
                     raise HTTPException(408, "upload_timeout") from None
                 with video.open("rb") as stream:
                     header = stream.read(16)
-                if not size or not (
+                if not size or (mime != "application/json" and not (
                     header[4:8] == b"ftyp" or header.startswith(b"\x1aE\xdf\xa3")
-                ):
+                )):
                     raise HTTPException(400, "invalid_video")
                 try:
                     result = await asyncio.wait_for(

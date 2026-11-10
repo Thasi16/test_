@@ -51,9 +51,10 @@ production hay dùng để chọn lại checkpoint.
 
 ## Khác biệt webcam/training cần kiểm chứng tiếp
 
-Demo cũ ghi 30 frame ở khoảng 13 FPS và crop giữa thành ảnh vuông trước
-pipeline; phần mới ghi video khoảng 3 giây, tối đa 30 FPS, giữ chiều gốc rồi
-QC/lấy 16 frame/resize trực tiếp 224×224. CSS lật gương không lật dữ liệu gửi.
+Giao diện hiện lấy 30 JPEG ở khoảng 13 FPS, cắt vuông giữa (tối đa 480 px)
+và áp dụng nút lật như demo; QC lấy 16 frame và resize 224×224. Với cùng một
+bộ 30 JPEG tạo từ video mẫu Ăn, adapter demo và API CPU cùng dự đoán Cảm ơn,
+độ tin cậy bằng nhau trong phép thử. Đây không phải kiểm thử webcam vật lý.
 Mô hình dùng landmark nhập từ archive VSL100; chưa có clip/NPZ chuẩn training
 để xác minh phân bố camera, kích thước người, người ký và vùng miền giống
 bộ video VSL400 trên website. Độ dài động tác, phần chờ đầu/cuối, crop,

@@ -112,7 +112,7 @@ class PracticeChecks(unittest.TestCase):
 
     def test_ai_consent_and_existing_self_assessment_remain_separate(self):
         script = (ROOT / 'modules/practice/script.js').read_text(encoding='utf-8')
-        for forbidden in ('canvas', 'XMLHttpRequest', 'localStorage', 'sessionStorage', 'markSignSeen', 'setLessonState'):
+        for forbidden in ('XMLHttpRequest', 'localStorage', 'sessionStorage', 'markSignSeen', 'setLessonState'):
             self.assertNotIn(forbidden, script)
         self.assertIn('audio: false', script)
         self.assertIn("window.addEventListener('pagehide'", script)

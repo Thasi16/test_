@@ -132,14 +132,14 @@ tự luyện chỉ thêm đúng origin cấu hình. `vercel.json` và các rewri
 - Backend hiện tại: `POST /api/ai/token`, JSON `{"slug":"an"}`.
   Kiểm tra same-origin, session Supabase đã xác minh, từ mục tiêu thuộc 100 nhãn;
   sau đó ký capability `v1` bằng HMAC-SHA256, TTL 120 giây.
-- Local: `POST /infer`, body là byte MP4/WebM, `Content-Type: video/mp4`
-  hoặc `video/webm`, `Authorization: Bearer ...`, `Origin` được cho phép.
+- Local: `POST /infer`, giao diện gửi JSON gồm 30 JPEG, hoặc công cụ chẩn đoán
+  gửi byte MP4/WebM; cần `Authorization: Bearer ...` và `Origin` được cho phép.
   File không đi qua Vercel serverless.
 - Kiểm tra signature constant-time, issuer, audience, scope `infer`, thời hạn,
   origin và subject. Token dùng một lần; khoảng cách request cùng user 3 giây.
 - Tối đa 20 MB; 12 giây; 360 frame; 1920×1080; tổng mảng decode 256 MiB.
   Video độ phân giải cao có thể chạm giới hạn decode trước 12 giây: dùng clip
-  ngắn 2–3 giây. Camera trình duyệt giới hạn 1280×720, tối đa 30 FPS.
+  ngắn 2–3 giây. Khung JPEG webcam phải vuông, tối đa 480×480, đúng 30 ảnh.
 - Một request tại một thời điểm. Upload timeout 15 giây, xử lý timeout 45 giây.
   Timeout xử lý dừng cả worker landmark và model; restart service để phục hồi.
 - Thư mục tạm được xóa khi xong/lỗi. Không tự lưu video hoặc dự đoán vào
@@ -148,9 +148,9 @@ tự luyện chỉ thêm đúng origin cấu hình. `vercel.json` và các rewri
   chỉ trả mã đã cho phép. `/health` kiểm tra tiến trình; `/ready` kiểm tra workers.
 
 UI nằm trong module tự luyện hiện có, được frontend Next.js/Vercel route tới
-FastAPI. Nút Ghi hình đếm ngược ba giây, ghi ba giây rồi gửi video để nhận diện; thông báo
-cạnh nút nêu rõ việc gửi và cách xử lý tạm thời.
-Gương lật chỉ là CSS; video gửi đi giữ chiều gốc.
+FastAPI. Nút Ghi hình đếm ngược ba giây, lấy 30 ảnh ở 13 FPS, cắt vuông
+giữa và gửi để nhận diện. Mặc định ảnh giữ chiều camera; nút lật cũng lật ảnh
+gửi đi như demo. Thông báo cạnh nút nêu rõ việc gửi và cách xử lý tạm thời.
 
 ## Kết quả xác minh ngày 10/11/2026
 

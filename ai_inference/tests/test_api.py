@@ -86,6 +86,15 @@ def test_valid_request_single_use_token_and_cleanup(client):
     assert client.post("/infer", content=MP4_HEADER, headers=auth).status_code == 401
 
 
+def test_frames_require_same_auth_and_are_removed(client):
+    auth = headers("frames")
+    auth["Content-Type"] = "application/json"
+    assert client.post("/infer", content=b'{"frames":[]}', headers={"Origin": ORIGIN, "Content-Type": "application/json"}).status_code == 401
+    assert client.post("/infer", content=b'{"frames":[]}', headers=auth).status_code == 200
+    assert not client.app.state.pool.paths[-1].exists()
+    assert client.post("/infer", content=b'{"frames":[]}', headers=auth).status_code == 401
+
+
 def test_unauthorized_size_and_corrupt_uploads(client):
     assert (
         client.post(

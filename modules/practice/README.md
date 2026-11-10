@@ -8,7 +8,7 @@ Người học đặt video mẫu cạnh **gương camera**, tự so sánh và t
 
 Trang `/app/practice/{slug}` có nút ghi hình và nhận diện bằng SiFormer
 CPU. Chỉ những từ khớp chính xác với 100 nhãn checkpoint mới được bật AI.
-Camera gương không tự ghi/gửi. Nút Ghi hình đếm ngược ba giây, ghi ba giây rồi gửi để nhận diện;
+Camera gương không tự ghi/gửi. Nút Ghi hình đếm ngược ba giây, lấy 30 ảnh ở 13 FPS rồi gửi để nhận diện;
 thông báo cạnh nút giải thích rõ việc gửi. Kết quả không tự ghi vào lịch sử checklist.
 
 Xem [audit, bảo mật, kết quả thật và hướng dẫn chạy](../../ai_inference/README.md).

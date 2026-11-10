@@ -1,6 +1,8 @@
 """Isolated MediaPipe 0.10.14/protobuf 4 worker; no recognition model imports."""
 
 import json
+import base64
+import io
 import sys
 from pathlib import Path
 
@@ -73,6 +75,37 @@ def prepare(path):
     cfg = json.loads(
         (ROOT / "landmarks/preprocessing.json").read_text(encoding="utf-8")
     )
+    if Path(path).suffix == ".json":
+        from PIL import Image
+
+        body = json.loads(Path(path).read_text(encoding="utf-8"))
+        frames = body.get("frames") if isinstance(body, dict) else None
+        if not isinstance(frames, list) or len(frames) != 30:
+            raise ValueError("invalid_frames")
+        images = []
+        for entry in frames:
+            if not isinstance(entry, str) or not entry.startswith("data:image/jpeg;base64,") or len(entry) > 1024 * 1024:
+                raise ValueError("invalid_frame")
+            raw = base64.b64decode(entry.split(",", 1)[1], validate=True)
+            with Image.open(io.BytesIO(raw)) as image:
+                if image.format != "JPEG" or image.width < 1 or image.width != image.height or image.width > 480:
+                    raise ValueError("invalid_frame_dimensions")
+                image.verify()
+            frame = original.imdecode(np.frombuffer(raw, np.uint8), original.IMREAD_COLOR)
+            if frame is None or frame.shape[0] != frame.shape[1] or frame.shape[0] > 480:
+                raise ValueError("invalid_frame")
+            images.append(original.cvtColor(frame, original.COLOR_BGR2RGB))
+        rgb = np.stack(images)
+        meta = {"decoded_frames": 30, "reported_frames": 30, "fps": None,
+                "original_frame_indices": list(range(30)), "original_shape": list(rgb[0].shape),
+                "color_order": "RGB", "dtype": "uint8", "opencv_version": original.__version__,
+                "strict_frame_count": True, "warnings": ["webcam frames"], "decode_seconds": 0.0}
+        old_decode = video.decode_video
+        video.decode_video = lambda path, **kwargs: (rgb, meta)
+        try:
+            return video.prepare_clip("webcam", cfg, video_id="webcam")
+        finally:
+            video.decode_video = old_decode
     video.cv2 = BudgetedCV()
     try:
         return video.prepare_clip(path, cfg, video_id="submitted-clip")
