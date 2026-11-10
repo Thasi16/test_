@@ -45,7 +45,8 @@ def context(request):
 
     slug = request.params.get('slug')
     if slug is None:
-        signs = c.signs()
+        # Keep legacy detail URLs readable without counting them in the syllabus.
+        signs = [sign for sign in c.signs() if sign['lesson'] is not None]
         module_ids = {lesson['module'] for sign in signs if (lesson := c.lesson(sign['lesson']))}
         filters = []
         local_signs = [sign for sign in signs if sign.get('collection') == 'local-videos']

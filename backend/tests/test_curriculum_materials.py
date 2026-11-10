@@ -54,7 +54,8 @@ def test_all_lessons_and_footer_render_with_existing_identity(verified_identity,
         assert client.get("/app/review/quiz/18").status_code == 404
 
 
-def test_old_sample_bookmarks_remain_readable(verified_identity):
+@pytest.mark.parametrize("lang", ["vi", "en"])
+def test_old_sample_bookmarks_remain_readable(verified_identity, lang):
     content = legacy.app_modules.content
     retained = content.DATA["_legacy_samples"]["slugs"]
     assert len(retained) == 8
@@ -62,10 +63,12 @@ def test_old_sample_bookmarks_remain_readable(verified_identity):
     with TestClient(create_app(), base_url="https://testserver") as client:
         for slug in retained:
             assert content.sign(slug)["lesson"] is None
-            assert client.get("/app/signs/" + slug).status_code == 200
-            assert client.get("/app/practice/" + slug).status_code == 200
-        page = client.get("/app/dictionary").text
-        assert page.count('class="dictionary-item"') == 408
+            assert client.get("/app/signs/" + slug + "?lang=" + lang).status_code == 200
+            assert client.get("/app/practice/" + slug + "?lang=" + lang).status_code == 200
+        page = client.get("/app/dictionary?lang=" + lang).text
+        assert page.count('class="dictionary-item"') == 400
+        for slug in retained:
+            assert f'data-slug="{slug}"' not in page
         assert 'data-collection="local-videos"' in page
         assert 'data-search="' in page
 

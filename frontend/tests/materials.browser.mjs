@@ -40,7 +40,7 @@ try {
         );
       await page.goto(`${base}/app/dictionary?lang=${lang}`);
       await page.locator("[data-toolbar]:visible").waitFor();
-      assert.equal(await page.locator(".dictionary-item").count(), 408);
+      assert.equal(await page.locator(".dictionary-item").count(), 400);
       await page.locator('[data-module-filter="local"]').click();
       assert.equal(await page.locator(".dictionary-item:visible").count(), 18);
       await page.locator('[data-module-filter="all"]').click();

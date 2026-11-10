@@ -59,7 +59,11 @@ class RenderChecks(unittest.TestCase):
                         self.assertIn('?lang=' + locale, attrs['href'])
                 if slug is None:
                     cards = [attrs for tag, attrs in markup.tags if tag == 'li' and 'data-slug' in attrs]
-                    self.assertEqual({s['slug'] for s in content.signs()}, {card['data-slug'] for card in cards})
+                    syllabus = {s['slug'] for s in content.signs() if s['lesson'] is not None}
+                    self.assertEqual(400, len(cards))
+                    self.assertEqual(syllabus, {card['data-slug'] for card in cards})
+                    self.assertEqual(DICTIONARIES[locale]['dictionary.results'].replace('{n}', '400'),
+                                     values['dictionary.result_count'])
 
     def test_search_index_has_words_and_meanings_in_both_languages(self):
         values = VIEW.context(request())
