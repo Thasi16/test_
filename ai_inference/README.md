@@ -148,7 +148,7 @@ tự luyện chỉ thêm đúng origin cấu hình. `vercel.json` và các rewri
   chỉ trả mã đã cho phép. `/health` kiểm tra tiến trình; `/ready` kiểm tra workers.
 
 UI nằm trong module tự luyện hiện có, được frontend Next.js/Vercel route tới
-FastAPI. Nút Ghi hình chủ động ghi ba giây rồi gửi video để nhận diện; thông báo
+FastAPI. Nút Ghi hình đếm ngược ba giây, ghi ba giây rồi gửi video để nhận diện; thông báo
 cạnh nút nêu rõ việc gửi và cách xử lý tạm thời.
 Gương lật chỉ là CSS; video gửi đi giữ chiều gốc.
 

@@ -20,6 +20,8 @@
           <p>{{practice.camera.privacy}}</p>
         </div>
         <div class="practice-countdown" data-countdown role="status" aria-live="assertive" aria-atomic="true" hidden></div>
+        <div class="practice-record-countdown" data-ai-countdown role="status" aria-live="assertive" aria-atomic="true" hidden><span>{{practice.ai.prepare}}</span><strong data-ai-countdown-number></strong></div>
+        <div class="practice-recording" data-ai-recording role="status" hidden><span aria-hidden="true"></span>{{practice.ai.recording_short}}</div>
       </div>
       <p class="practice-camera-status" data-camera-status role="status" aria-live="polite">{{practice.camera.off}}</p>
       <div class="practice-camera-controls" data-camera-controls hidden>
@@ -30,7 +32,7 @@
       </div>
       <p class="practice-camera-status" id="practice-record-notice">{{practice.ai.initial}}</p>
       <p class="practice-camera-status" data-ai-status role="status" aria-live="polite"></p>
-      <p data-ai-result role="status" aria-live="polite" hidden></p>
+      <div class="practice-result" data-ai-result role="status" aria-live="polite" hidden></div>
     </section>
   </div>
   <noscript><p class="practice-no-js">{{practice.no_js}}</p></noscript>

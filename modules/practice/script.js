@@ -272,6 +272,9 @@
   const aiStatus = find('[data-ai-status]');
   const aiResult = find('[data-ai-result]');
   const aiRecord = find('[data-ai-record]');
+  const aiCountdown = find('[data-ai-countdown]');
+  const aiCountdownNumber = find('[data-ai-countdown-number]');
+  const aiRecording = find('[data-ai-recording]');
   let aiAbort = null, aiRecorder = null, aiTimer = null, aiBusy = false;
   function aiPaint() {
     aiRecord.disabled = aiBusy || !stream || !stream.active || ai.dataset.aiSupported !== 'true';
@@ -280,6 +283,8 @@
     if (aiAbort) aiAbort.abort();
     aiAbort = null;
     clearTimeout(aiTimer);
+    aiCountdown.hidden = true;
+    aiRecording.hidden = true;
     if (aiRecorder) {
       aiRecorder.onstop = null;
       if (aiRecorder.state !== 'inactive') aiRecorder.stop();
@@ -295,14 +300,27 @@
     if (typeof MediaRecorder === 'undefined') { aiStatus.textContent = SH.t('practice.ai.record_unavailable'); return; }
     const mime = ['video/webm;codecs=vp8', 'video/webm', 'video/mp4'].find((type) => MediaRecorder.isTypeSupported(type));
     if (!mime) { aiStatus.textContent = SH.t('practice.ai.record_unavailable'); return; }
-    aiClear(); aiBusy = true; aiPaint(); aiResult.hidden = true;
-    const chunks = [];
-    try {
+    aiClear(); cancelCountdown(); aiBusy = true; aiPaint(); aiResult.hidden = true;
+    aiCountdown.hidden = false;
+    aiStatus.textContent = SH.t('practice.ai.prepare');
+    let remaining = 3;
+    function prepare() {
+      if (!stream || !stream.active) { aiClear(); return; }
+      if (remaining > 0) {
+        aiCountdownNumber.textContent = String(remaining--);
+        aiTimer = setTimeout(prepare, 1000);
+        return;
+      }
+      aiCountdown.hidden = true;
+      aiRecording.hidden = false;
+      const chunks = [];
+      try {
       aiRecorder = new MediaRecorder(stream, { mimeType: mime, videoBitsPerSecond: 1800000 });
       aiRecorder.ondataavailable = (event) => { if (event.data.size) chunks.push(event.data); };
       aiRecorder.onerror = () => { aiClear(); aiStatus.textContent = SH.t('practice.ai.record_unavailable'); };
       aiRecorder.onstop = () => {
         aiRecorder = null;
+        aiRecording.hidden = true;
         const blob = new Blob(chunks, { type: mime });
         if (!blob.size || blob.size > 20 * 1024 * 1024) {
           aiBusy = false; aiPaint(); aiStatus.textContent = SH.t('practice.ai.invalid'); return;
@@ -312,7 +330,9 @@
       aiRecorder.start();
       aiStatus.textContent = SH.t('practice.ai.recording');
       aiTimer = setTimeout(() => { if (aiRecorder && aiRecorder.state !== 'inactive') aiRecorder.stop(); }, 3000);
-    } catch (error) { aiClear(); aiStatus.textContent = SH.t('practice.ai.record_unavailable'); }
+      } catch (error) { aiClear(); aiStatus.textContent = SH.t('practice.ai.record_unavailable'); }
+    }
+    prepare();
   });
   async function sendRecording(blob) {
     aiBusy = true; aiPaint(); aiResult.hidden = true;

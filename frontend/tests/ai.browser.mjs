@@ -35,6 +35,12 @@ try {
     await page.locator("[data-camera]:visible").waitFor();
     assert.deepEqual(posts, []);
     await page.locator("[data-ai-record]").click();
+    assert.equal(await page.locator("[data-ai-countdown-number]").innerText(), "3");
+    await page.waitForTimeout(1200);
+    assert.equal(await page.locator("[data-ai-countdown-number]").innerText(), "2");
+    assert.deepEqual(posts, []);
+    await page.locator("[data-ai-recording]:visible").waitFor({ timeout: 5000 });
+    assert.deepEqual(posts, []);
     await page.locator("[data-ai-result]:visible").waitFor({ timeout: 15000 });
     assert.deepEqual(posts, ["/api/ai/token", "/infer"]);
     assert.match(await page.locator("[data-ai-result]").innerText(), /50\.0%/);
@@ -44,6 +50,14 @@ try {
     await page.locator("[data-camera-stop]").click();
     await page.waitForTimeout(3500);
     assert.deepEqual(posts, []);
+    assert.equal(await page.locator("[data-ai-countdown]").isVisible(), false);
+    await page.locator("[data-camera-start]").click();
+    await page.locator("[data-ai-record]").click();
+    await page.locator("[data-ai-recording]:visible").waitFor({ timeout: 5000 });
+    await page.locator("[data-camera-stop]").click();
+    await page.waitForTimeout(3500);
+    assert.deepEqual(posts, []);
+    assert.equal(await page.locator("[data-ai-recording]").isVisible(), false);
     await page.goto(`${base}/app/practice/xin-chao?lang=${lang}`);
     await page.locator(".is-auth-ready").waitFor();
     assert.equal(await page.locator("[data-ai-record]").isDisabled(), true);
@@ -51,5 +65,5 @@ try {
     assert.deepEqual(errors, []);
     await context.close();
   }
-  console.log("PASS: placement, explicit recording, automatic send, cancellation and unsupported signs on mobile and desktop.");
+  console.log("PASS: countdown, recording, result, cancellation and unsupported signs on mobile and desktop.");
 } finally { await browser.close(); }
