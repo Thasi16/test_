@@ -17,6 +17,8 @@ class Settings(BaseSettings):
     database_url: str = ""
     supabase_url: str = ""
     supabase_publishable_key: str = ""
+    # Reuse the frontend/deployment public origin; Vercel system URLs are fallback.
+    site_url: str = ""
 
     @field_validator("supabase_url")
     @classmethod

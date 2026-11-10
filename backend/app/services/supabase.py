@@ -119,7 +119,12 @@ def same_origin(request: Request):
 
 def set_session(response: Response, request: Request, session: dict):
     # Host-only cookies, HTTPS on Vercel, inaccessible to browser JavaScript.
-    secure = request.url.scheme == "https" or get_settings().app_env == "production"
+    from os import environ
+
+    secure = (
+        request.url.scheme == "https" or get_settings().app_env == "production"
+        or environ.get("VERCEL") == "1"
+    )
     for name, value, age in (
         (ACCESS_COOKIE, session["access_token"], int(session.get("expires_in", 3600))),
         (REFRESH_COOKIE, session["refresh_token"], 60 * 60 * 24 * 30),

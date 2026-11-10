@@ -41,6 +41,12 @@
         <p class="login-error" data-login-error role="alert" hidden></p>
         <button class="button login-submit" type="submit">{{login.submit}} <span aria-hidden="true">→</span></button>
       </form>
+      <div class="login-divider"><span>{{login.oauth.divider}}</span></div>
+      <button class="login-google" type="button" data-google-login>
+        <img src="/static/google.svg" width="20" height="20" alt="" aria-hidden="true">
+        <span data-google-label>{{login.oauth.google}}</span>
+      </button>
+      <p class="login-oauth-status" data-google-status role="status" aria-live="polite"></p>
       <button class="login-mode-toggle" type="button" data-auth-toggle>{{login.register.switch}}</button>
       <p class="login-privacy">{{login.privacy}}</p>
     </div>

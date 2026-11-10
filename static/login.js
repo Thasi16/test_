@@ -7,6 +7,9 @@
   const error = form.querySelector('[data-login-error]');
   const toggle = document.querySelector('[data-auth-toggle]');
   const submit = form.querySelector('[type=submit]');
+  const google = document.querySelector('[data-google-login]');
+  const googleLabel = google.querySelector('[data-google-label]');
+  const googleStatus = document.querySelector('[data-google-status]');
   const title = document.getElementById('login-form-title');
   const transition = document.querySelector('[data-login-transition]');
   const next = new URLSearchParams(location.search).get('next');
@@ -35,7 +38,53 @@
     supabase_not_configured:text('Đăng nhập chưa được cấu hình. Vui lòng liên hệ quản trị viên.', 'Authentication is not configured. Please contact the administrator.'),
     rate_limited:text('Quá nhiều yêu cầu. Vui lòng chờ rồi thử lại.', 'Too many requests. Please wait and retry.'),
     signup_disabled:text('Đăng ký hiện đang tắt.', 'Registration is currently disabled.'),
+    google_not_configured:text('Đăng nhập Google chưa được cấu hình trong Supabase. Vui lòng liên hệ quản trị viên.', 'Google sign-in is not configured in Supabase. Please contact the administrator.'),
+    oauth_origin_not_configured:text('Địa chỉ callback chưa được cấu hình. Vui lòng liên hệ quản trị viên.', 'The callback origin is not configured. Please contact the administrator.'),
+    oauth_cancelled:text('Bạn đã hủy đăng nhập Google. Có thể thử lại.', 'Google sign-in was cancelled. You can retry.'),
+    oauth_expired:text('Yêu cầu đăng nhập đã hết hạn hoặc thiếu cookie. Vui lòng thử lại trong cùng trình duyệt.', 'The sign-in request expired or its cookie is missing. Retry in the same browser.'),
+    oauth_state_invalid:text('Không thể xác minh yêu cầu đăng nhập. Vui lòng thử lại.', 'The sign-in request could not be verified. Please retry.'),
+    oauth_identity_unverified:text('Danh tính Google chưa được xác minh. Vui lòng liên hệ quản trị viên.', 'The Google identity could not be verified. Please contact the administrator.'),
+    oauth_failed:text('Không thể đăng nhập Google. Vui lòng thử lại; nếu lỗi tiếp diễn, quản trị viên cần kiểm tra Google Provider và Redirect URLs trong Supabase.', 'Google sign-in failed. Please retry; if this continues, ask the administrator to check the Google provider and Supabase Redirect URLs.'),
+    supabase_unavailable:text('Không thể kết nối Supabase. Vui lòng thử lại sau.', 'Supabase is unavailable. Please retry later.'),
   };
+  const callbackError = new URLSearchParams(location.search).get('oauth_error');
+  if (callbackError) {
+    error.textContent = Object.hasOwn(errors, callbackError) ? errors[callbackError] : errors.oauth_failed;
+    error.hidden = false;
+    // Keep the retry destination/language, remove the transient status from history.
+    const clean = new URL(location.href); clean.searchParams.delete('oauth_error');
+    history.replaceState(null, '', clean.pathname + clean.search);
+  }
+  function setBusy(value) {
+    busy = value; submit.disabled = value; toggle.disabled = value; google.disabled = value;
+    google.setAttribute('aria-busy', String(value));
+  }
+  window.addEventListener('pageshow', event => {
+    if (event.persisted) {
+      setBusy(false); googleStatus.textContent = '';
+      googleLabel.textContent = text('Tiếp tục với Google', 'Continue with Google');
+    }
+  });
+  google.addEventListener('click', async () => {
+    if (busy) return;
+    setBusy(true); error.hidden = true;
+    googleStatus.textContent = text('Đang chuyển đến Google…', 'Redirecting to Google…');
+    googleLabel.textContent = text('Đang kết nối…', 'Connecting…');
+    try {
+      const response = await fetch('/api/auth/google', {
+        method:'POST', credentials:'same-origin', headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({next:destination(),lang:vi ? 'vi' : 'en'}),
+      });
+      const result = await response.json();
+      if (!response.ok) throw new Error(errors[result.error?.code] || errors.oauth_failed);
+      location.assign(result.url);
+    } catch (failure) {
+      error.textContent = failure instanceof TypeError ? errors.supabase_unavailable : failure.message;
+      error.hidden = false; googleStatus.textContent = '';
+      googleLabel.textContent = text('Tiếp tục với Google', 'Continue with Google');
+      setBusy(false);
+    }
+  });
   toggle.addEventListener('click', () => {
     if (busy) return;
     registering = !registering;
@@ -55,7 +104,7 @@
     if (registering && form.elements.password.value !== form.elements.confirm.value) {
       error.textContent = text('Mật khẩu xác nhận không khớp.', 'Passwords do not match.'); error.hidden = false; return;
     }
-    busy = true; submit.disabled = true; toggle.disabled = true; error.hidden = true;
+    setBusy(true); error.hidden = true;
     try {
       const body = {email:form.elements.username.value.trim(),password:form.elements.password.value};
       if (registering) body.display_name = form.elements.display_name.value.trim();
@@ -75,7 +124,7 @@
     } catch (failure) {
       error.textContent = failure instanceof TypeError ? text('Không thể kết nối. Kiểm tra mạng rồi thử lại.', 'Connection failed. Check your network and retry.') : failure.message;
       error.hidden = false;
-      busy = false; submit.disabled = false; toggle.disabled = false;
+      setBusy(false);
     }
   });
 })();

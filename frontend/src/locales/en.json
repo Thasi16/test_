@@ -310,6 +310,8 @@
   "login.feature.practice": "Practise at your own pace",
   "login.feature.progress": "Sync progress across your devices",
   "login.form.title": "Sign in",
+  "login.oauth.divider": "Or continue with",
+  "login.oauth.google": "Continue with Google",
   "login.form.note": "Sign in with your email and password.",
   "login.username": "Email",
   "login.username.placeholder": "you@example.com",

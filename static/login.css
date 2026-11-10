@@ -81,4 +81,15 @@
 @media(max-width:560px){.login-topbar{min-height:68px;padding:8px 16px}.login-brand{width:155px}.login-topbar-actions>.language-switch{display:none}.login-topbar-actions>a{font-size:0}.login-topbar-actions>a::before{content:'←';font-size:18px}.login-story{min-height:430px;padding:42px 24px}.login-story-copy{padding-bottom:155px}.login-story h1{font-size:39px}.login-lead{font-size:14px}.login-mascot-wrap{width:215px;height:190px;right:50%;transform:translateX(50%)}.login-card{padding:28px 22px;border-radius:23px}}
 @media(prefers-reduced-motion:reduce){.login-mascot-wrap img,.login-transition p{animation:none}.is-authenticating .login-transition-mascot{animation:mascot-cross-reduced .4s ease-out both}.login-submit,.login-input-wrap,.login-brand{transition:none}@keyframes mascot-cross-reduced{from{transform:translate(-50%,-50%) scale(.8);opacity:0}to{transform:translate(-50%,-50%) scale(1);opacity:1}}}
 .login-mode-toggle{display:block;margin:18px auto 0;background:transparent;border:0;color:#1556ad;font:inherit;cursor:pointer;text-decoration:underline}
+.login-divider{display:flex;align-items:center;gap:12px;margin:22px 0 16px;color:#6b829b;font-size:12px;text-align:center}
+.login-card{overflow:clip}
+.login-divider::before,.login-divider::after{content:'';flex:1;height:1px;background:#d9e7f5}
+.login-google{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;min-height:52px;padding:12px 16px;border:1px solid #c6d9ed;border-radius:14px;background:#fff;color:#294e75;font:inherit;font-size:14px;font-weight:650;cursor:pointer;transition:background .18s,box-shadow .18s}
+.login-google img{flex-shrink:0}
+.login-google:hover:not(:disabled){background:#edf5ff;box-shadow:0 5px 16px #2678ed18}
+.login-google:focus-visible{outline:3px solid #4388dc;outline-offset:3px}
+.login-google:disabled,.login-submit:disabled{cursor:wait;opacity:.65}
+.login-oauth-status{margin-top:8px;color:#56718f;font-size:12px;text-align:center}
+.login-oauth-status:empty{display:none}
+@media(prefers-reduced-motion:reduce){.login-google{transition:none}}
 [data-register-fields]:not([hidden]){display:grid;gap:10px}

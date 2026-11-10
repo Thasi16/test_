@@ -310,6 +310,8 @@
   "login.feature.practice": "Tự luyện theo nhịp của bạn",
   "login.feature.progress": "Đồng bộ tiến độ giữa các thiết bị",
   "login.form.title": "Đăng nhập",
+  "login.oauth.divider": "Hoặc tiếp tục với",
+  "login.oauth.google": "Tiếp tục với Google",
   "login.form.note": "Đăng nhập bằng email và mật khẩu của bạn.",
   "login.username": "Email",
   "login.username.placeholder": "ban@example.com",

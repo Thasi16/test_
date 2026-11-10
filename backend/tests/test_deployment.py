@@ -49,6 +49,12 @@ routes = ['/app', '/app/courses', '/app/lessons/1', '/app/dictionary',
           '/app/review/quiz/1', '/app/progress', '/app/settings', '/app/account', '/login']
 with TestClient(create_app(), base_url='https://signhearing.vercel.app') as client:
     assert client.get('/api/health').json()['status'] == 'ok'
+    callback = client.get('/api/auth/google/callback?code=test-only-code', follow_redirects=False)
+    assert callback.status_code == 303
+    assert callback.headers['location'].startswith('/login?')
+    assert 'oauth_expired' in callback.headers['location']
+    assert 'test-only-code' not in callback.headers['location']
+    assert client.get('/static/google.svg').status_code == 200
     for locale in ('vi', 'en'):
         for route in routes:
             response = client.get(route + '?lang=' + locale)

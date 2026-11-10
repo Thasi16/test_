@@ -20,7 +20,7 @@ Trong Supabase Dashboard:
 - Authentication → Providers / Sign In → bật Email và cho phép đăng ký email/password.
 - Tắt **Confirm email** cho MVP như yêu cầu. Nếu vẫn bật, ứng dụng báo rõ không nhận được phiên đăng nhập, không giả lập gửi email hoặc đăng nhập thành công.
 - Đặt độ dài mật khẩu tối thiểu 8 ký tự. Giao diện kiểm tra nhập lại mật khẩu; Supabase áp dụng quy tắc bảo mật cuối cùng.
-- Authentication → URL Configuration: Site URL là origin HTTPS thật của website. Thêm origin local `http://127.0.0.1:3000` khi phát triển; chỉ thêm preview URL tin cậy khi cần. Luồng hiện tại là email/password qua backend, không có OAuth hay magic-link callback.
+- Authentication → URL Configuration: Site URL là origin HTTPS thật của website. Google OAuth dùng callback `/api/auth/google/callback`; xem [GOOGLE_OAUTH_SETUP.md](GOOGLE_OAUTH_SETUP.md) để cấu hình Google Provider, Redirect URLs cho local/Production và đánh giá rủi ro Confirm Email đang tắt.
 - Giữ cơ chế refresh token rotation và khoảng reuse mặc định của Supabase; ứng dụng có thể gửi nhiều request đồng thời từ các tab.
 - Project Settings → API: lấy Project URL và **Publishable key** dạng `sb_publishable_...`. Code chủ động từ chối Secret key và legacy JWT keys để tránh dùng nhầm quyền cao.
 

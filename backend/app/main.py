@@ -1,3 +1,4 @@
+import logging
 from contextlib import asynccontextmanager
 from uuid import uuid4
 
@@ -10,6 +11,9 @@ from app.core.errors import install_error_handlers
 from app.core.timing import measure, request_timings, server_timing
 from app.db.session import get_engine
 from app.services import supabase as sb
+from app.services.oauth import RedactCallbackQuery
+
+logging.getLogger("uvicorn.access").addFilter(RedactCallbackQuery())
 
 
 @asynccontextmanager
