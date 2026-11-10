@@ -27,25 +27,25 @@
         <button class="button button-outline" type="button" data-camera-stop hidden>{{practice.camera.stop}}</button>
         <button class="sh-chip" type="button" data-mirror aria-pressed="true" disabled>{{practice.camera.mirror}}</button>
       </div>
+      <section class="practice-ai" data-ai data-ai-supported="{{practice.ai.supported}}" aria-labelledby="practice-ai-title">
+        <h3 id="practice-ai-title">{{practice.ai.title}}</h3>
+        <p>{{practice.ai.description}}</p>
+        <div data-ai-controls hidden>
+          <label class="practice-check"><input type="checkbox" data-ai-consent> {{practice.ai.consent}}</label>
+          <label class="practice-ai-file">{{practice.ai.file}} <input type="file" accept="video/mp4,video/webm" data-ai-file></label>
+          <div class="practice-save-actions">
+            <button class="button button-outline" type="button" data-ai-record>{{practice.ai.record}}</button>
+            <button class="button" type="button" data-ai-send disabled>{{practice.ai.send}}</button>
+            <button class="sh-chip" type="button" data-ai-clear>{{practice.ai.clear}}</button>
+          </div>
+          <video class="practice-ai-preview" data-ai-preview muted playsinline controls hidden aria-label="{{practice.ai.preview}}"></video>
+        </div>
+        <p data-ai-status role="status" aria-live="polite">{{practice.ai.initial}}</p>
+        <p data-ai-result hidden></p>
+      </section>
     </section>
   </div>
   <noscript><p class="practice-no-js">{{practice.no_js}}</p></noscript>
-  <section class="sh-card practice-ai" data-ai data-ai-supported="{{practice.ai.supported}}" aria-labelledby="practice-ai-title">
-    <h2 id="practice-ai-title">{{practice.ai.title}}</h2>
-    <p>{{practice.ai.description}}</p>
-    <div data-ai-controls hidden>
-      <label class="practice-check"><input type="checkbox" data-ai-consent> {{practice.ai.consent}}</label>
-      <label class="practice-ai-file">{{practice.ai.file}} <input type="file" accept="video/mp4,video/webm" data-ai-file></label>
-      <div class="practice-save-actions">
-        <button class="button button-outline" type="button" data-ai-record>{{practice.ai.record}}</button>
-        <button class="button" type="button" data-ai-send disabled>{{practice.ai.send}}</button>
-        <button class="sh-chip" type="button" data-ai-clear>{{practice.ai.clear}}</button>
-      </div>
-      <video class="practice-ai-preview" data-ai-preview muted playsinline controls hidden aria-label="{{practice.ai.preview}}"></video>
-    </div>
-    <p data-ai-status role="status" aria-live="polite">{{practice.ai.initial}}</p>
-    <p data-ai-result hidden></p>
-  </section>
   <div class="practice-round-controls" data-round-controls hidden>
     <label><input type="checkbox" data-countdown-enabled checked> {{practice.countdown.enable}}</label>
     <button class="sh-chip" type="button" data-round-start>{{practice.round.start}}</button>

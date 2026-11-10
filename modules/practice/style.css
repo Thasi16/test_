@@ -56,8 +56,8 @@
 .m-practice .practice-navigation>a:not(.button){text-decoration:underline;text-underline-offset:4px}
 .m-practice .practice-collection-note{font-size:12px;color:var(--muted)}
 .m-practice .practice-no-js{padding:16px;margin-top:16px;background:#fff5df;border-radius:12px;font-size:13px;color:#785116}
-.m-practice .practice-ai{margin-top:20px;padding:20px;display:grid;gap:14px}
-.m-practice .practice-ai h2{font-size:19px;color:var(--navy)}
+.m-practice .practice-ai{margin-top:20px;padding-top:20px;border-top:1px solid var(--line);display:grid;gap:14px}
+.m-practice .practice-ai h3{font-size:17px;color:var(--navy)}
 .m-practice .practice-ai p,.m-practice .practice-ai-file{font-size:14px;line-height:1.7;color:#4f6a8a;overflow-wrap:anywhere}
 .m-practice .practice-ai-file{display:grid;gap:8px;margin-top:14px}
 .m-practice .practice-ai-file input{max-width:100%}

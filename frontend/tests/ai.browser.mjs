@@ -43,6 +43,7 @@ try {
     await page.locator(".is-auth-ready").waitFor();
     if (await page.locator("dialog.sh-tour[open]").count()) await page.keyboard.press("Escape");
     await page.locator("[data-ai-controls]:visible").waitFor();
+    assert.equal(await page.locator('[aria-labelledby="practice-camera-title"] [data-ai]').count(), 1);
     await page.locator("[data-ai-file]").setInputFiles(video);
     assert.equal(await page.locator("[data-ai-send]").isDisabled(), true);
     assert.deepEqual(posts, []); // Choosing a file never uploads automatically.
