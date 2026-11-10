@@ -4,6 +4,17 @@ Người học đặt video mẫu cạnh **gương camera** của chính mình, 
 
 **Độ khó:** khó nhất (camera) · **Phụ thuộc:** shell.
 
+## Nhận diện SiFormer tùy chọn
+
+Trang `/app/practice/{slug}` có thêm chọn/ghi video và nhận diện bằng SiFormer
+CPU. Chỉ những từ khớp chính xác với 100 nhãn checkpoint mới được bật AI.
+Camera gương không tự ghi/gửi; ghi video cần đồng ý và thao tác riêng, gửi cần
+bấm nút riêng. Kết quả AI không tự ghi vào lịch sử checklist.
+
+Xem [audit, bảo mật, kết quả thật và hướng dẫn chạy](../../ai_inference/README.md).
+Các bảo đảm không gửi ảnh của phần gương/checklist dưới đây áp dụng khi không
+chủ động dùng phần AI. Test browser AI riêng nằm ở `frontend/tests/ai.browser.mjs`.
+
 ## File của bạn
 `page.html` (chọn ký hiệu), `session.html` (phiên luyện), `view.py` (đã kiểm tra slug → 404), `style.css`, `script.js`, `locales/*.json` (key `practice.*`).
 

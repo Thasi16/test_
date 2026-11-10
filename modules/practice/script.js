@@ -119,7 +119,7 @@
     }, 15000);
     try {
       const incoming = await navigator.mediaDevices.getUserMedia({
-        video: { width: { ideal: 1280 }, height: { ideal: 720 }, facingMode: 'user' }, audio: false,
+        video: { width: { ideal: 1280, max: 1280 }, height: { ideal: 720, max: 720 }, frameRate: { ideal: 24, max: 30 }, facingMode: 'user' }, audio: false,
       });
       if (currentRequest !== requestId || leaving || document.hidden) {
         incoming.getTracks().forEach((track) => track.stop());
@@ -263,7 +263,121 @@
     if (reference.error) missingReference();
   }
 
+  // AI is an explicit opt-in. Self-assessment history and login do not depend on it.
+  const ai = find('[data-ai]');
+  let aiAbort = null, aiRecorder = null, aiTimer = null, aiBlob = null, aiURL = null;
+  let aiBusy = false;
+  const aiStatus = find('[data-ai-status]');
+  const aiResult = find('[data-ai-result]');
+  const aiPreview = find('[data-ai-preview]');
+  const aiConsent = find('[data-ai-consent]');
+  const aiSend = find('[data-ai-send]');
+  const aiRecord = find('[data-ai-record]');
+
+  function aiPaint() {
+    aiSend.disabled = aiBusy || !aiBlob || !aiConsent.checked;
+    aiRecord.disabled = aiBusy;
+    find('[data-ai-file]').disabled = aiBusy;
+  }
+  function aiClear() {
+    if (aiAbort) aiAbort.abort();
+    aiAbort = null;
+    clearTimeout(aiTimer);
+    if (aiRecorder && aiRecorder.state !== 'inactive') {
+      aiRecorder.onstop = null;
+      aiRecorder.stop();
+    }
+    aiRecorder = null;
+    if (aiURL) URL.revokeObjectURL(aiURL);
+    aiPreview.pause(); aiPreview.removeAttribute('src'); aiPreview.load();
+    aiPreview.hidden = true; aiResult.hidden = true;
+    aiURL = null; aiBlob = null; aiBusy = false;
+    aiRecord.textContent = SH.t('practice.ai.record');
+    find('[data-ai-file]').value = '';
+    aiPaint();
+  }
+  function aiChoose(blob) {
+    if (!blob || !blob.size || blob.size > 20 * 1024 * 1024 || !['video/mp4', 'video/webm'].includes(blob.type.split(';')[0])) {
+      aiStatus.textContent = SH.t('practice.ai.invalid'); return;
+    }
+    if (aiURL) URL.revokeObjectURL(aiURL);
+    aiBlob = blob; aiURL = URL.createObjectURL(blob);
+    aiPreview.src = aiURL; aiPreview.hidden = false; aiResult.hidden = true;
+    aiStatus.textContent = SH.t('practice.ai.selected'); aiPaint();
+  }
+  if (ai.dataset.aiSupported === 'true') {
+    find('[data-ai-controls]').hidden = false;
+    aiStatus.textContent = SH.t('practice.ai.initial');
+  } else aiStatus.textContent = SH.t('practice.ai.unsupported');
+  aiConsent.addEventListener('change', () => {
+    if (!aiConsent.checked) { aiClear(); aiStatus.textContent = SH.t('practice.ai.initial'); }
+    aiPaint();
+  });
+  find('[data-ai-clear]').addEventListener('click', () => { aiClear(); aiStatus.textContent = SH.t('practice.ai.initial'); });
+  find('[data-ai-file]').addEventListener('change', (event) => {
+    if (!aiBusy) { const file = event.target.files[0]; aiClear(); aiChoose(file); }
+  });
+  aiRecord.addEventListener('click', () => {
+    if (!aiConsent.checked) { aiStatus.textContent = SH.t('practice.ai.need_consent'); return; }
+    if (!stream || !stream.active) { aiStatus.textContent = SH.t('practice.ai.need_camera'); startCamera.focus(); return; }
+    if (typeof MediaRecorder === 'undefined') { aiStatus.textContent = SH.t('practice.ai.record_unavailable'); return; }
+    const mime = ['video/webm;codecs=vp8', 'video/webm', 'video/mp4'].find((type) => MediaRecorder.isTypeSupported(type));
+    if (!mime) { aiStatus.textContent = SH.t('practice.ai.record_unavailable'); return; }
+    aiClear(); aiBusy = true; aiPaint();
+    const chunks = [];
+    try {
+      aiRecorder = new MediaRecorder(stream, { mimeType: mime, videoBitsPerSecond: 1800000 });
+      aiRecorder.ondataavailable = (event) => { if (event.data.size) chunks.push(event.data); };
+      aiRecorder.onerror = () => { aiClear(); aiStatus.textContent = SH.t('practice.ai.record_unavailable'); };
+      aiRecorder.onstop = () => {
+        aiBusy = false; aiRecorder = null;
+        aiChoose(new Blob(chunks, { type: mime })); aiPaint();
+      };
+      aiRecorder.start();
+      aiStatus.textContent = SH.t('practice.ai.recording');
+      aiTimer = setTimeout(() => { if (aiRecorder && aiRecorder.state !== 'inactive') aiRecorder.stop(); }, 3000);
+    } catch (error) { aiClear(); aiStatus.textContent = SH.t('practice.ai.record_unavailable'); }
+  });
+  aiSend.addEventListener('click', async () => {
+    if (aiBusy || !aiBlob || !aiConsent.checked) return;
+    aiBusy = true; aiPaint(); aiResult.hidden = true;
+    aiStatus.textContent = SH.t('practice.ai.running');
+    const abort = new AbortController(); aiAbort = abort;
+    const timer = setTimeout(() => abort.abort(), 60000);
+    try {
+      const auth = await fetch('/api/ai/token', { method: 'POST', credentials: 'same-origin',
+        headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ slug }), signal: abort.signal });
+      const config = await auth.json();
+      if (!auth.ok) throw new Error(config.error?.code || 'ai_unavailable');
+      if (abort.signal.aborted) return;
+      const response = await fetch(config.endpoint, { method: 'POST', credentials: 'omit',
+        headers: { 'Authorization': 'Bearer ' + config.token, 'Content-Type': aiBlob.type.split(';')[0] },
+        body: aiBlob, signal: abort.signal, redirect: 'error', referrerPolicy: 'no-referrer' });
+      const result = await response.json();
+      if (!response.ok || result.success !== true) throw new Error(result.error?.code || 'ai_unavailable');
+      if (abort.signal.aborted) return;
+      if (typeof result.predicted_gloss !== 'string' || !Number.isFinite(result.confidence) || result.confidence < 0 || result.confidence > 1) throw new Error('ai_unavailable');
+      aiResult.textContent = SH.t('practice.ai.result', { word: result.predicted_gloss,
+        confidence: (result.confidence * 100).toFixed(1), ms: Math.round(result.total_request_time_ms) })
+        + ' ' + SH.t(result.matches_expected ? 'practice.ai.match' : 'practice.ai.different');
+      aiResult.hidden = false;
+      aiStatus.textContent = SH.t('practice.ai.done');
+    } catch (error) {
+      if (aiAbort !== abort) return;
+      const code = error.message;
+      const key = ['invalid_video', 'unsupported_video', 'video_too_large', 'no_landmarks'].includes(code) ? 'invalid'
+        : ['inference_busy', 'rate_limited'].includes(code) ? 'busy'
+        : code === 'ai_sign_unsupported' ? 'unsupported' : error.name === 'AbortError' || code === 'request_timeout' ? 'timeout' : 'offline';
+      aiStatus.textContent = SH.t('practice.ai.' + key);
+    } finally {
+      clearTimeout(timer);
+      if (aiAbort === abort) { aiAbort = null; aiBusy = false; aiPaint(); }
+    }
+  });
+
   function suspend() {
+    aiClear();
+    aiConsent.checked = false;
     stopCamera();
     cancelCountdown();
     if (reference) reference.pause();
