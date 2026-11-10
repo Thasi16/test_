@@ -8,6 +8,7 @@ Khu học tập dùng các module Python mới nhất của nhóm, qua backend F
 Phần tự luyện đã có nhận diện bằng duy nhất checkpoint SiFormer tại
 `C:/Users/Admin/Desktop/demo/Vietnamese-Sign-Language/Siformer`, chạy CPU trên Windows.
 Xem [hướng dẫn chạy, kiểm thử và kết nối Cloudflare](ai_inference/README.md).
+Thiết lập từng bước: [AI_INFERENCE_SETUP.md](AI_INFERENCE_SETUP.md).
 Đã xác minh suy luận thật và đối chiếu kết quả với demo cũ; ba video mẫu đang
 nhận sai từ mục tiêu, nên chưa kết luận chất lượng nhận diện đạt yêu cầu demo.
 
