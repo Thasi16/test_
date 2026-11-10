@@ -52,15 +52,13 @@ class ReviewChecks(unittest.TestCase):
                     if tag == 'a':
                         self.assertIn('?lang=' + locale, attrs['href'])
 
-    def test_only_eligible_lesson_quizzes(self):
+    def test_review_landing_only_offers_video_multiple_choice(self):
         values = VIEW.context(request())
-        tags = Markup(values['review.lessons.html']).tags
-        ids = {attrs['data-lesson-id'] for tag, attrs in tags if 'data-lesson-id' in attrs}
-        expected = {'video'} | {str(lesson['id']) for lesson in content.open_lessons()
-                              if len([sign for sign in content.signs(lesson['id']) if sign.get('video')]) >= 2}
-        self.assertEqual(expected, ids)
-        self.assertNotIn('/quiz/3', values['review.lessons.html'])
-        self.assertNotIn('/quiz/None', values['review.lessons.html'])
+        self.assertEqual('/app/review/quiz/video?lang=en', values['review.video_quiz_url'])
+        self.assertEqual(str(len([sign for sign in content.signs() if sign.get('video')])), values['review.video_count'])
+        page = (ROOT / 'modules/review/page.html').read_text(encoding='utf-8')
+        self.assertNotIn('data-flash', page)
+        self.assertNotIn('review.lessons.html', page)
 
     def test_invalid_closed_and_small_lessons(self):
         for identifier in ('999', 'abc', '-1', ''):
@@ -68,18 +66,16 @@ class ReviewChecks(unittest.TestCase):
                 VIEW.context(request(identifier=identifier))
         with self.assertRaises(app_modules.NotFound):
             VIEW.context(request(identifier='1', signs=lambda *_: content.signs(1)[:1]))
-        values = VIEW.context(request(open_lessons=lambda: [], signs=lambda *_: []))
-        self.assertIn(DICTIONARIES['en']['review.lessons.empty'], values['review.lessons.html'])
-        self.assertEqual(' disabled', values['review.lesson_disabled.html'])
+        with self.assertRaises(app_modules.NotFound):
+            VIEW.context(request(signs=lambda *_: []))
 
     def test_untrusted_content_escaped(self):
         malicious = '<img src=x onerror="bad()"> & \'quoted\''
         lesson = dict(content.lesson(1), title={'vi': malicious, 'en': malicious})
         signs = [dict(sign, word={'vi': malicious, 'en': malicious}, meaning={'vi': malicious, 'en': malicious})
                  for sign in content.signs() if sign.get('video')]
-        listing = VIEW.context(request(open_lessons=lambda: [lesson], signs=lambda *_: signs))
         detail = VIEW.context(request(identifier='video', signs=lambda *_: signs))
-        for value in (listing['review.lessons.html'], listing['review.lesson_options.html'], detail['review.reading.html']):
+        for value in (detail['review.reading.html'],):
             self.assertNotIn(malicious, value)
             self.assertIn(html.escape(malicious, quote=True), value)
 
@@ -91,10 +87,10 @@ class ReviewChecks(unittest.TestCase):
             self.assertIn(content.text(sign['word'], 'en'), values['review.reading.html'])
             self.assertIn(sign['slug'], values['review.sample_slugs'].split(','))
         self.assertEqual('', values['review.sample.html'])
-        self.assertIn('<noscript>', (ROOT / 'modules/review/page.html').read_text(encoding='utf-8'))
+        self.assertNotIn('data-flash', (ROOT / 'modules/review/page.html').read_text(encoding='utf-8'))
         self.assertIn('<noscript>', (ROOT / 'modules/review/quiz.html').read_text(encoding='utf-8'))
 
-    def test_vocabulary_only_lesson_has_no_video_quiz(self):
+    def test_vocabulary_only_lesson_does_not_become_a_global_quiz(self):
         with self.assertRaises(app_modules.NotFound):
             VIEW.context(request(identifier='18'))
 

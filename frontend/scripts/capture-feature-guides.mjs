@@ -1,5 +1,5 @@
 import { createRequire } from "node:module";
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { createHash } from "node:crypto";
 import path from "node:path";
@@ -38,9 +38,9 @@ const guides = [
   },
   {
     key: "review",
-    route: "/app/review",
+    route: "/app/review/quiz/video",
     asset: "review-quiz",
-    selectors: ['[data-source="lesson"]', 'main a[href^="/app/review/quiz/1"]'],
+    selectors: ["[data-question-media]", "[data-options]"],
   },
   {
     key: "progress",
@@ -56,19 +56,29 @@ const browser = await chromium.launch({
     : { channel: "chrome" }),
   headless: true,
 });
-const manifest = {
-  capturedAt: new Date().toISOString(),
-  browser: browser.version(),
-  viewport,
-  method:
-    "Playwright screenshot, optimized with Sharp WebP quality 88; no DOM changes or seeded user data",
-  captures: {},
-};
+const only = process.argv.find((arg) => arg.startsWith("--only="))?.slice(7);
+if (only && !guides.some((guide) => guide.key === only))
+  throw new Error("Unknown capture key");
+const manifest = only
+  ? JSON.parse(
+      await readFile(
+        path.join(frontend, "src/data/feature-captures.json"),
+        "utf8",
+      ),
+    )
+  : {
+      capturedAt: new Date().toISOString(),
+      browser: browser.version(),
+      viewport,
+      method:
+        "Playwright screenshot, optimized with Sharp WebP quality 88; no DOM changes or seeded user data",
+      captures: {},
+    };
 try {
   await mkdir(output, { recursive: true });
   for (const locale of ["vi", "en"]) {
-    manifest.captures[locale] = {};
-    for (const guide of guides) {
+    manifest.captures[locale] ||= {};
+    for (const guide of guides.filter((item) => !only || item.key === only)) {
       // Each capture has a fresh, nonpersistent context. Never touch the user's profile.
       const context = await browser.newContext({
         viewport,
@@ -85,11 +95,12 @@ try {
         throw new Error(`${guide.route}: HTTP ${response.status()}`);
       await page.evaluate(() => document.fonts.ready);
       await page.waitForFunction(() => Boolean(window.SH?.store));
+      await page.evaluate(() => window.SH.ready);
+      const tour = page.locator("dialog.sh-tour[open]");
+      if (await tour.count()) await page.keyboard.press("Escape");
       if (guide.key === "courses")
         await page.locator('[data-filter="open"]').click();
-      if (guide.key === "review")
-        await page.locator('[data-source="lesson"]').click();
-      if (guide.key === "video" || guide.key === "camera") {
+      if (["video", "camera", "review"].includes(guide.key)) {
         await page.waitForFunction(
           () => document.querySelector("main video").readyState >= 2,
         );
@@ -136,11 +147,16 @@ try {
             : guide.key === "progress"
               ? "fresh browser, empty progress"
               : guide.key === "review"
-                ? "By lesson selected by clicking the existing control"
+                ? "First video question; video and four answer choices; no quiz submitted"
                 : guide.key === "courses"
                   ? "Open filter selected by clicking the existing control"
                   : "first visit; no user data",
       };
+      if (only) {
+        manifest.captures[locale][guide.key].capturedAt =
+          new Date().toISOString();
+        manifest.captures[locale][guide.key].browser = browser.version();
+      }
       console.log(
         `${guide.key} (${locale}): ${filename} · ${Math.round(webp.length / 1024)} KB`,
       );

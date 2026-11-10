@@ -43,6 +43,17 @@ async def rpc(name, who, payload=None):
             snapshot["favorites"].append(event["id"])
     elif event["type"] == "lesson":
         snapshot["lessons"][event["id"]] = {"state": event["state"]}
+    elif event["type"] == "quiz":
+        records = snapshot["quiz"].setdefault(event["id"], [])
+        if not any(record["id"] == event["event_id"] for record in records):
+            records.append(
+                {
+                    "id": event["event_id"],
+                    "score": event["score"],
+                    "total": event["total"],
+                    "at": datetime.now(UTC).isoformat(),
+                }
+            )
     return {}
 
 

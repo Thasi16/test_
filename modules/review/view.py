@@ -1,4 +1,4 @@
-"""Render review choices and quiz reading content; validate every quiz lesson."""
+"""Render video multiple-choice review, retaining valid lesson quiz links."""
 
 
 def context(request):
@@ -9,41 +9,15 @@ def context(request):
         return ('<span class="sh-badge sh-badge--sample">' + esc(t['shell.badge.sample']) + '</span>'
                 if item['status'] == 'sample' else '')
 
-    def lesson_title(lesson):
-        return t['review.lesson.heading'].replace('{n}', str(lesson['id'])).replace('{title}', c.text(lesson['title'], locale))
-
     lesson_id = request.params.get('id')
     if lesson_id is None:
-        lessons, options = [], []
         video_signs = [sign for sign in c.signs() if sign.get('video')]
-        if len(video_signs) >= 2:
-            lessons.append(
-                '<li class="sh-card review-lesson review-video-quiz" data-lesson-id="video">'
-                '<div class="review-video-quiz-icon" aria-hidden="true"><span>▶</span></div>'
-                f'<div class="review-lesson-heading"><h3>{esc(t["review.video_quiz.title"])}</h3>'
-                f'<span class="review-video-quiz-badge">{esc(t["review.video_quiz.badge"])}</span></div>'
-                f'<p>{esc(t["review.video_quiz.body"].replace("{n}", str(len(video_signs))))}</p>'
-                '<p class="review-best" data-best hidden></p>'
-                f'<a class="button" href="{esc(request.url("/app/review/quiz/video"))}">{esc(t["review.video_quiz.start"])}</a></li>')
-        for lesson in c.open_lessons():
-            signs = c.signs(lesson['id'])
-            if signs:
-                options.append(f'<option value="{esc(lesson["id"])}">{esc(lesson_title(lesson))}</option>')
-            video_signs_in_lesson = [sign for sign in signs if sign.get('video')]
-            if len(video_signs_in_lesson) < 2:
-                continue
-            lessons.append(
-                f'<li class="sh-card review-lesson" data-lesson-id="{esc(lesson["id"])}">'
-                f'<div class="review-lesson-heading"><h3>{esc(lesson_title(lesson))}</h3>{sample(lesson)}</div>'
-                f'<p>{esc(t["review.signs"].replace("{n}", str(len(video_signs_in_lesson))))}</p>'
-                '<p class="review-best" data-best hidden></p>'
-                f'<a class="button button-outline" href="{esc(request.url("/app/review/quiz/" + str(lesson["id"])))}">{esc(t["review.quiz.start"])}</a></li>')
+        if len(video_signs) < 2:
+            raise request.NotFound()
         return {
-            'review.lessons.html': ''.join(lessons) if lessons else '<li class="sh-card sh-empty">' + esc(t['review.lessons.empty']) + '</li>',
-            'review.lesson_options.html': ''.join(options),
-            'review.lesson_disabled.html': '' if options else ' disabled',
+            'review.video_count': str(len(video_signs)),
+            'review.video_quiz_url': request.url('/app/review/quiz/video'),
             'review.sample_slugs': sample_slugs,
-            'review.courses_url': request.url('/app/courses'),
         }
     requested_lesson = None
     if lesson_id != 'video':

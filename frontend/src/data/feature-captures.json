@@ -85,23 +85,25 @@
         "state": "camera off; no media permission requested"
       },
       "review": {
-        "route": "/app/review",
+        "route": "/app/review/quiz/video",
         "src": "/images/feature-guides/review-quiz-vi.webp",
         "annotations": [
           {
-            "x": 40.18,
-            "y": 46.28,
-            "selector": "[data-source=\"lesson\"]"
+            "x": 59.1,
+            "y": 38.72,
+            "selector": "[data-question-media]"
           },
           {
-            "x": 79.06,
-            "y": 59.19,
-            "selector": "main a[href^=\"/app/review/quiz/1\"]"
+            "x": 93.54,
+            "y": 37.92,
+            "selector": "[data-options]"
           }
         ],
-        "bytes": 72404,
-        "sha256": "bb2efccddee1500178b89828aed3d6312f372662f53fcf95cb4dd2266bee73d9",
-        "state": "By lesson selected by clicking the existing control"
+        "bytes": 60500,
+        "sha256": "e410c55ab1846d03fbd21c4fd186f38e07b2f22387d08b285f6f011cf37c58f5",
+        "state": "First video question; video and four answer choices; no quiz submitted",
+        "capturedAt": "2026-11-10T02:11:40.595Z",
+        "browser": "156.0.8078.82"
       },
       "progress": {
         "route": "/app/progress",
@@ -201,23 +203,25 @@
         "state": "camera off; no media permission requested"
       },
       "review": {
-        "route": "/app/review",
+        "route": "/app/review/quiz/video",
         "src": "/images/feature-guides/review-quiz-en.webp",
         "annotations": [
           {
-            "x": 40.28,
-            "y": 48.56,
-            "selector": "[data-source=\"lesson\"]"
+            "x": 59.1,
+            "y": 38.72,
+            "selector": "[data-question-media]"
           },
           {
-            "x": 77.56,
-            "y": 59.19,
-            "selector": "main a[href^=\"/app/review/quiz/1\"]"
+            "x": 93.54,
+            "y": 37.92,
+            "selector": "[data-options]"
           }
         ],
-        "bytes": 72340,
-        "sha256": "a76d75a550bbe5ca4ddfa2979568947d366824b64097783df334f8ee90d043a6",
-        "state": "By lesson selected by clicking the existing control"
+        "bytes": 65936,
+        "sha256": "1add800c3b57f94a99871240e56dc7097c19fbf577fb0a2f67ed18bf3ded0f79",
+        "state": "First video question; video and four answer choices; no quiz submitted",
+        "capturedAt": "2026-11-10T02:11:42.572Z",
+        "browser": "156.0.8078.82"
       },
       "progress": {
         "route": "/app/progress",
