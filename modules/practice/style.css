@@ -20,7 +20,7 @@
 .m-practice .practice-panel{padding:16px;min-width:0}
 .m-practice .practice-panel-head{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;min-height:42px;margin-bottom:10px}
 .m-practice .practice-panel-head h2{font-size:17px;color:var(--navy)}
-.m-practice .practice-stage{position:relative;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#12243b}
+.m-practice .practice-stage{position:relative;aspect-ratio:1/1;border-radius:14px;overflow:hidden;background:#12243b}
 .m-practice .practice-stage>video{display:block;width:100%;height:100%;object-fit:contain}
 .m-practice .practice-stage>.sh-video-placeholder{height:100%;width:100%;aspect-ratio:auto;border-radius:0;line-height:1.7;font-size:13px}
 .m-practice .practice-mirror-stage{background:#edf4fc}
