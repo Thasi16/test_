@@ -1,0 +1,714 @@
+{
+  "passed": false,
+  "samples": [
+    {
+      "sample": "an-frames",
+      "checks": {
+        "decoded": {
+          "pass": true,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            30,
+            480,
+            480,
+            3
+          ],
+          "dtype": "uint8"
+        },
+        "frames": {
+          "pass": true,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            16,
+            224,
+            224,
+            3
+          ],
+          "dtype": "uint8"
+        },
+        "indices": {
+          "pass": true,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            16
+          ],
+          "dtype": "int64"
+        },
+        "valid": {
+          "pass": true,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            16
+          ],
+          "dtype": "bool"
+        },
+        "padding": {
+          "pass": true,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            16
+          ],
+          "dtype": "bool"
+        },
+        "raw": {
+          "pass": false,
+          "atol": 1e-05,
+          "max_abs": 1.0,
+          "shape": [
+            16,
+            75,
+            4
+          ],
+          "dtype": "float32"
+        },
+        "features": {
+          "pass": false,
+          "atol": 1e-05,
+          "max_abs": 1.0,
+          "shape": [
+            16,
+            300
+          ],
+          "dtype": "float32"
+        },
+        "detection": {
+          "pass": false,
+          "atol": 0,
+          "max_abs": 1.0,
+          "shape": [
+            16,
+            75
+          ],
+          "dtype": "bool"
+        },
+        "coords": {
+          "pass": false,
+          "atol": 1e-05,
+          "max_abs": 0.9166666865348816,
+          "shape": [
+            16,
+            54,
+            2
+          ],
+          "dtype": "float32"
+        },
+        "logits": {
+          "pass": false,
+          "atol": 5e-06,
+          "max_abs": 0.5456386357545853,
+          "shape": [
+            1,
+            100
+          ],
+          "dtype": "float32"
+        },
+        "prediction": {
+          "pass": false,
+          "baseline": "C\u1ea3m \u01a1n",
+          "candidate": "C\u1ea3m \u01a1n",
+          "baseline_confidence": 0.8516781330108643,
+          "candidate_confidence": 0.8479521870613098,
+          "confidence_abs": 0.0037259459495544434,
+          "atol": 1e-06
+        }
+      },
+      "pass": false
+    },
+    {
+      "sample": "an",
+      "checks": {
+        "decoded": {
+          "pass": true,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            59,
+            1080,
+            1080,
+            3
+          ],
+          "dtype": "uint8"
+        },
+        "frames": {
+          "pass": true,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            16,
+            224,
+            224,
+            3
+          ],
+          "dtype": "uint8"
+        },
+        "indices": {
+          "pass": true,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            16
+          ],
+          "dtype": "int64"
+        },
+        "valid": {
+          "pass": true,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            16
+          ],
+          "dtype": "bool"
+        },
+        "padding": {
+          "pass": true,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            16
+          ],
+          "dtype": "bool"
+        },
+        "raw": {
+          "pass": true,
+          "atol": 1e-05,
+          "max_abs": 1.8477439880371094e-06,
+          "shape": [
+            16,
+            75,
+            4
+          ],
+          "dtype": "float32"
+        },
+        "features": {
+          "pass": true,
+          "atol": 1e-05,
+          "max_abs": 1.8477439880371094e-06,
+          "shape": [
+            16,
+            300
+          ],
+          "dtype": "float32"
+        },
+        "detection": {
+          "pass": true,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            16,
+            75
+          ],
+          "dtype": "bool"
+        },
+        "coords": {
+          "pass": false,
+          "atol": 1e-05,
+          "max_abs": 2.205371856689453e-05,
+          "shape": [
+            16,
+            54,
+            2
+          ],
+          "dtype": "float32"
+        },
+        "logits": {
+          "pass": false,
+          "atol": 5e-06,
+          "max_abs": 2.0503997802734375e-05,
+          "shape": [
+            1,
+            100
+          ],
+          "dtype": "float32"
+        },
+        "prediction": {
+          "pass": true,
+          "baseline": "C\u1ea3m \u01a1n",
+          "candidate": "C\u1ea3m \u01a1n",
+          "baseline_confidence": 0.645381510257721,
+          "candidate_confidence": 0.6453810930252075,
+          "confidence_abs": 4.172325134277344e-07,
+          "atol": 1e-06
+        }
+      },
+      "pass": false
+    },
+    {
+      "sample": "khoc-frames",
+      "checks": {
+        "decoded": {
+          "pass": true,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            30,
+            480,
+            480,
+            3
+          ],
+          "dtype": "uint8"
+        },
+        "frames": {
+          "pass": true,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            16,
+            224,
+            224,
+            3
+          ],
+          "dtype": "uint8"
+        },
+        "indices": {
+          "pass": true,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            16
+          ],
+          "dtype": "int64"
+        },
+        "valid": {
+          "pass": true,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            16
+          ],
+          "dtype": "bool"
+        },
+        "padding": {
+          "pass": true,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            16
+          ],
+          "dtype": "bool"
+        },
+        "raw": {
+          "pass": true,
+          "atol": 1e-05,
+          "max_abs": 0.0,
+          "shape": [
+            16,
+            75,
+            4
+          ],
+          "dtype": "float32"
+        },
+        "features": {
+          "pass": true,
+          "atol": 1e-05,
+          "max_abs": 0.0,
+          "shape": [
+            16,
+            300
+          ],
+          "dtype": "float32"
+        },
+        "detection": {
+          "pass": true,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            16,
+            75
+          ],
+          "dtype": "bool"
+        },
+        "coords": {
+          "pass": true,
+          "atol": 1e-05,
+          "max_abs": 0.0,
+          "shape": [
+            16,
+            54,
+            2
+          ],
+          "dtype": "float32"
+        },
+        "logits": {
+          "pass": true,
+          "atol": 5e-06,
+          "max_abs": 3.814697265625e-06,
+          "shape": [
+            1,
+            100
+          ],
+          "dtype": "float32"
+        },
+        "prediction": {
+          "pass": true,
+          "baseline": "D\u1ea1y d\u1ed7",
+          "candidate": "D\u1ea1y d\u1ed7",
+          "baseline_confidence": 0.30610471963882446,
+          "candidate_confidence": 0.30610406398773193,
+          "confidence_abs": 6.556510925292969e-07,
+          "atol": 1e-06
+        }
+      },
+      "pass": true
+    },
+    {
+      "sample": "khoc",
+      "checks": {
+        "decoded": {
+          "pass": true,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            62,
+            1080,
+            1080,
+            3
+          ],
+          "dtype": "uint8"
+        },
+        "frames": {
+          "pass": true,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            16,
+            224,
+            224,
+            3
+          ],
+          "dtype": "uint8"
+        },
+        "indices": {
+          "pass": true,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            16
+          ],
+          "dtype": "int64"
+        },
+        "valid": {
+          "pass": true,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            16
+          ],
+          "dtype": "bool"
+        },
+        "padding": {
+          "pass": true,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            16
+          ],
+          "dtype": "bool"
+        },
+        "raw": {
+          "pass": false,
+          "atol": 1e-05,
+          "max_abs": 0.007322385907173157,
+          "shape": [
+            16,
+            75,
+            4
+          ],
+          "dtype": "float32"
+        },
+        "features": {
+          "pass": false,
+          "atol": 1e-05,
+          "max_abs": 0.007322385907173157,
+          "shape": [
+            16,
+            300
+          ],
+          "dtype": "float32"
+        },
+        "detection": {
+          "pass": true,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            16,
+            75
+          ],
+          "dtype": "bool"
+        },
+        "coords": {
+          "pass": false,
+          "atol": 1e-05,
+          "max_abs": 0.022745847702026367,
+          "shape": [
+            16,
+            54,
+            2
+          ],
+          "dtype": "float32"
+        },
+        "logits": {
+          "pass": false,
+          "atol": 5e-06,
+          "max_abs": 0.08985590934753418,
+          "shape": [
+            1,
+            100
+          ],
+          "dtype": "float32"
+        },
+        "prediction": {
+          "pass": false,
+          "baseline": "\u00c1p d\u1ee5ng",
+          "candidate": "\u00c1p d\u1ee5ng",
+          "baseline_confidence": 0.7950112223625183,
+          "candidate_confidence": 0.8081129789352417,
+          "confidence_abs": 0.013101756572723389,
+          "atol": 1e-06
+        }
+      },
+      "pass": false
+    },
+    {
+      "sample": "uong-frames",
+      "checks": {
+        "decoded": {
+          "pass": true,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            30,
+            480,
+            480,
+            3
+          ],
+          "dtype": "uint8"
+        },
+        "frames": {
+          "pass": true,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            16,
+            224,
+            224,
+            3
+          ],
+          "dtype": "uint8"
+        },
+        "indices": {
+          "pass": true,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            16
+          ],
+          "dtype": "int64"
+        },
+        "valid": {
+          "pass": true,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            16
+          ],
+          "dtype": "bool"
+        },
+        "padding": {
+          "pass": true,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            16
+          ],
+          "dtype": "bool"
+        },
+        "raw": {
+          "pass": false,
+          "atol": 1e-05,
+          "max_abs": 0.0002689128741621971,
+          "shape": [
+            16,
+            75,
+            4
+          ],
+          "dtype": "float32"
+        },
+        "features": {
+          "pass": false,
+          "atol": 1e-05,
+          "max_abs": 0.0002689128741621971,
+          "shape": [
+            16,
+            300
+          ],
+          "dtype": "float32"
+        },
+        "detection": {
+          "pass": true,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            16,
+            75
+          ],
+          "dtype": "bool"
+        },
+        "coords": {
+          "pass": false,
+          "atol": 1e-05,
+          "max_abs": 0.0018808841705322266,
+          "shape": [
+            16,
+            54,
+            2
+          ],
+          "dtype": "float32"
+        },
+        "logits": {
+          "pass": false,
+          "atol": 5e-06,
+          "max_abs": 0.0028696060180664062,
+          "shape": [
+            1,
+            100
+          ],
+          "dtype": "float32"
+        },
+        "prediction": {
+          "pass": false,
+          "baseline": "B\u0103n kho\u0103n",
+          "candidate": "B\u0103n kho\u0103n",
+          "baseline_confidence": 0.5154168605804443,
+          "candidate_confidence": 0.5164076089859009,
+          "confidence_abs": 0.000990748405456543,
+          "atol": 1e-06
+        }
+      },
+      "pass": false
+    },
+    {
+      "sample": "uong",
+      "checks": {
+        "decoded": {
+          "pass": true,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            59,
+            1080,
+            1080,
+            3
+          ],
+          "dtype": "uint8"
+        },
+        "frames": {
+          "pass": true,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            16,
+            224,
+            224,
+            3
+          ],
+          "dtype": "uint8"
+        },
+        "indices": {
+          "pass": true,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            16
+          ],
+          "dtype": "int64"
+        },
+        "valid": {
+          "pass": true,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            16
+          ],
+          "dtype": "bool"
+        },
+        "padding": {
+          "pass": true,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            16
+          ],
+          "dtype": "bool"
+        },
+        "raw": {
+          "pass": false,
+          "atol": 1e-05,
+          "max_abs": 0.001408994197845459,
+          "shape": [
+            16,
+            75,
+            4
+          ],
+          "dtype": "float32"
+        },
+        "features": {
+          "pass": false,
+          "atol": 1e-05,
+          "max_abs": 0.001408994197845459,
+          "shape": [
+            16,
+            300
+          ],
+          "dtype": "float32"
+        },
+        "detection": {
+          "pass": true,
+          "atol": 0,
+          "max_abs": 0.0,
+          "shape": [
+            16,
+            75
+          ],
+          "dtype": "bool"
+        },
+        "coords": {
+          "pass": false,
+          "atol": 1e-05,
+          "max_abs": 0.0210421085357666,
+          "shape": [
+            16,
+            54,
+            2
+          ],
+          "dtype": "float32"
+        },
+        "logits": {
+          "pass": false,
+          "atol": 5e-06,
+          "max_abs": 0.02832770347595215,
+          "shape": [
+            1,
+            100
+          ],
+          "dtype": "float32"
+        },
+        "prediction": {
+          "pass": false,
+          "baseline": "B\u0103n kho\u0103n",
+          "candidate": "B\u0103n kho\u0103n",
+          "baseline_confidence": 0.5781494975090027,
+          "candidate_confidence": 0.5816812515258789,
+          "confidence_abs": 0.0035317540168762207,
+          "atol": 1e-06
+        }
+      },
+      "pass": false
+    }
+  ],
+  "note": "Same top-1 labels alone do not establish parity."
+}

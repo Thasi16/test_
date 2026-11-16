@@ -19,6 +19,8 @@ class Settings(BaseSettings):
     supabase_publishable_key: str = ""
     # Reuse the frontend/deployment public origin; Vercel system URLs are fallback.
     site_url: str = ""
+    siformer_service_url: str = ""  # Injected private Vercel binding; never returned to browsers.
+    ai_blob_origin: str = ""
     ai_api_url: str = ""
     ai_token_secret: SecretStr = SecretStr("")
 

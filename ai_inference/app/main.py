@@ -10,6 +10,8 @@ from fastapi import Depends, FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
+from .blob_transport import BLOB_MIME, receive_private_blob
+from .shared_state import RedisGuard
 from .config import Settings
 from .inference import InferencePool
 from .security import authorize
@@ -38,6 +40,11 @@ SAFE_ERRORS = {
 def create_app(settings=None, pool_factory=InferencePool):
     settings = settings or Settings()
     pool = pool_factory(settings)
+    import os
+    serverless = os.environ.get("VERCEL") == "1" or settings.siformer_model_root.name == "model"
+    if serverless and settings.ai_state_backend != "redis":
+        raise ValueError("Serverless inference requires shared replay protection")
+    guard = RedisGuard(settings) if settings.ai_state_backend == "redis" else None
 
     @asynccontextmanager
     async def lifespan(app):
@@ -62,6 +69,8 @@ def create_app(settings=None, pool_factory=InferencePool):
             yield
         finally:
             pool.stop()
+            if guard is not None:
+                guard.close()
 
     app = FastAPI(
         title="SignHearing SiFormer",
@@ -122,6 +131,13 @@ def create_app(settings=None, pool_factory=InferencePool):
             status_code=200 if available else 503,
         )
 
+    @app.post("/claim-upload")
+    async def claim_upload(request: Request, claims=Depends(authorize)):
+        if guard is None:
+            raise HTTPException(503, "ai_unavailable")
+        await asyncio.to_thread(guard.reserve, claims, "upload")
+        return {"pathname": "inference/" + claims["jti"] + "/payload", "expires_at": claims["exp"]}
+
     @app.post("/infer")
     async def infer(request: Request, claims=Depends(authorize)):
         if not pool.available():
@@ -129,7 +145,7 @@ def create_app(settings=None, pool_factory=InferencePool):
         if app.state.lock.locked():
             raise HTTPException(429, "inference_busy")
         mime = request.headers.get("content-type", "").split(";")[0]
-        if mime not in ("video/mp4", "video/webm", "application/json"):
+        if mime not in ("video/mp4", "video/webm", "application/json", BLOB_MIME):
             raise HTTPException(415, "unsupported_video")
         try:
             length = int(request.headers.get("content-length", "0"))
@@ -137,26 +153,22 @@ def create_app(settings=None, pool_factory=InferencePool):
             raise HTTPException(400, "invalid_video") from None
         if length < 0 or length > MAX_BYTES:
             raise HTTPException(413, "video_too_large")
-        now = time.time()
-        app.state.used = {
-            j: expiry for j, expiry in app.state.used.items() if expiry > now
-        }
-        app.state.last_request = {
-            u: at for u, at in app.state.last_request.items() if at > now - 120
-        }
-        if claims["jti"] in app.state.used:
-            raise HTTPException(401, "token_already_used")
-        if (
-            now - app.state.last_request.get(claims["sub"], 0) < 3
-            or len(app.state.used) >= 2000
-        ):
-            raise HTTPException(429, "rate_limited")
         async with app.state.lock:
-            app.state.used[claims["jti"]] = claims["exp"]
-            app.state.last_request[claims["sub"]] = now
+            if guard is not None:
+                await asyncio.to_thread(guard.reserve, claims)
+            else:
+                now = time.time()
+                app.state.used = {j:e for j,e in app.state.used.items() if e > now}
+                app.state.last_request = {u:t for u,t in app.state.last_request.items() if t > now-120}
+                if claims["jti"] in app.state.used:
+                    raise HTTPException(401, "token_already_used")
+                if now-app.state.last_request.get(claims["sub"],0) < 3 or len(app.state.used) >= 2000:
+                    raise HTTPException(429, "rate_limited")
+                app.state.used[claims["jti"]] = claims["exp"]
+                app.state.last_request[claims["sub"]] = now
             started = time.perf_counter()
             with tempfile.TemporaryDirectory(prefix="signhearing-infer-") as directory:
-                video = Path(directory) / ({"video/mp4": "clip.mp4", "video/webm": "clip.webm", "application/json": "frames.json"}[mime])
+                video = Path(directory) / ({"video/mp4": "clip.mp4", "video/webm": "clip.webm", "application/json": "frames.json", BLOB_MIME: "request.json"}[mime])
                 size = 0
                 try:
                     async with asyncio.timeout(settings.ai_upload_timeout):
@@ -168,6 +180,15 @@ def create_app(settings=None, pool_factory=InferencePool):
                                 stream.write(chunk)
                 except TimeoutError:
                     raise HTTPException(408, "upload_timeout") from None
+                if mime == BLOB_MIME:
+                    if size > 16384:
+                        raise HTTPException(400, "invalid_video")
+                    try:
+                        async with asyncio.timeout(settings.ai_upload_timeout):
+                            video, mime = await receive_private_blob(video.read_bytes(), claims, settings, directory)
+                    except TimeoutError:
+                        raise HTTPException(408, "upload_timeout") from None
+                    size = video.stat().st_size
                 with video.open("rb") as stream:
                     header = stream.read(16)
                 if not size or (mime != "application/json" and not (

@@ -1,0 +1,104 @@
+[
+  {
+    "sample": "an-frames.json",
+    "bytes": 1245908,
+    "response": {
+      "success": true,
+      "predicted_gloss": "C\u1ea3m \u01a1n",
+      "confidence": 0.8516781330108643,
+      "inference_time_ms": 97.38,
+      "model_name": "SiFormer",
+      "device": "CPU",
+      "preprocessing_time_ms": 669.37,
+      "total_processing_time_ms": 781.59,
+      "expected_gloss": "",
+      "matches_expected": false,
+      "total_request_time_ms": 879.08
+    }
+  },
+  {
+    "sample": "an.mp4",
+    "bytes": 851170,
+    "response": {
+      "success": true,
+      "predicted_gloss": "C\u1ea3m \u01a1n",
+      "confidence": 0.645381510257721,
+      "inference_time_ms": 109.96,
+      "model_name": "SiFormer",
+      "device": "CPU",
+      "preprocessing_time_ms": 1010.29,
+      "total_processing_time_ms": 1129.07,
+      "expected_gloss": "",
+      "matches_expected": false,
+      "total_request_time_ms": 1136.0
+    }
+  },
+  {
+    "sample": "khoc-frames.json",
+    "bytes": 1247908,
+    "response": {
+      "success": true,
+      "predicted_gloss": "D\u1ea1y d\u1ed7",
+      "confidence": 0.30610471963882446,
+      "inference_time_ms": 94.1,
+      "model_name": "SiFormer",
+      "device": "CPU",
+      "preprocessing_time_ms": 638.53,
+      "total_processing_time_ms": 740.58,
+      "expected_gloss": "",
+      "matches_expected": false,
+      "total_request_time_ms": 818.56
+    }
+  },
+  {
+    "sample": "khoc.mp4",
+    "bytes": 1000430,
+    "response": {
+      "success": true,
+      "predicted_gloss": "\u00c1p d\u1ee5ng",
+      "confidence": 0.7950112223625183,
+      "inference_time_ms": 96.55,
+      "model_name": "SiFormer",
+      "device": "CPU",
+      "preprocessing_time_ms": 949.69,
+      "total_processing_time_ms": 1054.74,
+      "expected_gloss": "",
+      "matches_expected": false,
+      "total_request_time_ms": 1062.32
+    }
+  },
+  {
+    "sample": "uong-frames.json",
+    "bytes": 1253408,
+    "response": {
+      "success": true,
+      "predicted_gloss": "B\u0103n kho\u0103n",
+      "confidence": 0.5154168605804443,
+      "inference_time_ms": 93.27,
+      "model_name": "SiFormer",
+      "device": "CPU",
+      "preprocessing_time_ms": 620.05,
+      "total_processing_time_ms": 721.14,
+      "expected_gloss": "",
+      "matches_expected": false,
+      "total_request_time_ms": 795.69
+    }
+  },
+  {
+    "sample": "uong.mp4",
+    "bytes": 845139,
+    "response": {
+      "success": true,
+      "predicted_gloss": "B\u0103n kho\u0103n",
+      "confidence": 0.5781494975090027,
+      "inference_time_ms": 100.12,
+      "model_name": "SiFormer",
+      "device": "CPU",
+      "preprocessing_time_ms": 921.01,
+      "total_processing_time_ms": 1029.1,
+      "expected_gloss": "",
+      "matches_expected": false,
+      "total_request_time_ms": 1035.98
+    }
+  }
+]

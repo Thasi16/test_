@@ -1,0 +1,57 @@
+{
+  "image_docker_reported_bytes": 1219079564,
+  "image_id": "sha256:596af822b827e4d6951c4e11c56ff4e622d4a4ce5028ec8577d03d1549aeae31",
+  "mediapipe_assets_match": {
+    "an-frames": {
+      "mediapipe_version": true,
+      "source_graph_sha256": true,
+      "derived_graph_sha256": true,
+      "model_sha256": true
+    },
+    "an": {
+      "mediapipe_version": true,
+      "source_graph_sha256": true,
+      "derived_graph_sha256": true,
+      "model_sha256": true
+    },
+    "khoc-frames": {
+      "mediapipe_version": true,
+      "source_graph_sha256": true,
+      "derived_graph_sha256": true,
+      "model_sha256": true
+    },
+    "khoc": {
+      "mediapipe_version": true,
+      "source_graph_sha256": true,
+      "derived_graph_sha256": true,
+      "model_sha256": true
+    },
+    "uong-frames": {
+      "mediapipe_version": true,
+      "source_graph_sha256": true,
+      "derived_graph_sha256": true,
+      "model_sha256": true
+    },
+    "uong": {
+      "mediapipe_version": true,
+      "source_graph_sha256": true,
+      "derived_graph_sha256": true,
+      "model_sha256": true
+    }
+  },
+  "an_frames_detection_difference": {
+    "different_points": 21,
+    "sampled_slots": [
+      10
+    ]
+  },
+  "cold_container_start_to_ready_ms": 9136.912800022401,
+  "peak_cgroup_bytes": 2147483648,
+  "memory_limit_bytes": 2147483648,
+  "cpu_limit": 1,
+  "read_only_root": true,
+  "tmpfs_bytes": 402653184,
+  "scope": "local Docker; not Vercel",
+  "packaged_files": 55,
+  "packaged_bytes": 29256943
+}

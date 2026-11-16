@@ -5,7 +5,15 @@
       "root": "frontend",
       "framework": "nextjs",
       "installCommand": "npm ci",
-      "buildCommand": "npm run build"
+      "buildCommand": "npm run build",
+      "bindings": [
+        {
+          "type": "service",
+          "service": "siformer",
+          "format": "url",
+          "env": "SIFORMER_SERVICE_URL"
+        }
+      ]
     },
     "backend": {
       "root": "backend",
@@ -17,14 +25,70 @@
           "includeFiles": "legacy_site/**",
           "excludeFiles": "{tests/**,**/__pycache__/**,**/*.pyc}"
         }
-      }
+      },
+      "bindings": [
+        {
+          "type": "service",
+          "service": "siformer",
+          "format": "url",
+          "env": "SIFORMER_SERVICE_URL"
+        }
+      ]
+    },
+    "siformer": {
+      "root": "ai_service",
+      "runtime": "container",
+      "entrypoint": "Dockerfile"
     }
   },
   "rewrites": [
-    { "source": "/api/:path*", "destination": { "service": "backend" } },
-    { "source": "/app/:path*", "destination": { "service": "backend" } },
-    { "source": "/login/:path*", "destination": { "service": "backend" } },
-    { "source": "/static/:path*", "destination": { "service": "backend" } },
-    { "source": "/(.*)", "destination": { "service": "frontend" } }
+    {
+      "source": "/api/ai/infer",
+      "destination": {
+        "service": "frontend"
+      }
+    },
+    {
+      "source": "/api/ai/transport/:path*",
+      "destination": {
+        "service": "frontend"
+      }
+    },
+    {
+      "source": "/api/:path*",
+      "destination": {
+        "service": "backend"
+      }
+    },
+    {
+      "source": "/app/:path*",
+      "destination": {
+        "service": "backend"
+      }
+    },
+    {
+      "source": "/login/:path*",
+      "destination": {
+        "service": "backend"
+      }
+    },
+    {
+      "source": "/static/:path*",
+      "destination": {
+        "service": "backend"
+      }
+    },
+    {
+      "source": "/(.*)",
+      "destination": {
+        "service": "frontend"
+      }
+    }
+  ],
+  "crons": [
+    {
+      "path": "/api/ai/transport/cleanup",
+      "schedule": "*/5 * * * *"
+    }
   ]
 }

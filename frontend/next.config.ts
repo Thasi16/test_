@@ -10,7 +10,7 @@ const config: NextConfig = {
   experimental: { globalNotFound: true },
   async rewrites() {
     return {
-      beforeFiles: backendRewrites(),
+      afterFiles: backendRewrites(),
     };
   },
   async headers() {

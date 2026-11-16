@@ -1,0 +1,116 @@
+[
+  {
+    "sample": "an-frames.json",
+    "bytes": 1245908,
+    "status": 200,
+    "wall_ms": 1104.7724999953061,
+    "response": {
+      "success": true,
+      "predicted_gloss": "C\u1ea3m \u01a1n",
+      "confidence": 0.8479521870613098,
+      "inference_time_ms": 128.63,
+      "model_name": "SiFormer",
+      "device": "CPU",
+      "preprocessing_time_ms": 932.56,
+      "total_processing_time_ms": 1068.54,
+      "expected_gloss": "",
+      "matches_expected": false,
+      "total_request_time_ms": 1072.07
+    }
+  },
+  {
+    "sample": "an.mp4",
+    "bytes": 851170,
+    "status": 200,
+    "wall_ms": 1538.5188000509515,
+    "response": {
+      "success": true,
+      "predicted_gloss": "C\u1ea3m \u01a1n",
+      "confidence": 0.6453810930252075,
+      "inference_time_ms": 111.06,
+      "model_name": "SiFormer",
+      "device": "CPU",
+      "preprocessing_time_ms": 1407.15,
+      "total_processing_time_ms": 1521.36,
+      "expected_gloss": "",
+      "matches_expected": false,
+      "total_request_time_ms": 1523.73
+    }
+  },
+  {
+    "sample": "khoc-frames.json",
+    "bytes": 1247908,
+    "status": 200,
+    "wall_ms": 1005.7328999973834,
+    "response": {
+      "success": true,
+      "predicted_gloss": "D\u1ea1y d\u1ed7",
+      "confidence": 0.30610406398773193,
+      "inference_time_ms": 114.49,
+      "model_name": "SiFormer",
+      "device": "CPU",
+      "preprocessing_time_ms": 860.42,
+      "total_processing_time_ms": 977.56,
+      "expected_gloss": "",
+      "matches_expected": false,
+      "total_request_time_ms": 981.28
+    }
+  },
+  {
+    "sample": "khoc.mp4",
+    "bytes": 1000430,
+    "status": 200,
+    "wall_ms": 1527.3471999680623,
+    "response": {
+      "success": true,
+      "predicted_gloss": "\u00c1p d\u1ee5ng",
+      "confidence": 0.8081129789352417,
+      "inference_time_ms": 131.31,
+      "model_name": "SiFormer",
+      "device": "CPU",
+      "preprocessing_time_ms": 1385.24,
+      "total_processing_time_ms": 1519.41,
+      "expected_gloss": "",
+      "matches_expected": false,
+      "total_request_time_ms": 1523.24
+    }
+  },
+  {
+    "sample": "uong-frames.json",
+    "bytes": 1253408,
+    "status": 200,
+    "wall_ms": 1012.8939999849536,
+    "response": {
+      "success": true,
+      "predicted_gloss": "B\u0103n kho\u0103n",
+      "confidence": 0.5164076089859009,
+      "inference_time_ms": 130.42,
+      "model_name": "SiFormer",
+      "device": "CPU",
+      "preprocessing_time_ms": 844.5,
+      "total_processing_time_ms": 977.66,
+      "expected_gloss": "",
+      "matches_expected": false,
+      "total_request_time_ms": 986.45
+    }
+  },
+  {
+    "sample": "uong.mp4",
+    "bytes": 845139,
+    "status": 200,
+    "wall_ms": 1493.029100005515,
+    "response": {
+      "success": true,
+      "predicted_gloss": "B\u0103n kho\u0103n",
+      "confidence": 0.5816812515258789,
+      "inference_time_ms": 136.7,
+      "model_name": "SiFormer",
+      "device": "CPU",
+      "preprocessing_time_ms": 1346.42,
+      "total_processing_time_ms": 1487.03,
+      "expected_gloss": "",
+      "matches_expected": false,
+      "total_request_time_ms": 1489.07
+    }
+  }
+]
