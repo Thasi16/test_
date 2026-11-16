@@ -1,0 +1,44 @@
+[
+  {
+    "lang": "vi",
+    "viewport": "mobile",
+    "status": 200,
+    "frame_count": 30,
+    "body_bytes": 1244540,
+    "response": {
+      "success": true,
+      "predicted_gloss": "C\u1ea3m \u01a1n",
+      "confidence": 0.9487342834472656,
+      "inference_time_ms": 113.07,
+      "model_name": "SiFormer",
+      "device": "CPU",
+      "preprocessing_time_ms": 917.47,
+      "total_processing_time_ms": 1038.1,
+      "expected_gloss": "\u0102n",
+      "matches_expected": false,
+      "total_request_time_ms": 1042.54
+    },
+    "note": "Synthetic camera, loopback auth fixture, real Node transport, original Linux CPU model. Not a live Supabase session."
+  },
+  {
+    "lang": "en",
+    "viewport": "desktop",
+    "status": 200,
+    "frame_count": 30,
+    "body_bytes": 1243088,
+    "response": {
+      "success": true,
+      "predicted_gloss": "C\u1ea3m \u01a1n",
+      "confidence": 0.8440622687339783,
+      "inference_time_ms": 130.12,
+      "model_name": "SiFormer",
+      "device": "CPU",
+      "preprocessing_time_ms": 902.68,
+      "total_processing_time_ms": 1035.48,
+      "expected_gloss": "\u0102n",
+      "matches_expected": false,
+      "total_request_time_ms": 1039.87
+    },
+    "note": "Synthetic camera, loopback auth fixture, real Node transport, original Linux CPU model. Not a live Supabase session."
+  }
+]

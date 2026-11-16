@@ -67,7 +67,8 @@ def model(args):
         result = runtime.predict(coords)
         runtime.model.attention_rng.reset_from_seed(runtime.cfg['seed'] + 17)
         logits = runtime.model(runtime.tf.convert_to_tensor(coords[None], runtime.tf.float32), training=False).numpy()
-        np.savez(args.inputs / (source.stem + '.model.npz'), coords=coords, logits=logits)
+        softmax = runtime.tf.nn.softmax(logits, axis=-1).numpy()
+        np.savez(args.inputs / (source.stem + '.model.npz'), coords=coords, logits=logits, softmax=softmax)
         result.update(class_id=runtime.labels[result['predicted_gloss']], model_loading_ms=runtime.load_ms,
                       numpy_version=np.__version__, tensorflow_version=runtime.tf.__version__)
         (args.inputs / (source.stem + '.prediction.json')).write_text(json.dumps(result, ensure_ascii=True, indent=2))

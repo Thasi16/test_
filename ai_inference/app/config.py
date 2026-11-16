@@ -20,6 +20,15 @@ class Settings(BaseSettings):
     # CPU is explicitly authorized for the Windows classroom demo.
     ai_device: Literal["cpu"] = "cpu"
     mp_python: str = ""
+    mp_math_library: str = ""
+
+    @field_validator("mp_math_library")
+    @classmethod
+    def pinned_native_library(cls, value):
+        expected = PACKAGED_MODEL.parent / "native/libwindows_float.so"
+        if value and Path(value).resolve() != expected.resolve():
+            raise ValueError("Only the packaged native compatibility library is allowed")
+        return value
     ai_state_backend: Literal["memory", "redis"] = "memory"
     ai_redis_url: SecretStr = SecretStr("")
     ai_state_namespace: str = "signhearing:ai:v1:"

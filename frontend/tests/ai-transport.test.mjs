@@ -2,7 +2,14 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { createHmac } from "node:crypto";
 import { capability, blobToken } from "../src/lib/ai-transport.ts";
+import { ownedUploadPath, cleanupDeadline } from "../src/lib/ai-cleanup.ts";
 const origin = "https://signhearing.test";
+test("cleanup cannot target another key, URL, traversal or prefix", () => {
+  for (const path of ["inference/", "https://store.test/secret", "../secret", "inference/abcdefghijklmnopqrstuvwx/other"])
+    assert.throws(() => ownedUploadPath(path));
+  assert.equal(ownedUploadPath("inference/abcdefghijklmnopqrstuvwx/payload"), "inference/abcdefghijklmnopqrstuvwx/payload");
+  assert.equal(cleanupDeadline(1000).getTime(), 1_180_000);
+});
 process.env.AI_TOKEN_SECRET =
   "unit-test-only-capability-secret-at-least-32-bytes";
 function request(changes = {}) {

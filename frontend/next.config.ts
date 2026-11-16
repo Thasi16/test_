@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { withWorkflow } from "workflow/next";
 import { backendRewrites } from "./src/lib/deployment";
 
 const config: NextConfig = {
@@ -26,4 +27,4 @@ const config: NextConfig = {
     ];
   },
 };
-export default config;
+export default withWorkflow(config);

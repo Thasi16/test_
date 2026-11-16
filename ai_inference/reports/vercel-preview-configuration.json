@@ -1,0 +1,26 @@
+{
+  "project": "prj_wtJlUbLLBMgSXUpA0dyMYOjRHxpo",
+  "team": "thasi1",
+  "branch": "deploy/vercel-siformer-cpu",
+  "target": "preview",
+  "keys": [
+    "AI_ALLOWED_ORIGINS",
+    "AI_BLOB_ORIGIN",
+    "AI_REDIS_URL",
+    "AI_STATE_BACKEND",
+    "AI_STATE_NAMESPACE",
+    "AI_TOKEN_SECRET",
+    "APP_ENV",
+    "BLOB_READ_WRITE_TOKEN",
+    "CRON_SECRET",
+    "NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY",
+    "NEXT_PUBLIC_SUPABASE_URL",
+    "SUPABASE_PUBLISHABLE_KEY",
+    "SUPABASE_URL"
+  ],
+  "production_mutated": false,
+  "branch_scope": null,
+  "redis_plan": "free",
+  "redis_auto_upgrade": false,
+  "blob_access": "private"
+}

@@ -23,7 +23,7 @@ def compare(baseline,candidate):
             with np.load(original,allow_pickle=False) as a,np.load(target,allow_pickle=False) as b:
                 for key in a.files:
                     x,y=a[key],b[key]
-                    tolerance=LOGIT_ATOL if key=='logits' else LANDMARK_ATOL if key in ('raw','features','coords') else 0
+                    tolerance=LOGIT_ATOL if key=='logits' else CONFIDENCE_ATOL if key=='softmax' else LANDMARK_ATOL if key in ('raw','features','coords') else 0
                     matching=x.shape==y.shape and x.dtype==y.dtype
                     delta=float(np.max(np.abs(x.astype(float)-y.astype(float)))) if matching else None
                     ok=matching and bool(np.isfinite(y).all()) and delta<=tolerance

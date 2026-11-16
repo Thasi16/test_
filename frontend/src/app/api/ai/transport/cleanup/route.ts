@@ -19,7 +19,8 @@ export async function POST(request: Request) {
   }
 }
 // Delete orphaned uploads, e.g. after a browser closes or a function is killed.
-// This endpoint must be configured as a Vercel Cron before enabling Blob uploads.
+// Daily Hobby-compatible backstop. Normal deletion uses finally + Workflow;
+// every grant also enforces a storage TTL so Preview has a final backstop.
 export async function GET(request: Request) {
   const wanted = "Bearer " + (process.env.CRON_SECRET ?? "");
   const got = request.headers.get("authorization") ?? "";

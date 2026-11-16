@@ -1,4 +1,7 @@
 import { generateClientTokenFromReadWriteToken } from "@vercel/blob/client";
+import { start } from "workflow/api";
+import { cleanupUpload } from "@/workflows/ai-upload-cleanup";
+import { cleanupDeadline } from "@/lib/ai-cleanup";
 import {
   MAX_BYTES,
   MIMES,
@@ -37,6 +40,10 @@ export async function POST(request: Request) {
     const grant = await claim.json();
     if (grant.pathname !== auth.pathname || grant.expires_at !== auth.expiresAt)
       throw new Error("ai_unavailable");
+    // Fail closed: never issue an upload grant without durable cleanup queued.
+    await start(cleanupUpload, [auth.pathname, cleanupDeadline(auth.expiresAt)], {
+      experimental_retention: 0,
+    });
     const clientToken = await generateClientTokenFromReadWriteToken({
       token,
       pathname: auth.pathname,
@@ -46,6 +53,9 @@ export async function POST(request: Request) {
       addRandomSuffix: false,
       allowOverwrite: false,
       cacheControlMaxAge: 60,
+      // Storage-enforced backstop, including uploads completing after cleanup.
+      // Vercel applies daily expiration; this is not the normal deletion path.
+      ttlDays: 1,
     });
     return Response.json(
       { pathname: auth.pathname, client_token: clientToken },

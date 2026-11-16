@@ -1,0 +1,38 @@
+{
+  "scope": "Real Preview private Blob; local Next/AI and Redis; operator HMAC, not live Supabase auth",
+  "rows": [
+    {
+      "mode": "valid",
+      "status": 200,
+      "deleted": true,
+      "private_access_verified": true,
+      "ttl_verified": true,
+      "prediction": {
+        "success": true,
+        "predicted_gloss": "C\u1ea3m \u01a1n",
+        "confidence": 0.6453815698623657,
+        "inference_time_ms": 130.64,
+        "model_name": "SiFormer",
+        "device": "CPU",
+        "preprocessing_time_ms": 1527.37,
+        "total_processing_time_ms": 1668.51,
+        "expected_gloss": "",
+        "matches_expected": false,
+        "total_request_time_ms": 4881.48
+      }
+    },
+    {
+      "mode": "bad-sha256",
+      "status": 400,
+      "deleted": true,
+      "private_access_verified": true,
+      "ttl_verified": true
+    },
+    {
+      "mode": "orphan",
+      "deleted": true,
+      "wait_ms": 298181,
+      "ttl_verified": true
+    }
+  ]
+}

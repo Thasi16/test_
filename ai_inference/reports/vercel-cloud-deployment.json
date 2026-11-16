@@ -1,0 +1,20 @@
+{
+  "production_project": "test_",
+  "production_project_id": "prj_3V3e9qC4Ar9vjvRGswtvfVKAaeWr",
+  "original_preview_url": "https://test-rhvvx30p4-thasi1.vercel.app",
+  "original_preview_status": "ERROR",
+  "original_preview_error": "Buildah invalid reference format: vcr.vercel.com/thasi1/test_/siformer:vercel-buildah-store",
+  "isolated_preview_project": "signhearing-cpu-preview",
+  "isolated_preview_project_id": "prj_wtJlUbLLBMgSXUpA0dyMYOjRHxpo",
+  "isolated_preview_status": "BLOCKED_BY_FIRST_DEPLOYMENT_PRODUCTION_RULE",
+  "requested_approval": "Only static bootstrap page on new project; no app, AI, auth, env credentials; then app deployed in Preview",
+  "cloud_inference_verified": false,
+  "plan": "hobby",
+  "paid_upgrade_performed": false,
+  "existing_production_deployment_changed": false,
+  "original_project_preview_configuration_added": true,
+  "original_project_registry_repository_created_by_failed_build": true,
+  "latest_user_instruction": "Push code to main for automatic deployment",
+  "project_rename_status": "Automatic approval review rejected; explicit project rename authorization required",
+  "first_bootstrap_approval": false
+}

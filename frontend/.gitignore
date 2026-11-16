@@ -1,2 +1,5 @@
 
 /public/ai-transport.js
+/.swc
+/.workflow-data/
+/src/app/.well-known/workflow/
