@@ -31,7 +31,7 @@ async def token(body: TokenRequest, request: Request, response: Response):
     gloss = sign.get("source_gloss") or sign["word"]["vi"]
     if gloss not in LABELS:
         raise sb.SupabaseError(422, "ai_sign_unsupported")
-    if not (settings.siformer_service_url or settings.ai_api_url) or len(settings.ai_token_secret.get_secret_value().encode()) < 32:
+    if not settings.ai_api_url or len(settings.ai_token_secret.get_secret_value().encode()) < 32:
         raise sb.SupabaseError(503, "ai_unavailable")
     capability = ai_tokens.issue(
         settings.ai_token_secret.get_secret_value(),
@@ -46,7 +46,7 @@ async def token(body: TokenRequest, request: Request, response: Response):
     return {
         "token": capability,
         "expires_in": ai_tokens.TTL,
-        "endpoint": "/api/ai/infer" if settings.siformer_service_url else settings.ai_api_url + "/infer",
+        "endpoint": settings.ai_api_url + "/infer",
         "expected_gloss": gloss,
         "max_bytes": 20 * 1024 * 1024,
         "max_duration_seconds": 12,

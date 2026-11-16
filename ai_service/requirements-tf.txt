@@ -1,9 +1,0 @@
-tensorflow==2.20.0
-numpy==2.2.6
-keras==3.11.3
-pandas==2.3.3
-fastapi==0.115.14
-uvicorn==0.34.3
-pydantic-settings==2.10.1
-protobuf==5.29.6
-redis==6.4.0

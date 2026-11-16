@@ -23,13 +23,6 @@ def page_response(request: Request, path: str, initial_state: dict | None = None
     with measure("render"):
         body, status = legacy.render(locale, canonical, initial_state=initial_state)
     ai_origin = get_settings().ai_api_url if path.startswith("/app/practice/") else ""
-    settings = get_settings()
-    if path.startswith("/app/practice/") and settings.siformer_service_url:
-        # The Blob origin is a fixed private store; never a wildcard or user URL.
-        import re
-        if settings.ai_blob_origin and not re.fullmatch(r"https://[a-z0-9]+\.private\.blob\.vercel-storage\.com", settings.ai_blob_origin):
-            raise ValueError("Invalid private Blob origin")
-        ai_origin = "https://blob.vercel-storage.com" + (" " + settings.ai_blob_origin if settings.ai_blob_origin else "")
     connect_policy = "connect-src 'self'" + (" " + ai_origin if ai_origin else "") + ";"
     response = HTMLResponse(
         body,

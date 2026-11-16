@@ -21,30 +21,16 @@ class InferencePool:
         self.error = "initializing"
         self.closed = threading.Event()
 
-    def _worker_environment(self, module):
-        worker_keys = {"PATH", "SYSTEMROOT", "WINDIR", "TEMP", "TMP", "HOME", "USERPROFILE",
-                       "LANG", "LC_ALL", "LD_LIBRARY_PATH", "SIFORMER_MODEL_ROOT", "MP_PYTHON",
-                       "TF_ENABLE_ONEDNN_OPTS", "TF_NUM_INTRAOP_THREADS", "TF_NUM_INTEROP_THREADS",
-                       "MALLOC_ARENA_MAX", "MALLOC_MMAP_THRESHOLD_", "MALLOC_TRIM_THRESHOLD_"}
+    def _spawn(self, python, module):
+        if self.closed.is_set():
+            raise RuntimeFailure("worker_unavailable")
         env = dict(
-            {key:value for key,value in os.environ.items() if key.upper() in worker_keys},
-            CUDA_VISIBLE_DEVICES="-1", AI_DEVICE="cpu",
+            os.environ,
             PYTHONDONTWRITEBYTECODE="1",
             PYTHONUTF8="1",
             TF_CPP_MIN_LOG_LEVEL="2",
         )
-        library = self.settings.mp_math_library
-        if module == "ai_inference.landmark_worker" and library:
-            env["LD_PRELOAD"] = library
-        return env
-
-    def _spawn(self, python, module):
-        if self.closed.is_set():
-            raise RuntimeFailure("worker_unavailable")
-        env = self._worker_environment(module)
-        if "LD_PRELOAD" in env and not Path(env["LD_PRELOAD"]).is_file():
-            raise RuntimeFailure("landmark_initialization_failed")
-        # Never pass Supabase, OAuth, capability, storage or replay credentials.
+        # Parent environment is inherited locally; never inject Supabase credentials.
         process = subprocess.Popen(
             [str(python), "-B", "-m", module],
             cwd=REPOSITORY,

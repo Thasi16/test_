@@ -1,5 +1,4 @@
 import type { NextConfig } from "next";
-import { withWorkflow } from "workflow/next";
 import { backendRewrites } from "./src/lib/deployment";
 
 const config: NextConfig = {
@@ -11,7 +10,7 @@ const config: NextConfig = {
   experimental: { globalNotFound: true },
   async rewrites() {
     return {
-      afterFiles: backendRewrites(),
+      beforeFiles: backendRewrites(),
     };
   },
   async headers() {
@@ -27,4 +26,4 @@ const config: NextConfig = {
     ];
   },
 };
-export default withWorkflow(config);
+export default config;

@@ -357,12 +357,9 @@
       const config = await auth.json();
       if (!auth.ok) throw new Error(config.error?.code || 'ai_unavailable');
       if (abort.signal.aborted) return;
-      const payload = JSON.stringify({ frames });
-      const response = config.endpoint === '/api/ai/infer'
-        ? await (await import('/ai-transport.js')).sendInference(config, new Blob([payload], { type: 'application/json' }), abort.signal)
-        : await fetch(config.endpoint, { method: 'POST', credentials: 'omit',
-          headers: { 'Authorization': 'Bearer ' + config.token, 'Content-Type': 'application/json' },
-          body: payload, signal: abort.signal, redirect: 'error', referrerPolicy: 'no-referrer' });
+      const response = await fetch(config.endpoint, { method: 'POST', credentials: 'omit',
+        headers: { 'Authorization': 'Bearer ' + config.token, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ frames }), signal: abort.signal, redirect: 'error', referrerPolicy: 'no-referrer' });
       const result = await response.json();
       if (!response.ok || result.success !== true) throw new Error(result.error?.code || 'ai_unavailable');
       if (abort.signal.aborted) return;
